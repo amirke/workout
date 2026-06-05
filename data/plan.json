@@ -1,0 +1,81 @@
+{
+  "week": [
+    {
+      "day": "sunday",
+      "day_he": "ראשון",
+      "type": "strength",
+      "label": "כוח A",
+      "subtitle": "חזה + כתפיים",
+      "color": "purple",
+      "page": "pages/day1.html",
+      "gym_exercise_ids":  ["bench_press", "ohp", "incline_db_press", "lateral_raise", "plank"],
+      "home_exercise_ids": ["home_db_bench_press", "home_db_ohp", "home_db_fly", "home_db_lateral_raise", "plank"]
+    },
+    {
+      "day": "monday",
+      "day_he": "שני",
+      "type": "cardio",
+      "label": "קרדיו",
+      "subtitle": "LISS — אירובי נמוך",
+      "color": "green",
+      "page": "pages/day2.html",
+      "gym_exercise_ids":  [],
+      "home_exercise_ids": []
+    },
+    {
+      "day": "tuesday",
+      "day_he": "שלישי",
+      "type": "strength",
+      "label": "כוח B",
+      "subtitle": "גב + ביצפס",
+      "color": "purple",
+      "page": "pages/day3.html",
+      "gym_exercise_ids":  ["bent_over_row", "lat_pulldown", "face_pull", "bicep_curl", "dead_bug"],
+      "home_exercise_ids": ["home_db_one_arm_row", "home_band_pulldown", "home_band_face_pull", "bicep_curl", "dead_bug"]
+    },
+    {
+      "day": "wednesday",
+      "day_he": "רביעי",
+      "type": "rest",
+      "label": "מנוחה",
+      "subtitle": "התאוששות",
+      "color": "gray",
+      "page": "pages/day4.html",
+      "gym_exercise_ids":  [],
+      "home_exercise_ids": []
+    },
+    {
+      "day": "thursday",
+      "day_he": "חמישי",
+      "type": "strength",
+      "label": "כוח C",
+      "subtitle": "רגליים + ליבה",
+      "color": "purple",
+      "page": "pages/day5.html",
+      "gym_exercise_ids":  ["squat", "rdl", "forward_lunge", "glute_bridge", "side_plank"],
+      "home_exercise_ids": ["home_db_squat", "home_db_rdl", "home_db_lunge", "home_band_hip_thrust", "side_plank"]
+    },
+    {
+      "day": "friday",
+      "day_he": "שישי",
+      "type": "cardio",
+      "label": "קרדיו",
+      "subtitle": "HIIT / LISS",
+      "color": "green",
+      "page": "pages/day6.html",
+      "gym_exercise_ids":  [],
+      "home_exercise_ids": []
+    },
+    {
+      "day": "saturday",
+      "day_he": "שבת",
+      "type": "rest",
+      "label": "מנוחה",
+      "subtitle": "שבת שלום",
+      "color": "gray",
+      "page": "pages/day4.html",
+      "gym_exercise_ids":  [],
+      "home_exercise_ids": []
+    }
+  ]
+}

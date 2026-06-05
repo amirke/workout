@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אימון היום</title>
+    <!-- PWA + mobile -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#2C2C2A">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/mobile.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1 id="pageTitle">📅 אימון היום</h1>
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="history.back()">← חזרה</button>
+  </nav>
+</header>
+
+<main id="content">
+  <div class="card"><div class="text-muted text-sm">טוען...</div></div>
+</main>
+
+<script type="module">
+const DAY_MAP = {0:'saturday',1:'sunday',2:'monday',3:'tuesday',4:'wednesday',5:'thursday',6:'friday'};
+const today = DAY_MAP[new Date().getDay()];
+
+async function init() {
+  const [plan, exercises] = await Promise.all([
+    fetch('../data/plan.json').then(r => r.json()),
+    fetch('../data/exercises.json').then(r => r.json())
+  ]);
+
+  const dayPlan = plan.week.find(d => d.day === today);
+  const content = document.getElementById('content');
+  const title   = document.getElementById('pageTitle');
+
+  if (!dayPlan) {
+    content.innerHTML = '<div class="card"><div class="alert-box info">לא נמצאה תכנית להיום.</div></div>';
+    return;
+  }
+
+  const DAY_LABELS = {sunday:'ראשון',monday:'שני',tuesday:'שלישי',wednesday:'רביעי',thursday:'חמישי',friday:'שישי',saturday:'שבת'};
+  title.textContent = `📅 ${DAY_LABELS[today]} — ${dayPlan.label}`;
+
+  if (dayPlan.type === 'rest') {
+    content.innerHTML = `<div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#F5F5F5;font-size:1.8rem">😴</div>
+        <div><div class="card-title">יום מנוחה</div><div class="card-subtitle">${dayPlan.subtitle}</div></div>
+      </div>
+      <div class="alert-box info">💡 מנוחה = חלק מהתכנית. אכול טוב, ישן טוב.</div>
+      <a href="day4.html" class="btn-save mt-8" style="text-decoration:none;display:block;text-align:center">פתח טיפים ליום מנוחה</a>
+    </div>`;
+    return;
+  }
+
+  if (dayPlan.type === 'cardio') {
+    const page = dayPlan.day === 'monday' ? 'day2.html' : 'day6.html';
+    content.innerHTML = `<div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#E1F5EE;font-size:1.8rem">🏃</div>
+        <div><div class="card-title">${dayPlan.label}</div><div class="card-subtitle">${dayPlan.subtitle}</div></div>
+      </div>
+      <a href="${page}" class="btn-save mt-8" style="text-decoration:none;display:block;text-align:center">פתח אימון קרדיו</a>
+    </div>`;
+    return;
+  }
+
+  // Strength day
+  const exs = dayPlan.exercise_ids.map(id => exercises.find(e => e.id === id)).filter(Boolean);
+
+  let html = `<div class="card">
+    <div class="badge-row">
+      <span class="badge" style="background:#EEEDFE;color:#3C3489">🏋️ ${dayPlan.label}</span>
+      <span class="badge" style="background:#F5F5F5;color:#6B6B6B">${exs.length} תרגילים</span>
+    </div>
+    <div class="alert-box info mt-8">💡 חימום 5 דקות לפני התחלה — הליכה + סיבובי כתפיים</div>
+  </div>`;
+
+  exs.forEach((ex, i) => {
+    html += `<div class="card" style="margin-bottom:10px">
+      <div class="ex-header">
+        <div class="ex-num" style="background:#EEEDFE;color:#3C3489;width:32px;height:32px;font-size:.9rem">${i+1}</div>
+        <div>
+          <div class="ex-name-he">${ex.name_he}</div>
+          <div class="ex-name-en">${ex.name_en}</div>
+          <div class="ex-machine">📍 ${ex.machine}</div>
+        </div>
+      </div>
+      <div class="badge-row">
+        <span class="badge" style="background:#EEEDFE;color:#3C3489">⚡ ${ex.sets}</span>
+        <span class="badge" style="background:#F5F5F5;color:#6B6B6B">⏱ ${ex.rest_sec}″</span>
+      </div>
+      <div class="alert-box tip mt-8">✅ ${ex.tip}</div>
+      <div class="alert-box warn">⚠️ ${ex.warn}</div>
+    </div>`;
+  });
+
+  content.innerHTML = html;
+}
+
+init().catch(console.error);
+</script>
+</body>
+</html>

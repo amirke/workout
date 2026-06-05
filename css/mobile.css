@@ -1,0 +1,31 @@
+/* Breakpoints for larger screens — mobile-first base in style.css */
+
+@media (min-width: 480px) {
+  main { padding: 20px; }
+  .site-header { padding: 14px 20px 0; }
+}
+
+@media (min-width: 640px) {
+  main { padding: 24px; }
+
+  .day-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .day-card { margin-bottom: 0; }
+}
+
+@media (min-width: 900px) {
+  main { max-width: 720px; }
+
+  .day-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Safe area for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body { padding-bottom: env(safe-area-inset-bottom); }
+}

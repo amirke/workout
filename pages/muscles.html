@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מפת שרירים</title>
+    <!-- PWA + mobile -->
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#2C2C2A">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/mobile.css">
+  <style>
+    .body-map-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 8px;
+    }
+    .body-half {
+      position: relative;
+      flex: 1;
+      max-width: 160px;
+    }
+    .body-half svg {
+      width: 100%;
+      height: auto;
+    }
+    .body-label {
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .muscle-info-panel {
+      background: var(--purple-light);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 12px;
+      display: none;
+    }
+    .muscle-info-panel.visible { display: block; }
+    .muscle-info-name { font-size: 1rem; font-weight: 700; }
+    .muscle-info-en   { font-size: 0.8rem; color: var(--purple-dark); }
+    .ex-for-muscle    { margin-top: 8px; font-size: 0.82rem; }
+    .ex-chip {
+      display: inline-block;
+      background: var(--purple-dark);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      margin: 3px 2px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>🗺️ מפת שרירים</h1>
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="history.back()">← חזרה</button>
+    <button class="tab-btn" id="btnFront">קדמי</button>
+    <button class="tab-btn" id="btnBack">אחורי</button>
+  </nav>
+</header>
+
+<main>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:#EEEDFE">💡</div>
+      <div>
+        <div class="card-title">לחץ על שריר</div>
+        <div class="card-subtitle">ראה אילו תרגילים עובדים עליו</div>
+      </div>
+    </div>
+
+    <!-- Body SVG map (schematic — no external image needed) -->
+    <div class="body-map-wrap">
+      <div class="body-half" id="bodyMap">
+        <div class="body-label" id="mapLabel">קדמי</div>
+        <svg viewBox="0 0 120 280" id="bodySVG" style="cursor:pointer">
+          <!-- Head -->
+          <ellipse cx="60" cy="20" rx="16" ry="18" fill="#E8E0F0" stroke="#C5B8E8" stroke-width="1"/>
+          <!-- Neck -->
+          <rect x="54" y="36" width="12" height="10" rx="4" fill="#E8E0F0" stroke="#C5B8E8" stroke-width="0.8"/>
+          <!-- Torso -->
+          <rect x="32" y="46" width="56" height="64" rx="8" fill="#DDD5F5" stroke="#C5B8E8" stroke-width="1"/>
+
+          <!-- Chest zone -->
+          <ellipse id="z-chest" cx="60" cy="62" rx="20" ry="14"
+            fill="rgba(60,52,137,0.12)" stroke="#3C3489" stroke-width="1"
+            class="muscle-zone" data-muscle="chest" style="cursor:pointer"/>
+
+          <!-- Shoulder zones -->
+          <ellipse id="z-shoulder-l" cx="28" cy="56" rx="10" ry="9"
+            fill="rgba(60,52,137,0.12)" stroke="#3C3489" stroke-width="1"
+            class="muscle-zone" data-muscle="shoulder" style="cursor:pointer"/>
+          <ellipse id="z-shoulder-r" cx="92" cy="56" rx="10" ry="9"
+            fill="rgba(60,52,137,0.12)" stroke="#3C3489" stroke-width="1"
+            class="muscle-zone" data-muscle="shoulder" style="cursor:pointer"/>
+
+          <!-- Abs -->
+          <ellipse id="z-abs" cx="60" cy="92" rx="14" ry="16"
+            fill="rgba(60,52,137,0.12)" stroke="#3C3489" stroke-width="1"
+            class="muscle-zone" data-muscle="abs" style="cursor:pointer"/>
+
+          <!-- Arms front (bicep) -->
+          <ellipse id="z-bicep-l" cx="20" cy="76" rx="7" ry="14"
+            fill="rgba(60,52,137,0.12)" stroke="#3C3489" stroke-width="1"
+            class="muscle-zone" data-muscle="bicep" style="cursor:pointer"/>
+          <ellipse id="z-bicep-r" cx="100" cy="76" rx="7" ry="14"
+            fill="rgba(60,52,137,0.12)" stroke="#3C3489" stroke-width="1"
+            class="muscle-zone" data-muscle="bicep" style="cursor:pointer"/>
+
+          <!-- Forearms -->
+          <ellipse cx="14" cy="102" rx="5" ry="12" fill="#E8E0F0" stroke="#C5B8E8" stroke-width="0.8"/>
+          <ellipse cx="106" cy="102" rx="5" ry="12" fill="#E8E0F0" stroke="#C5B8E8" stroke-width="0.8"/>
+
+          <!-- Quads -->
+          <ellipse id="z-quad-l" cx="45" cy="162" rx="13" ry="24"
+            fill="rgba(60,52,137,0.12)" stroke="#3C3489" stroke-width="1"
+            class="muscle-zone" data-muscle="quad" style="cursor:pointer"/>
+          <ellipse id="z-quad-r" cx="75" cy="162" rx="13" ry="24"
+            fill="rgba(60,52,137,0.12)" stroke="#3C3489" stroke-width="1"
+            class="muscle-zone" data-muscle="quad" style="cursor:pointer"/>
+
+          <!-- Calves front -->
+          <ellipse cx="45" cy="220" rx="9" ry="18" fill="#E8E0F0" stroke="#C5B8E8" stroke-width="0.8"/>
+          <ellipse cx="75" cy="220" rx="9" ry="18" fill="#E8E0F0" stroke="#C5B8E8" stroke-width="0.8"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Info panel -->
+    <div class="muscle-info-panel" id="infoPanel">
+      <div class="muscle-info-name" id="infoName">—</div>
+      <div class="muscle-info-en" id="infoEn"></div>
+      <div class="ex-for-muscle" id="infoEx"></div>
+      <a id="infoLink" href="#" target="_blank" rel="noopener"
+         class="btn-save mt-8" style="text-decoration:none;display:block;text-align:center;background:#085041">
+        🔗 מידע נוסף
+      </a>
+    </div>
+  </div>
+
+  <!-- All exercises quick list -->
+  <div class="card">
+    <div class="section-title">כל התרגילים</div>
+    <div id="allExList" style="margin-top:8px"></div>
+  </div>
+
+</main>
+
+<script type="module">
+const MUSCLE_DATA = {
+  chest: {
+    he: 'חזה',
+    en: 'Pectoralis Major',
+    url: 'https://www.instructor.co.il/body-section/chest/',
+    exercises: ['לחיצת חזה (Bench Press)', 'לחיצת חזה עליון (Incline DB Press)']
+  },
+  shoulder: {
+    he: 'כתפיים',
+    en: 'Deltoid',
+    url: 'https://www.instructor.co.il/body-section/shoulder/',
+    exercises: ['לחיצת כתפיים (OHP)', 'הרמה צדית (Lateral Raise)', 'משיכת פנים (Face Pull)']
+  },
+  abs: {
+    he: 'בטן / ליבה',
+    en: 'Core / Rectus Abdominis',
+    url: 'https://www.instructor.co.il/body-section/abdomen/',
+    exercises: ['פלאנק (Plank)', 'חרק מת (Dead Bug)', 'פלאנק צדי (Side Plank)']
+  },
+  bicep: {
+    he: 'ביצפס',
+    en: 'Biceps Brachii',
+    url: 'https://www.instructor.co.il/body-section/front-arms/',
+    exercises: ['כפיפת ביצפס (Bicep Curl)', 'משיכת כבל עליון (Lat Pulldown)']
+  },
+  quad: {
+    he: 'ארבע ראשי (ירך קדמית)',
+    en: 'Quadriceps',
+    url: 'https://www.instructor.co.il/body-section/front-thigh/',
+    exercises: ['סקוואט (Squat)', 'מדרך קדמי (Forward Lunge)']
+  }
+};
+
+document.querySelectorAll('.muscle-zone').forEach(zone => {
+  zone.addEventListener('click', () => {
+    const key = zone.dataset.muscle;
+    const data = MUSCLE_DATA[key];
+    if (!data) return;
+
+    document.querySelectorAll('.muscle-zone').forEach(z => z.setAttribute('fill', 'rgba(60,52,137,0.12)'));
+    zone.setAttribute('fill', 'rgba(192,57,43,0.35)');
+    document.querySelectorAll(`[data-muscle="${key}"]`).forEach(z => z.setAttribute('fill', 'rgba(192,57,43,0.35)'));
+
+    const panel = document.getElementById('infoPanel');
+    document.getElementById('infoName').textContent = data.he;
+    document.getElementById('infoEn').textContent = data.en;
+    document.getElementById('infoLink').href = data.url;
+    document.getElementById('infoEx').innerHTML =
+      '<strong>תרגילים:</strong> ' + data.exercises.map(e => `<span class="ex-chip">${e}</span>`).join('');
+    panel.classList.add('visible');
+  });
+});
+
+// All exercises list
+async function loadAllEx() {
+  const exs = await fetch('../data/exercises.json').then(r => r.json());
+  const DAY_PAGES = { day1: '../pages/day1.html', day3: '../pages/day3.html', day5: '../pages/day5.html' };
+  const DAY_LABELS = { day1: 'כוח A', day3: 'כוח B', day5: 'כוח C' };
+  const list = document.getElementById('allExList');
+  exs.forEach(ex => {
+    const a = document.createElement('a');
+    a.href = DAY_PAGES[ex.day] || '#';
+    a.className = 'day-card';
+    a.style.marginBottom = '6px';
+    a.innerHTML = `
+      <div class="day-dot purple" style="width:36px;height:36px;font-size:1rem">💪</div>
+      <div class="day-info">
+        <div class="day-label" style="font-size:.9rem">${ex.name_he}</div>
+        <div class="day-sub">${ex.name_en} · ${DAY_LABELS[ex.day] || ''}</div>
+      </div>
+      <div class="day-arrow">←</div>`;
+    list.appendChild(a);
+  });
+}
+
+loadAllEx().catch(console.error);
+</script>
+</body>
+</html>
