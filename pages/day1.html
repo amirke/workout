@@ -7,22 +7,25 @@
   <link rel="manifest" href="../manifest.json">
   <meta name="theme-color" content="#2C2C2A">
   <meta name="apple-mobile-web-app-capable" content="yes">
-    <script src="../data/exercises-data.js"></script>
-  <script src="../data/plan-data.js"></script>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/mobile.css">
+  <script src="../data/exercises-data.js"></script>
+  <script src="../data/plan-data.js"></script>
+  <script src="../js/tracker.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/render.js"></script>
 </head>
 <body>
 <header class="site-header">
-  <h1 id="pageTitle">🏋️ כוח A</h1>
+  <h1 id="pageTitle">כוח A — חזה + כתפיים</h1>
   <nav class="tab-nav" id="exNav"></nav>
 </header>
 <main id="content">
   <div class="card"><div class="text-muted text-sm">טוען...</div></div>
 </main>
-<script type="module">
-  import { renderStrengthPage } from '../js/render.js';
-  renderStrengthPage('sunday');
+<script>
+  Render.renderStrengthPage('sunday');
 </script>
 </body>
 </html>
