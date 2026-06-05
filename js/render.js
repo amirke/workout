@@ -118,12 +118,98 @@ export async function renderStrengthPage(dayKey) {
   }
 }
 
+// ── עזר: מתג קרדיו gym/home ───────────────────────
+function buildCardioModeToggle(nav, onGym, onHome) {
+  const back = document.createElement('button');
+  back.className = 'tab-btn';
+  back.textContent = '← חזרה';
+  back.onclick = () => history.back();
+  nav.appendChild(back);
+
+  const gymBtn  = document.createElement('button');
+  gymBtn.className  = 'tab-btn';
+  gymBtn.textContent = '🏋️ חדר כושר';
+
+  const homeBtn = document.createElement('button');
+  homeBtn.className  = 'tab-btn';
+  homeBtn.textContent = '🏠 בית';
+
+  gymBtn.onclick = () => {
+    [back, gymBtn, homeBtn].forEach((b,i) => b.classList.toggle('active', i===1));
+    onGym();
+  };
+  homeBtn.onclick = () => {
+    [back, gymBtn, homeBtn].forEach((b,i) => b.classList.toggle('active', i===2));
+    onHome();
+  };
+
+  nav.appendChild(gymBtn);
+  nav.appendChild(homeBtn);
+
+  // ברירת מחדל לפי mode שמור
+  const savedMode = localStorage.getItem('workoutMode') || 'gym';
+  if (savedMode === 'home') { homeBtn.click(); } else { gymBtn.click(); }
+}
+
 // ─────────────────────────────────────────────────
 // 2. דף קרדיו LISS (day2 — שני)
 // ─────────────────────────────────────────────────
 export function renderLissPage() {
+  const nav     = document.getElementById('exNav');
   const content = document.getElementById('content');
   const titleEl = document.getElementById('pageTitle');
+
+  // הוסף מתג gym/home
+  if (nav) {
+    buildCardioModeToggle(nav,
+      () => { if (titleEl) titleEl.textContent = '🏃 קרדיו — LISS'; showLissGym(); },
+      () => { if (titleEl) titleEl.textContent = '🏠 קרדיו — בית';  showLissHome(); }
+    );
+  } else {
+    if (titleEl) titleEl.textContent = '🏃 קרדיו — LISS';
+    showLissGym();
+  }
+
+  function showLissHome() {
+    content.innerHTML = `
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon" style="background:#E1F5EE">🏠</div>
+          <div>
+            <div class="card-title">קרדיו בית — LISS</div>
+            <div class="card-subtitle">ללא ציוד, 35–45 דקות</div>
+          </div>
+        </div>
+        <div class="cardio-zone">
+          ${cardioZone('משך', '35–45', 'דקות')}
+          ${cardioZone('עצימות', 'נמוכה', 'שיחה אפשרית')}
+        </div>
+      </div>
+      <div class="card">
+        <div class="section-title">אפשרויות בית</div>
+        <ul class="steps-list mt-8">
+          <li class="step">
+            <div class="step-num" style="background:#085041">1</div>
+            <div><div class="step-action">🚶 הליכה בחוץ</div><div class="step-detail">35–45 דקות בקצב מהיר — הכי טוב לשומן</div></div>
+          </li>
+          <li class="step">
+            <div class="step-num" style="background:#085041">2</div>
+            <div><div class="step-action">🪃 קפיצה בחבל</div><div class="step-detail">35 דקות בקצב אחיד — קרוב לאליפטי</div></div>
+          </li>
+          <li class="step">
+            <div class="step-num" style="background:#085041">3</div>
+            <div><div class="step-action">🕺 ריקוד חופשי</div><div class="step-detail">35 דקות מוזיקה — קרדיו מהנה</div></div>
+          </li>
+          <li class="step">
+            <div class="step-num" style="background:#085041">4</div>
+            <div><div class="step-action">🏠 מדרגות</div><div class="step-detail">עלייה וירידה ברצף — 30–40 דקות</div></div>
+          </li>
+        </ul>
+        ${alertBox('הליכה בחוץ היא גם הכי טובה מנטלית — אוויר + ויטמין D', 'tip')}
+      </div>`;
+  }
+
+  function showLissGym() {
   if (titleEl) titleEl.textContent = '🏃 קרדיו — LISS';
 
   content.innerHTML = `
@@ -239,7 +325,8 @@ export function renderLissPage() {
   };
   slider?.addEventListener('input', update);
   update?.();
-}
+  } // end showLissGym
+} // end renderLissPage
 
 // ─────────────────────────────────────────────────
 // 3. דף קרדיו שישי — HIIT / LISS
@@ -250,27 +337,81 @@ export function renderHiitLissPage() {
   const nav     = document.getElementById('exNav');
   if (titleEl) titleEl.textContent = '🏃 קרדיו — שישי';
 
-  // הוסף טאבי HIIT / LISS לנאב
+  // הוסף מתג gym/home + HIIT/LISS לנאב
   if (nav) {
     const back = document.createElement('button');
-    back.className = 'tab-btn active';
+    back.className = 'tab-btn';
     back.textContent = '← חזרה';
     back.onclick = () => history.back();
     nav.appendChild(back);
 
-    ['HIIT', 'LISS'].forEach((label, i) => {
+    const tabs6 = ['⚡ HIIT חדר', '🏠 HIIT בית', '🌊 LISS'];
+    const fns   = [showHiit, showHiitHome, showLiss];
+    tabs6.forEach((label, i) => {
       const btn = document.createElement('button');
       btn.className = 'tab-btn';
       btn.textContent = label;
       btn.onclick = () => {
         nav.querySelectorAll('.tab-btn')
            .forEach((b, j) => b.classList.toggle('active', j === i + 1));
-        i === 0 ? showHiit() : showLiss();
+        fns[i]();
       };
       nav.appendChild(btn);
     });
-    nav.querySelectorAll('.tab-btn')[1]?.classList.add('active');
-    nav.querySelectorAll('.tab-btn')[0]?.classList.remove('active');
+    // ברירת מחדל לפי mode שמור
+    const savedMode = localStorage.getItem('workoutMode') || 'gym';
+    nav.querySelectorAll('.tab-btn')
+       .forEach((b, j) => b.classList.toggle('active', savedMode === 'home' ? j === 2 : j === 1));
+    savedMode === 'home' ? showHiitHome() : showHiit();
+  }
+
+  function showHiitHome() {
+    if (titleEl) titleEl.textContent = '🏠 HIIT — בית';
+    content.innerHTML = `
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon" style="background:#E1F5EE">🏠⚡</div>
+          <div>
+            <div class="card-title">HIIT בית — ללא ציוד</div>
+            <div class="card-subtitle">8 סטים × 30″ עבודה + 90″ מנוחה = 20 דקות</div>
+          </div>
+        </div>
+        <div class="badge-row">
+          ${badge('⏱ 20 דקות', 'green')}
+          ${badge('🔁 8 סטים', 'green')}
+          ${badge('🏠 ללא ציוד', 'orange')}
+        </div>
+      </div>
+      <div class="card">
+        <div class="section-title">תרגילי עבודה — בחר אחד בכל סט</div>
+        <ul class="steps-list mt-8">
+          <li class="step">
+            <div class="step-num" style="background:#085041">1</div>
+            <div><div class="step-action">🦘 ניתורי סקוואט</div><div class="step-detail">שב לסקוואט → קפוץ מעלה בכוח — 30 שניות</div></div>
+          </li>
+          <li class="step">
+            <div class="step-num" style="background:#085041">2</div>
+            <div><div class="step-action">🏃 מטפס הרים</div><div class="step-detail">פלאנק → קרב ברכיים לחזה לסירוגין במהירות</div></div>
+          </li>
+          <li class="step">
+            <div class="step-num" style="background:#085041">3</div>
+            <div><div class="step-action">⭐ Burpees</div><div class="step-detail">שפיפה → פלאנק → סמיכה → קפיצה — קלאסיק</div></div>
+          </li>
+          <li class="step">
+            <div class="step-num" style="background:#085041">4</div>
+            <div><div class="step-action">🦵 ניתורי מכרע</div><div class="step-detail">מכרע → קפוץ → החלף רגליים באוויר</div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="section-title">מעקב 8 סטים</div>
+        <div id="setTracker" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px"></div>
+        <button class="btn-save mt-8" id="resetBtn">איפוס</button>
+      </div>
+      ${alertBox('אחרי כל סט — הליכה במקום 90 שניות. אל תשב!', 'info')}
+      ${alertBox('אם עייף מדי — עשה LISS 35 דקות. LISS עדיף על HIIT רע', 'warn')}`;
+
+    wireHIIT(content);
   }
 
   function showHiit() {

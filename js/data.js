@@ -3,24 +3,24 @@
  * עובד גם מ-root (index.html) וגם מ-pages/
  */
 
-const _cache = {};
+// ── טעינת נתונים: globals קודם, אחר כך fetch ─────
+// globals נטענים דרך <script src="data/exercises-data.js"> בכל HTML
+// זה מאפשר עבודה גם עם file:// (ללא שרת)
 
-function base() {
-  // אם הדף נמצא בתיקיית pages/ — צריך ../
-  return location.pathname.includes('/pages/') ? '../' : './';
-}
+async function loadData(globalKey, jsonPath) {
+  // אם הנתונים כבר זמינים כ-global (טעון דרך <script>) — השתמש בהם
+  if (window[globalKey]) return window[globalKey];
 
-async function fetchJSON(path) {
-  if (_cache[path]) return _cache[path];
-  const r = await fetch(base() + path);
-  if (!r.ok) throw new Error(`לא ניתן לטעון: ${path} (${r.status})`);
-  _cache[path] = await r.json();
-  return _cache[path];
+  // אחרת — נסה fetch (עובד ב-http:// ו-https://)
+  const base = location.pathname.includes('/pages/') ? '../' : './';
+  const r = await fetch(base + jsonPath);
+  if (!r.ok) throw new Error(`לא ניתן לטעון: ${jsonPath}`);
+  return r.json();
 }
 
 // ── טעינות בסיסיות ──────────────────────────────
-export const loadPlan      = () => fetchJSON('data/plan.json');
-export const loadExercises = () => fetchJSON('data/exercises.json');
+export const loadPlan      = () => loadData('__PLAN',      'data/plan.json');
+export const loadExercises = () => loadData('__EXERCISES', 'data/exercises.json');
 
 // ── תרגילים לפי מזהים ────────────────────────────
 export async function getExercisesByIds(ids) {

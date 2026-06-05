@@ -1,4 +1,5 @@
-﻿[
+﻿// Auto-generated from exercises.json
+window.__EXERCISES = [
   {
     "id": "bench_press",
     "name_he": "לחיצת חזה",
@@ -925,3 +926,4 @@
     "instructor_url": "https://www.instructor.co.il/body-section/gluteus/"
   }
 ]
+;

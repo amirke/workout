@@ -301,8 +301,9 @@ main { padding: 16px; max-width: 480px; margin: 0 auto; }
   width: 100%;
   border-radius: 10px;
   display: block;
-  object-fit: cover;
-  max-height: 220px;
+  object-fit: contain;   /* מציג את כל התמונה, ללא חיתוך */
+  background: #f8f8f7;   /* רקע נקי מאחורי התמונה */
+  max-height: 280px;
 }
 
 /* ── Cardio blocks ── */
