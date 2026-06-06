@@ -83,25 +83,18 @@ window.Utils = (function() {
     var sBtn  = document.getElementById('tmrStart');
     var bar   = document.getElementById('timerBar');
 
-    if (disp)  disp.textContent  = fmt(_remaining);
+    var timeStr = fmt(_remaining);
+    if (disp)  disp.textContent = timeStr;
     if (total) total.textContent = fmt(_duration);
-    if (sBtn)  sBtn.textContent  = _running ? '⏸' : '▶';
 
-    // colour: green → yellow → red
+    // כפתור הפעלה — מציג גם את הזמן
+    if (sBtn) sBtn.innerHTML = (_running ? '⏸ ' : '▶ ') +
+      '<span id="tmrDisplay" style="font-variant-numeric:tabular-nums">' + timeStr + '</span>';
+
+    // צבע לפי זמן שנותר
     var p = pct();
-    var hue = Math.round(p * 120);   // 120=green, 0=red
-    var colour = 'hsl(' + hue + ',80%,55%)';
-    if (disp) disp.style.color = p < 0.2 ? '#ff4444' : '#fff';
-
-    // SVG progress arc
-    if (arc) {
-      var r = 28, circ = 2 * Math.PI * r;
-      arc.style.strokeDasharray  = circ;
-      arc.style.strokeDashoffset = circ * (1 - p);
-      arc.style.stroke = colour;
-    }
-
-    if (bar) bar.style.borderTopColor = _running ? colour : 'transparent';
+    var col = p < 0.2 ? '#ff4444' : p < 0.5 ? '#ffaa00' : '#4ade80';
+    if (bar) bar.style.borderTopColor = _running ? col : 'rgba(255,255,255,.1)';
   }
 
   function startTimer() {
@@ -141,71 +134,46 @@ window.Utils = (function() {
     paint();
   }
 
-  // ── render bottom bar (שורה אחת קומפקטית) ──
+  // ── render bottom bar — מינימלי ─────────────
   function renderTimerBar() {
     if (document.getElementById('timerBar')) return;
-
-    // SVG מעגל קטן
-    var r = 18, circ = (2 * Math.PI * r).toFixed(1), sz = 44, cx = sz / 2;
 
     var bar = document.createElement('div');
     bar.id = 'timerBar';
     bar.style.cssText = [
       'position:fixed', 'bottom:0', 'left:0', 'right:0', 'z-index:300',
-      'background:#1e1e1c', 'border-top:2px solid transparent',
-      'padding:8px 12px',
-      'padding-bottom:calc(8px + env(safe-area-inset-bottom, 0px))',
-      'display:flex', 'align-items:center', 'gap:8px',
-      'box-shadow:0 -3px 14px rgba(0,0,0,.5)',
+      'background:#2C2C2A', 'border-top:1px solid rgba(255,255,255,.1)',
+      'padding:6px 10px',
+      'padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))',
+      'display:flex', 'align-items:center', 'gap:6px',
       'font-family:Heebo,sans-serif', 'direction:rtl'
     ].join(';');
 
-    var b  = 'border:none;border-radius:7px;cursor:pointer;font-family:Heebo,sans-serif;font-weight:700;transition:background .15s;';
-    var bs = b + 'padding:5px 9px;font-size:.75rem;background:rgba(255,255,255,.12);color:#fff;';
-    var bm = b + 'padding:5px 16px;font-size:.95rem;background:#3C3489;color:#fff;';
-    var bw = b + 'padding:5px 8px;font-size:.9rem;background:transparent;color:#fff;';
+    var b  = 'border:none;border-radius:6px;cursor:pointer;font-weight:700;padding:4px 8px;font-size:.72rem;background:rgba(255,255,255,.1);color:#fff;';
+    var bm = 'border:none;border-radius:6px;cursor:pointer;font-weight:700;padding:4px 14px;font-size:.85rem;background:#3C3489;color:#fff;';
+    var bw = 'border:none;cursor:pointer;font-size:.85rem;background:transparent;color:rgba(255,255,255,.6);padding:4px 6px;';
 
     bar.innerHTML = [
-      // מעגל
-      '<div style="position:relative;flex-shrink:0;width:' + sz + 'px;height:' + sz + 'px">',
-        '<svg width="' + sz + '" height="' + sz + '" style="transform:rotate(-90deg)">',
-          '<circle cx="' + cx + '" cy="' + cx + '" r="' + r + '" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="3.5"/>',
-          '<circle id="tmrArc" cx="' + cx + '" cy="' + cx + '" r="' + r + '" fill="none" stroke="#4ade80" stroke-width="3.5"',
-            ' stroke-linecap="round"',
-            ' style="stroke-dasharray:' + circ + ';stroke-dashoffset:0;transition:stroke-dashoffset .9s linear"/>',
-        '</svg>',
-        '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">',
-          '<span id="tmrDisplay" style="font-size:.82rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;line-height:1">1:00</span>',
-        '</div>',
-      '</div>',
-
-      // שינוי זמן
-      '<button onclick="Utils.adjustDuration(-30)" style="' + bs + '">−30</button>',
-      '<button onclick="Utils.adjustDuration(-10)" style="' + bs + '">−10</button>',
-
-      // הפעל / עצור
-      '<button id="tmrStart" onclick="Utils.toggleTimer()" style="' + bm + '">▶</button>',
-
-      // איפוס + כוונון
-      '<button onclick="Utils.resetTimer()"        style="' + bs + '">↺</button>',
-      '<button onclick="Utils.adjustDuration(10)"  style="' + bs + '">+10</button>',
-      '<button onclick="Utils.adjustDuration(30)"  style="' + bs + '">+30</button>',
+      '<button onclick="Utils.adjustDuration(-30)" style="' + b + '">−30</button>',
+      '<button onclick="Utils.adjustDuration(-10)" style="' + b + '">−10</button>',
+      '<button id="tmrStart" onclick="Utils.toggleTimer()" style="' + bm + '">▶ <span id="tmrDisplay">1:00</span></button>',
+      '<button onclick="Utils.resetTimer()"        style="' + b + '">↺</button>',
+      '<button onclick="Utils.adjustDuration(10)"  style="' + b + '">+10</button>',
+      '<button onclick="Utils.adjustDuration(30)"  style="' + b + '">+30</button>',
 
       // מסך דלוק
       '<button id="wlBtn" onclick="Utils.toggleWakeLock()" style="' + bw + '" title="שמור מסך דלוק">🌙</button>',
 
-      // סה"כ מוגדר
-      '<span id="tmrTotal" style="font-size:.65rem;color:rgba(255,255,255,.4);flex-shrink:0;min-width:28px;text-align:center">1:00</span>'
+      '<button id="wlBtn" onclick="Utils.toggleWakeLock()" style="' + bw + '" title="מסך דלוק">🌙</button>'
     ].join('');
 
     document.body.appendChild(bar);
 
-    // קבע padding לפי גובה אמיתי של הבר
+    // padding מינימלי — רק לפי הגובה האמיתי
     requestAnimationFrame(function() {
       var h = bar.getBoundingClientRect().height;
-      document.documentElement.style.setProperty('--timer-h', h + 'px');
-      document.querySelector('main') &&
-        (document.querySelector('main').style.paddingBottom = (h + 8) + 'px');
+      var main = document.querySelector('main');
+      if (main) main.style.paddingBottom = h + 'px';
     });
 
     paint();
