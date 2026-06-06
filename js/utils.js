@@ -141,75 +141,82 @@ window.Utils = (function() {
     paint();
   }
 
-  // ── render bottom bar ────────────────
+  // ── render bottom bar (שורה אחת קומפקטית) ──
   function renderTimerBar() {
-    if (document.getElementById('timerBar')) return;  // already rendered
+    if (document.getElementById('timerBar')) return;
+
+    // SVG מעגל קטן
+    var r = 18, circ = (2 * Math.PI * r).toFixed(1), sz = 44, cx = sz / 2;
 
     var bar = document.createElement('div');
     bar.id = 'timerBar';
     bar.style.cssText = [
       'position:fixed', 'bottom:0', 'left:0', 'right:0', 'z-index:300',
       'background:#1e1e1c', 'border-top:2px solid transparent',
-      'padding:10px 14px 14px',
-      'display:flex', 'align-items:center', 'gap:10px',
-      'box-shadow:0 -4px 20px rgba(0,0,0,.4)',
+      'padding:8px 12px',
+      'padding-bottom:calc(8px + env(safe-area-inset-bottom, 0px))',
+      'display:flex', 'align-items:center', 'gap:8px',
+      'box-shadow:0 -3px 14px rgba(0,0,0,.5)',
       'font-family:Heebo,sans-serif', 'direction:rtl'
     ].join(';');
 
-    // SVG circle
-    var r = 28, circ = (2 * Math.PI * r).toFixed(1);
-    var svgSize = 72;
-    var cx = svgSize / 2;
+    var b  = 'border:none;border-radius:7px;cursor:pointer;font-family:Heebo,sans-serif;font-weight:700;transition:background .15s;';
+    var bs = b + 'padding:5px 9px;font-size:.75rem;background:rgba(255,255,255,.12);color:#fff;';
+    var bm = b + 'padding:5px 16px;font-size:.95rem;background:#3C3489;color:#fff;';
+    var bw = b + 'padding:5px 8px;font-size:.9rem;background:transparent;color:#fff;';
 
     bar.innerHTML = [
-      // Circle + time
-      '<div style="position:relative;flex-shrink:0">',
-        '<svg width="' + svgSize + '" height="' + svgSize + '" style="transform:rotate(-90deg)">',
-          '<circle cx="' + cx + '" cy="' + cx + '" r="' + r + '" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="4"/>',
-          '<circle id="tmrArc" cx="' + cx + '" cy="' + cx + '" r="' + r + '" fill="none" stroke="#4ade80" stroke-width="4"',
-            ' stroke-linecap="round" style="stroke-dasharray:' + circ + ';stroke-dashoffset:0;transition:stroke-dashoffset .9s linear"/>',
+      // מעגל
+      '<div style="position:relative;flex-shrink:0;width:' + sz + 'px;height:' + sz + 'px">',
+        '<svg width="' + sz + '" height="' + sz + '" style="transform:rotate(-90deg)">',
+          '<circle cx="' + cx + '" cy="' + cx + '" r="' + r + '" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="3.5"/>',
+          '<circle id="tmrArc" cx="' + cx + '" cy="' + cx + '" r="' + r + '" fill="none" stroke="#4ade80" stroke-width="3.5"',
+            ' stroke-linecap="round"',
+            ' style="stroke-dasharray:' + circ + ';stroke-dashoffset:0;transition:stroke-dashoffset .9s linear"/>',
         '</svg>',
-        '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center">',
-          '<div id="tmrDisplay" style="font-size:1.05rem;font-weight:800;color:#fff;line-height:1;font-variant-numeric:tabular-nums">1:00</div>',
+        '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">',
+          '<span id="tmrDisplay" style="font-size:.82rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;line-height:1">1:00</span>',
         '</div>',
       '</div>',
 
-      // Controls
-      '<div style="flex:1;display:flex;flex-direction:column;gap:6px">',
+      // שינוי זמן
+      '<button onclick="Utils.adjustDuration(-30)" style="' + bs + '">−30</button>',
+      '<button onclick="Utils.adjustDuration(-10)" style="' + bs + '">−10</button>',
 
-        // Duration row
-        '<div style="display:flex;align-items:center;gap:6px">',
-          '<button onclick="Utils.adjustDuration(-10)" style="' + btnStyle() + '">−10s</button>',
-          '<div style="flex:1;text-align:center;font-size:.72rem;color:rgba(255,255,255,.55)">סה&quot;כ <span id="tmrTotal">1:00</span></div>',
-          '<button onclick="Utils.adjustDuration(10)"  style="' + btnStyle() + '">+10s</button>',
-        '</div>',
+      // הפעל / עצור
+      '<button id="tmrStart" onclick="Utils.toggleTimer()" style="' + bm + '">▶</button>',
 
-        // Action row
-        '<div style="display:flex;align-items:center;gap:6px">',
-          '<button onclick="Utils.adjustDuration(-30)" style="' + btnStyle() + '">−30s</button>',
-          '<button id="tmrStart" onclick="Utils.toggleTimer()" style="' + btnStyle('main') + '">▶</button>',
-          '<button onclick="Utils.resetTimer()"        style="' + btnStyle() + '">↺</button>',
-          '<button id="wlBtn"    onclick="Utils.toggleWakeLock()" style="' + btnStyle('wl') + '" title="מסך דלוק">🌙</button>',
-        '</div>',
+      // איפוס + כוונון
+      '<button onclick="Utils.resetTimer()"        style="' + bs + '">↺</button>',
+      '<button onclick="Utils.adjustDuration(10)"  style="' + bs + '">+10</button>',
+      '<button onclick="Utils.adjustDuration(30)"  style="' + bs + '">+30</button>',
 
-      '</div>'
+      // מסך דלוק
+      '<button id="wlBtn" onclick="Utils.toggleWakeLock()" style="' + bw + '" title="שמור מסך דלוק">🌙</button>',
+
+      // סה"כ מוגדר
+      '<span id="tmrTotal" style="font-size:.65rem;color:rgba(255,255,255,.4);flex-shrink:0;min-width:28px;text-align:center">1:00</span>'
     ].join('');
 
     document.body.appendChild(bar);
-    document.body.style.paddingBottom = '110px';
+
+    // קבע padding לפי גובה אמיתי של הבר
+    requestAnimationFrame(function() {
+      var h = bar.getBoundingClientRect().height;
+      document.documentElement.style.setProperty('--timer-h', h + 'px');
+      document.querySelector('main') &&
+        (document.querySelector('main').style.paddingBottom = (h + 8) + 'px');
+    });
+
     paint();
     updateWLBtn();
   }
 
   function btnStyle(type) {
-    var base = [
-      'border:none', 'border-radius:8px', 'cursor:pointer',
-      'font-family:Heebo,sans-serif', 'font-weight:700',
-      'font-size:.8rem', 'transition:background .15s'
-    ].join(';');
-    if (type === 'main') return base + ';padding:7px 18px;background:#3C3489;color:#fff;font-size:1rem';
-    if (type === 'wl')   return base + ';padding:7px 10px;background:transparent;color:#fff;font-size:1rem';
-    return base + ';padding:6px 10px;background:rgba(255,255,255,.1);color:#fff';
+    var base = 'border:none;border-radius:8px;cursor:pointer;font-family:Heebo,sans-serif;font-weight:700;font-size:.8rem;transition:background .15s;';
+    if (type === 'main') return base + 'padding:7px 18px;background:#3C3489;color:#fff;font-size:1rem';
+    if (type === 'wl')   return base + 'padding:7px 10px;background:transparent;color:#fff;font-size:1rem';
+    return base + 'padding:6px 10px;background:rgba(255,255,255,.1);color:#fff';
   }
 
   return {
