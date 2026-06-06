@@ -10,13 +10,10 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="כושר">
-  <meta name="description" content="תכנית אימונים שבועית — כוח + קרדיו">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/mobile.css">
-  <!-- נתונים (עובד גם עם file://) -->
   <script src="data/exercises-data.js"></script>
   <script src="data/plan-data.js"></script>
-  <!-- לוגיקה -->
   <script src="js/tracker.js"></script>
   <script src="js/data.js"></script>
   <script src="js/components.js"></script>
@@ -34,22 +31,19 @@
 </header>
 
 <main>
-  <!-- לוח שבועי -->
   <section id="panel-week">
     <p class="text-muted text-sm mb-4" id="todayBanner"></p>
 
-    <!-- מתג gym / home גלובלי -->
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+    <!-- מתג gym / home -->
+    <div id="modeBar" style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
       <span class="text-muted text-sm">סוג אימון:</span>
       <div style="display:flex;border-radius:12px;overflow:hidden;border:1.5px solid #EEEDFE">
-        <button id="globalGym"
-          style="padding:7px 16px;border:none;cursor:pointer;
-                 font-family:Heebo,sans-serif;font-size:.82rem;font-weight:700">
+        <button id="globalGym"  onclick="setWorkoutMode('gym')"
+                style="padding:7px 16px;border:none;cursor:pointer;font-family:Heebo,sans-serif;font-size:.82rem;font-weight:700">
           🏋️ חדר כושר
         </button>
-        <button id="globalHome"
-          style="padding:7px 16px;border:none;cursor:pointer;
-                 font-family:Heebo,sans-serif;font-size:.82rem;font-weight:700">
+        <button id="globalHome" onclick="setWorkoutMode('home')"
+                style="padding:7px 16px;border:none;cursor:pointer;font-family:Heebo,sans-serif;font-size:.82rem;font-weight:700">
           🏠 בית
         </button>
       </div>
@@ -58,12 +52,10 @@
     <div id="dayList"></div>
   </section>
 
-  <!-- אימון היום -->
   <section id="panel-today" hidden style="display:none">
     <div id="todayContent"></div>
   </section>
 
-  <!-- מפת שרירים -->
   <section id="panel-muscles" hidden style="display:none">
     <div class="card">
       <div class="card-header">
@@ -83,13 +75,12 @@
 
 <script>
   // ── Tab switching ──────────────────────────────
-  document.querySelectorAll('.tab-btn[data-panel]').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn[data-panel]')
-              .forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('[data-panel]').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('[data-panel]').forEach(function(t) { t.classList.remove('active'); });
       tab.classList.add('active');
-      document.querySelectorAll('section[id^="panel-"]').forEach(p => {
-        const show = p.id === 'panel-' + tab.dataset.panel;
+      document.querySelectorAll('section[id^="panel-"]').forEach(function(p) {
+        var show = p.id === 'panel-' + tab.dataset.panel;
         p.hidden = !show;
         p.style.display = show ? '' : 'none';
       });
@@ -97,20 +88,17 @@
   });
 
   // ── מתג gym / home ─────────────────────────────
-  const btnGym  = document.getElementById('globalGym');
-  const btnHome = document.getElementById('globalHome');
-  const ACT = 'background:#3C3489;color:#fff';
-  const OFF = 'background:#fff;color:#3C3489';
-
-  function applyModeStyle() {
-    const isGym = Data.getMode() === 'gym';
-    btnGym.style.cssText  = btnGym.style.cssText.replace(/background:[^;]+;color:[^;]+/, '') + ';' + (isGym  ? ACT : OFF);
-    btnHome.style.cssText = btnHome.style.cssText.replace(/background:[^;]+;color:[^;]+/, '') + ';' + (!isGym ? ACT : OFF);
+  function setWorkoutMode(mode) {
+    Data.setMode(mode);
+    var isGym = mode === 'gym';
+    document.getElementById('globalGym').style.background  = isGym  ? '#3C3489' : '#fff';
+    document.getElementById('globalGym').style.color       = isGym  ? '#fff'    : '#3C3489';
+    document.getElementById('globalHome').style.background = !isGym ? '#3C3489' : '#fff';
+    document.getElementById('globalHome').style.color      = !isGym ? '#fff'    : '#3C3489';
   }
 
-  btnGym.addEventListener('click',  () => { Data.setMode('gym');  applyModeStyle(); });
-  btnHome.addEventListener('click', () => { Data.setMode('home'); applyModeStyle(); });
-  applyModeStyle();
+  // הפעל ברירת מחדל
+  setWorkoutMode(Data.getMode());
 
   // ── Render ─────────────────────────────────────
   Render.renderDashboard();

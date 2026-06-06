@@ -1,5 +1,4 @@
-﻿// Auto-generated from exercises.json
-window.__EXERCISES = [
+﻿window.__EXERCISES = [
   {
     "id": "bench_press",
     "name_he": "לחיצת חזה",
@@ -42,7 +41,7 @@ window.__EXERCISES = [
     "id": "ohp",
     "name_he": "לחיצת כתפיים",
     "name_en": "OHP (Overhead Press)",
-    "machine": "מוט / דמבלים עומד",
+    "machine": "מוט / משקולות עומד",
     "day": "day1",
     "sets": "3 × 8–10",
     "rest_sec": 90,
@@ -99,13 +98,13 @@ window.__EXERCISES = [
     },
     "steps": [
       {"num": 1, "action": "הגדר", "detail": "כוון ספסל ל-30–45 מעלות"},
-      {"num": 2, "action": "שכב", "detail": "גב צמוד לספסל, דמבלים בגובה כתפיים"},
-      {"num": 3, "action": "דחף", "detail": "דחף למעלה-פנימה, הדמבלים מתקרבים בפסגה"},
+      {"num": 2, "action": "שכב", "detail": "גב צמוד לספסל, משקולות בגובה כתפיים"},
+      {"num": 3, "action": "דחף", "detail": "דחף למעלה-פנימה, המשקולות מתקרבים בפסגה"},
       {"num": 4, "action": "הורד", "detail": "בשליטה 2 שניות עד לגובה החזה"}
     ],
-    "motion": "דמבלים יורדים בקשת קלה בצדי החזה.",
+    "motion": "משקולות יורדים בקשת קלה בצדי החזה.",
     "warn": "אל תנמיך מתחת לקו החזה — עומס יתר על כתף",
-    "tip": "נגע הדמבלים בפסגה לתחושת סיכום שריר",
+    "tip": "נגע המשקולות בפסגה לתחושת סיכום שריר",
     "image": "images/משקולות יד/02891105-Dumbbell-Bench-Press_Chest_max-POTASH-1.png",
     "instructor_url": "https://www.instructor.co.il/body-section/chest/"
   },
@@ -113,7 +112,7 @@ window.__EXERCISES = [
     "id": "lateral_raise",
     "name_he": "הרמה צדית לכתפיים",
     "name_en": "Lateral Raise",
-    "machine": "דמבלים 5–8 ק\"ג",
+    "machine": "משקולות 5–8 ק\"ג",
     "day": "day1",
     "sets": "3 × 12–15",
     "rest_sec": 60,
@@ -132,7 +131,7 @@ window.__EXERCISES = [
       "back": []
     },
     "steps": [
-      {"num": 1, "action": "עמוד", "detail": "דמבלים בצדים, קצת כפוף במרפק"},
+      {"num": 1, "action": "עמוד", "detail": "משקולות בצדים, קצת כפוף במרפק"},
       {"num": 2, "action": "הרם", "detail": "הרם לצדדים עד גובה הכתף, אגודל כלפי מטה קלות"},
       {"num": 3, "action": "החזק", "detail": "שנייה בפסגה"},
       {"num": 4, "action": "הורד", "detail": "לאט 2 שניות חזרה"}
@@ -287,7 +286,7 @@ window.__EXERCISES = [
     "id": "bicep_curl",
     "name_he": "כפיפת ביצפס",
     "name_en": "Bicep Curl",
-    "machine": "דמבלים / EZ Bar",
+    "machine": "משקולות / EZ Bar",
     "day": "day3",
     "sets": "3 × 10–12",
     "rest_sec": 60,
@@ -306,7 +305,7 @@ window.__EXERCISES = [
       "back": []
     },
     "steps": [
-      {"num": 1, "action": "עמוד", "detail": "דמבלים בצדים, כפות ידיים קדימה"},
+      {"num": 1, "action": "עמוד", "detail": "משקולות בצדים, כפות ידיים קדימה"},
       {"num": 2, "action": "כפוף", "detail": "כפוף מרפק, הרם לכתף — מרפק קבוע"},
       {"num": 3, "action": "סחט", "detail": "סחט ביצפס בפסגה"},
       {"num": 4, "action": "הורד", "detail": "2 שניות בשליטה"}
@@ -394,7 +393,7 @@ window.__EXERCISES = [
     "id": "rdl",
     "name_he": "מתיחת מלך הרומנים",
     "name_en": "Romanian Deadlift",
-    "machine": "דמבלים / מוט",
+    "machine": "משקולות / מוט",
     "day": "day5",
     "sets": "3 × 10–12",
     "rest_sec": 90,
@@ -430,7 +429,7 @@ window.__EXERCISES = [
     "id": "forward_lunge",
     "name_he": "מדרך קדמי",
     "name_en": "Forward Lunge",
-    "machine": "דמבלים קלים",
+    "machine": "משקולות קלים",
     "day": "day5",
     "sets": "3 × 10 לכל רגל",
     "rest_sec": 60,
@@ -449,7 +448,7 @@ window.__EXERCISES = [
       "back": []
     },
     "steps": [
-      {"num": 1, "action": "עמוד", "detail": "דמבלים בצדים, גב ישר"},
+      {"num": 1, "action": "עמוד", "detail": "משקולות בצדים, גב ישר"},
       {"num": 2, "action": "צעד", "detail": "צעד ארוך קדימה עם רגל אחת"},
       {"num": 3, "action": "שב", "detail": "כפוף שתי הברכיים ל-90°, ברך אחורית כמעט לרצפה"},
       {"num": 4, "action": "חזור", "detail": "דחף חזרה לנקודת ההתחלה"}
@@ -530,9 +529,9 @@ window.__EXERCISES = [
 
   {
     "id": "home_db_bench_press",
-    "name_he": "לחיצת חזה — דמבלים",
+    "name_he": "לחיצת חזה — משקולות",
     "name_en": "Dumbbell Chest Press (Floor/Bench)",
-    "machine": "דמבלים — על הרצפה או ספסל",
+    "machine": "משקולות — על הרצפה או ספסל",
     "mode": "home",
     "day": "day1",
     "sets": "3 × 10–12",
@@ -552,9 +551,9 @@ window.__EXERCISES = [
       "back": []
     },
     "steps": [
-      {"num": 1, "action": "שכב", "detail": "על הרצפה (או ספסל), ברכיים כפופות, דמבלים בגובה החזה"},
+      {"num": 1, "action": "שכב", "detail": "על הרצפה (או ספסל), ברכיים כפופות, משקולות בגובה החזה"},
       {"num": 2, "action": "אחיזה", "detail": "מרפקים בזווית 45° מהגוף — לא 90°"},
-      {"num": 3, "action": "דחף", "detail": "דחף למעלה עד יישור כמעט מלא, דמבלים מתקרבים"},
+      {"num": 3, "action": "דחף", "detail": "דחף למעלה עד יישור כמעט מלא, משקולות מתקרבים"},
       {"num": 4, "action": "הורד", "detail": "2–3 שניות בשליטה עד הרצפה/החזה"}
     ],
     "motion": "על הרצפה: הרצפה מגבילה את הטווח — פחות עומס על הכתף, מתאים למתחיל.",
@@ -566,9 +565,9 @@ window.__EXERCISES = [
 
   {
     "id": "home_db_ohp",
-    "name_he": "לחיצת כתפיים — דמבלים",
+    "name_he": "לחיצת כתפיים — משקולות",
     "name_en": "Dumbbell Overhead Press (Seated/Standing)",
-    "machine": "דמבלים — בישיבה או עמידה",
+    "machine": "משקולות — בישיבה או עמידה",
     "mode": "home",
     "day": "day1",
     "sets": "3 × 10–12",
@@ -592,8 +591,8 @@ window.__EXERCISES = [
     },
     "steps": [
       {"num": 1, "action": "מנח", "detail": "שב על כסא ישר או עמוד — גב ישר, ליבה מכווצת"},
-      {"num": 2, "action": "התחלה", "detail": "דמבלים בגובה הכתפיים, מרפקים קדימה"},
-      {"num": 3, "action": "דחף", "detail": "דחף ישר מעלה עד קירוב הדמבלים מעל הראש"},
+      {"num": 2, "action": "התחלה", "detail": "משקולות בגובה הכתפיים, מרפקים קדימה"},
+      {"num": 3, "action": "דחף", "detail": "דחף ישר מעלה עד קירוב המשקולות מעל הראש"},
       {"num": 4, "action": "הורד", "detail": "בשליטה 2 שניות עד לגובה הכתפיים"}
     ],
     "motion": "בישיבה — ה-Arnold Press (סופינציה → פרונציה) מגייס יותר שרירי כתף.",
@@ -605,9 +604,9 @@ window.__EXERCISES = [
 
   {
     "id": "home_db_fly",
-    "name_he": "פרפר — דמבלים",
+    "name_he": "פרפר — משקולות",
     "name_en": "Dumbbell Fly (Floor/Bench)",
-    "machine": "דמבלים — על הרצפה או ספסל",
+    "machine": "משקולות — על הרצפה או ספסל",
     "mode": "home",
     "day": "day1",
     "sets": "3 × 12–15",
@@ -626,7 +625,7 @@ window.__EXERCISES = [
       "back": []
     },
     "steps": [
-      {"num": 1, "action": "שכב", "detail": "על הרצפה/ספסל, דמבלים מעל החזה, מרפקים כפופים קלות"},
+      {"num": 1, "action": "שכב", "detail": "על הרצפה/ספסל, משקולות מעל החזה, מרפקים כפופים קלות"},
       {"num": 2, "action": "פתח", "detail": "הרחק ידיים לצדדים בקשת — עד גובה הכתפיים"},
       {"num": 3, "action": "החזר", "detail": "קרב ידיים בחזרה מעל החזה בתנועת חיבוק"},
       {"num": 4, "action": "סחט", "detail": "בפסגה — סחט חזה שנייה"}
@@ -640,9 +639,9 @@ window.__EXERCISES = [
 
   {
     "id": "home_db_lateral_raise",
-    "name_he": "הרמה צדית — דמבלים",
+    "name_he": "הרמה צדית — משקולות",
     "name_en": "Dumbbell Lateral Raise",
-    "machine": "דמבלים קלים 3–8 ק\"ג",
+    "machine": "משקולות קלים 3–8 ק\"ג",
     "mode": "home",
     "day": "day1",
     "sets": "3 × 15–20",
@@ -662,7 +661,7 @@ window.__EXERCISES = [
       "back": []
     },
     "steps": [
-      {"num": 1, "action": "עמוד", "detail": "דמבלים בצדים, כפיפה קלה במרפק"},
+      {"num": 1, "action": "עמוד", "detail": "משקולות בצדים, כפיפה קלה במרפק"},
       {"num": 2, "action": "הרם", "detail": "הרם לצדדים עד גובה הכתף — אגודל מופנה קלות מטה"},
       {"num": 3, "action": "החזק", "detail": "שנייה בפסגה"},
       {"num": 4, "action": "הורד", "detail": "לאט 3 שניות — הירידה חשובה כמו העלייה"}
@@ -781,7 +780,7 @@ window.__EXERCISES = [
 
   {
     "id": "home_db_squat",
-    "name_he": "סקוואט — דמבלים",
+    "name_he": "סקוואט — משקולות",
     "name_en": "Dumbbell Goblet Squat",
     "machine": "דמבל אחד כבד / שניים בצדדים",
     "mode": "home",
@@ -814,16 +813,16 @@ window.__EXERCISES = [
     ],
     "motion": "Goblet Squat מאלץ גוף זקוף ומאפשר שפיפה עמוקה יותר.",
     "warn": "ברכיים לא נופלות פנימה — הדגש על הפנייה החוצה",
-    "tip": "לא ברוח? גם סקוואט עם 2 דמבלים בצדדים עובד מצוין",
+    "tip": "לא ברוח? גם סקוואט עם 2 משקולות בצדדים עובד מצוין",
     "image": "images/משקולות יד/04131105-Dumbbell-Squat_Hips_max-POTASH.png",
     "instructor_url": "https://www.instructor.co.il/body-section/front-thigh/"
   },
 
   {
     "id": "home_db_rdl",
-    "name_he": "דדליפט ברגל ישרה — דמבלים",
+    "name_he": "דדליפט ברגל ישרה — משקולות",
     "name_en": "Dumbbell Romanian Deadlift",
-    "machine": "דמבלים",
+    "machine": "משקולות",
     "mode": "home",
     "day": "day5",
     "sets": "3 × 12–15",
@@ -844,12 +843,12 @@ window.__EXERCISES = [
       ]
     },
     "steps": [
-      {"num": 1, "action": "עמוד", "detail": "דמבלים בפני הירכיים, גב ישר, כתפיים אחורה"},
-      {"num": 2, "action": "כפוף", "detail": "כפוף ירכיים אחורה — דמבלים יורדים לאורך הרגל"},
+      {"num": 1, "action": "עמוד", "detail": "משקולות בפני הירכיים, גב ישר, כתפיים אחורה"},
+      {"num": 2, "action": "כפוף", "detail": "כפוף ירכיים אחורה — משקולות יורדים לאורך הרגל"},
       {"num": 3, "action": "עצור", "detail": "כשמרגיש מתיחה חזקה בכלבי הירך — עצור"},
       {"num": 4, "action": "עלה", "detail": "דחף ירכיים קדימה, גב ישר, סחוט ישבן בפסגה"}
     ],
-    "motion": "ירכיים נעות אחורה, דמבלים צמודים לרגל. גב ישר לכל אורך הדרך.",
+    "motion": "ירכיים נעות אחורה, משקולות צמודים לרגל. גב ישר לכל אורך הדרך.",
     "warn": "לא לעגל גב תחתון — אם זה קורה, הגעת עמוק מדי",
     "tip": "תרגיש מתיחה בגב הרגל — זה הסימן שאתה בטווח הנכון",
     "image": "images/משקולות יד/04321105-Dumbbell-Stiff-Leg-Deadlift_Waist_max.png",
@@ -858,9 +857,9 @@ window.__EXERCISES = [
 
   {
     "id": "home_db_lunge",
-    "name_he": "מכרעים — דמבלים",
+    "name_he": "מכרעים — משקולות",
     "name_en": "Dumbbell Reverse Lunge",
-    "machine": "דמבלים",
+    "machine": "משקולות",
     "mode": "home",
     "day": "day5",
     "sets": "3 × 10–12 לכל רגל",
@@ -880,7 +879,7 @@ window.__EXERCISES = [
       "back": []
     },
     "steps": [
-      {"num": 1, "action": "עמוד", "detail": "דמבלים בצדים, גב ישר"},
+      {"num": 1, "action": "עמוד", "detail": "משקולות בצדים, גב ישר"},
       {"num": 2, "action": "צעד אחורה", "detail": "צעד גדול לאחור עם רגל ימין"},
       {"num": 3, "action": "שב", "detail": "ירד עד ברך אחורית כמעט נוגעת ברצפה — ברך קדמית ב-90°"},
       {"num": 4, "action": "חזור", "detail": "דחף דרך הרגל הקדמית, חזור לעמידה"}
