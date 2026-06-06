@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שגרת בוקר</title>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#2C2C2A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/mobile.css">
+  <script src="../data/exercises-data.js"></script>
+  <script src="../data/plan-data.js"></script>
+  <script src="../js/tracker.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/components.js"></script>
+  <script src="../js/render.js"></script>
+  <script src="../js/utils.js"></script>
+  <style>
+    .hdr-top { display:flex;align-items:center;justify-content:space-between;padding-bottom:8px; }
+    .hdr-top h1 { margin:0;font-size:.95rem;font-weight:700; }
+    .phase-title {
+      font-size:.78rem; font-weight:700; text-transform:uppercase;
+      letter-spacing:.5px; color:#6B6B6B; margin:14px 0 8px;
+    }
+    .ex-row {
+      display:flex; align-items:center; gap:12px;
+      padding:10px 0; border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .ex-row:last-child { border-bottom:none; }
+    .ex-num-small {
+      width:26px; height:26px; border-radius:50%;
+      background:#EEEDFE; color:#3C3489;
+      font-size:.75rem; font-weight:700;
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
+    }
+    .ex-img-thumb {
+      width:56px; height:56px; border-radius:8px;
+      object-fit:cover; flex-shrink:0; background:#f5f5f3;
+    }
+    .ex-info { flex:1; }
+    .ex-info .name { font-size:.88rem; font-weight:700; }
+    .ex-info .amount { font-size:.75rem; color:#3C3489; font-weight:600; margin-top:2px; }
+    .ex-info .note  { font-size:.72rem; color:#6B6B6B; margin-top:1px; }
+    .round-badge {
+      display:inline-block; padding:4px 12px; border-radius:20px;
+      background:#EEEDFE; color:#3C3489; font-size:.8rem; font-weight:700;
+      margin-bottom:8px;
+    }
+    .progress-dots {
+      display:flex; gap:6px; margin:10px 0;
+    }
+    .dot-round {
+      width:28px; height:28px; border-radius:50%; border:2px solid #EEEDFE;
+      font-size:.75rem; font-weight:700; color:#3C3489;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; transition:all .15s;
+    }
+    .dot-round.done { background:#3C3489; color:#fff; border-color:#3C3489; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="hdr-top">
+    <h1 id="pageTitle">🌅 שגרת בוקר</h1>
+    <nav style="display:flex;gap:4px">
+      <button class="tab-btn active" onclick="history.back()">← חזרה</button>
+    </nav>
+  </div>
+</header>
+
+<main style="padding-bottom:110px">
+
+  <!-- Overview -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:#FFF8E1;font-size:1.5rem">🌅</div>
+      <div>
+        <div class="card-title">שגרת בוקר יומית</div>
+        <div class="card-subtitle">15–20 דקות | 3 סבבים | ללא ציוד</div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge" style="background:#FFF8E1;color:#F57F17">⏱ 15–20 דקות</span>
+      <span class="badge" style="background:#E1F5EE;color:#085041">🔁 3 סבבים</span>
+      <span class="badge" style="background:#F5F5F5;color:#444">🏠 ללא ציוד</span>
+    </div>
+    <div class="alert-box info mt-8">💡 על קיבה ריקה — בסדר גמור. שתה כוס מים לפני</div>
+  </div>
+
+  <!-- Phase 1: Warm-up -->
+  <div class="card">
+    <div class="phase-title">🔥 חימום — 2 דקות</div>
+    <div class="ex-row">
+      <div class="ex-num-small">1</div>
+      <div class="ex-info">
+        <div class="name">הליכה במקום + הנפת ידיים</div>
+        <div class="amount">30 שניות</div>
+      </div>
+    </div>
+    <div class="ex-row">
+      <div class="ex-num-small">2</div>
+      <div class="ex-info">
+        <div class="name">סיבובי כתפיים קדימה ואחורה</div>
+        <div class="amount">30 שניות</div>
+      </div>
+    </div>
+    <div class="ex-row">
+      <div class="ex-num-small">3</div>
+      <div class="ex-info">
+        <div class="name">כפיפות צד בעמידה</div>
+        <div class="amount">30 שניות</div>
+      </div>
+    </div>
+    <div class="ex-row">
+      <div class="ex-num-small">4</div>
+      <div class="ex-info">
+        <div class="name">קפיצות קטנות במקום</div>
+        <div class="amount">30 שניות</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase 2: Main circuit -->
+  <div class="card">
+    <div class="phase-title">💪 סבב ראשי — חזור 3 פעמים</div>
+
+    <!-- Round tracker -->
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+      <span style="font-size:.78rem;color:#6B6B6B">סבב:</span>
+      <div class="progress-dots" id="roundDots">
+        <div class="dot-round" data-round="1" onclick="toggleRound(1)">1</div>
+        <div class="dot-round" data-round="2" onclick="toggleRound(2)">2</div>
+        <div class="dot-round" data-round="3" onclick="toggleRound(3)">3</div>
+      </div>
+      <button onclick="resetRounds()"
+        style="border:none;background:transparent;color:#6B6B6B;font-size:.75rem;cursor:pointer">איפוס</button>
+    </div>
+
+    <div class="ex-row">
+      <div class="ex-num-small">1</div>
+      <img class="ex-img-thumb" src="../images/משקל גוף/06531105-Push-up-bosu-ball_Chest_medium-potash.webp"
+           onerror="this.style.display='none'" alt="">
+      <div class="ex-info">
+        <div class="name">שכיבות סמיכה על ברכיים</div>
+        <div class="amount">8–10 חזרות</div>
+        <div class="note">גוף ישר מברכיים לראש</div>
+      </div>
+    </div>
+    <div class="ex-row">
+      <div class="ex-num-small">2</div>
+      <img class="ex-img-thumb" src="../images/משקל גוף/04651105-Front-Plank_Waist_max-POTASH.png"
+           onerror="this.style.display='none'" alt="">
+      <div class="ex-info">
+        <div class="name">פלאנק</div>
+        <div class="amount">20 שניות</div>
+        <div class="note">נשום בשקט, אל תחזיק נשימה</div>
+      </div>
+    </div>
+    <div class="ex-row">
+      <div class="ex-num-small">3</div>
+      <img class="ex-img-thumb" src="../images/משקל גוף/12501301-Weighted-Crunch-behind-head_Waist_720.webp"
+           onerror="this.style.display='none'" alt="">
+      <div class="ex-info">
+        <div class="name">כפיפות בטן (Crunch)</div>
+        <div class="amount">12–15 חזרות</div>
+        <div class="note">הרמת כתפיים בלבד, לא הראש</div>
+      </div>
+    </div>
+    <div class="ex-row">
+      <div class="ex-num-small">4</div>
+      <img class="ex-img-thumb" src="../images/משקל גוף/31411105-Bird-Dog-female_max-POTASH.webp"
+           onerror="this.style.display='none'" alt="">
+      <div class="ex-info">
+        <div class="name">ציפור-כלב</div>
+        <div class="amount">8 כל צד</div>
+        <div class="note">איטי ומבוקר</div>
+      </div>
+    </div>
+    <div class="ex-row">
+      <div class="ex-num-small">5</div>
+      <img class="ex-img-thumb" src="../images/משקל גוף/18531105-Hip-Lift-Low-Back-Off-Floor_Waist_max-POTASH.png"
+           onerror="this.style.display='none'" alt="">
+      <div class="ex-info">
+        <div class="name">הרמת אגן (Hip Lift)</div>
+        <div class="amount">12 חזרות</div>
+        <div class="note">סחיצת ישבן בשיא</div>
+      </div>
+    </div>
+    <div class="ex-row">
+      <div class="ex-num-small">6</div>
+      <img class="ex-img-thumb" src="../images/משקל גוף/17051105-Squat-On-Bosu-Ball_Thighs_medium.webp"
+           onerror="this.style.display='none'" alt="">
+      <div class="ex-info">
+        <div class="name">סקוואט משקל גוף</div>
+        <div class="amount">12–15 חזרות</div>
+        <div class="note">ירכיים מקבילות לרצפה</div>
+      </div>
+    </div>
+
+    <div class="alert-box warn mt-8">⏸ מנוחה 90 שניות בין סבבים</div>
+  </div>
+
+  <!-- Phase 3: Cool-down -->
+  <div class="card">
+    <div class="phase-title">🧊 קירור — 2 דקות</div>
+    <div class="ex-row">
+      <div class="ex-num-small">1</div>
+      <div class="ex-info">
+        <div class="name">מתיחת ירכיים</div>
+        <div class="amount">30 שניות</div>
+      </div>
+    </div>
+    <div class="ex-row">
+      <div class="ex-num-small">2</div>
+      <div class="ex-info">
+        <div class="name">מתיחת המסטרינג</div>
+        <div class="amount">30 שניות</div>
+      </div>
+    </div>
+    <div class="ex-row">
+      <div class="ex-num-small">3</div>
+      <div class="ex-info">
+        <div class="name">מתיחת גב תחתון</div>
+        <div class="amount">30 שניות</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progression -->
+  <div class="card">
+    <div class="phase-title">📈 איך מתקדמים?</div>
+    <ul class="steps-list">
+      <li class="step">
+        <div class="step-num" style="background:#E1F5EE;color:#085041">1–2</div>
+        <div>
+          <div class="step-action">שבועות 1–2</div>
+          <div class="step-detail">בצע כמו שכתוב. אם קל — הוסף חזרה בכל תרגיל</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" style="background:#E1F5EE;color:#085041">3–4</div>
+        <div>
+          <div class="step-action">שבועות 3–4</div>
+          <div class="step-detail">שכיבות סמיכה רגילות (אם אפשר), פלאנק ל-30 שניות</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" style="background:#E1F5EE;color:#085041">+</div>
+        <div>
+          <div class="step-action">חודש 2</div>
+          <div class="step-detail">הוסף פלאנק צדי (20 שניות כל צד), Hip Thrust עם שהייה 2 שניות</div>
+        </div>
+      </li>
+    </ul>
+    <div class="alert-box tip mt-8">✅ יומן קצר — רשום כמה חזרות עשית כל בוקר. זה המניע הכי חזק</div>
+  </div>
+
+</main>
+
+<script>
+  var done = {1:false, 2:false, 3:false};
+  function toggleRound(n) {
+    done[n] = !done[n];
+    document.querySelectorAll('.dot-round').forEach(function(d) {
+      d.classList.toggle('done', done[+d.dataset.round]);
+    });
+  }
+  function resetRounds() {
+    done = {1:false,2:false,3:false};
+    document.querySelectorAll('.dot-round').forEach(function(d) { d.classList.remove('done'); });
+  }
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('../sw.js');
+  Utils.renderTimerBar();
+</script>
+</body>
+</html>

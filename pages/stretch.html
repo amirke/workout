@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מתיחות בוקר</title>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#2C2C2A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/mobile.css">
+  <script src="../js/utils.js"></script>
+  <style>
+    .hdr-top { display:flex;align-items:center;justify-content:space-between;padding-bottom:8px; }
+    .hdr-top h1 { margin:0;font-size:.95rem;font-weight:700; }
+
+    .stretch-card {
+      background:#fff;
+      border-radius:16px;
+      border:.5px solid rgba(0,0,0,.08);
+      margin-bottom:10px;
+      overflow:hidden;
+      box-shadow:0 1px 4px rgba(0,0,0,.04);
+    }
+    .stretch-img {
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      display:block;
+      background:#f0effe;
+    }
+    .stretch-body { padding:12px 14px 14px; }
+    .stretch-num {
+      display:inline-block;
+      width:24px; height:24px; border-radius:50%;
+      background:#EEEDFE; color:#3C3489;
+      font-size:.72rem; font-weight:700;
+      text-align:center; line-height:24px;
+      margin-left:8px;
+    }
+    .stretch-name { font-size:.95rem; font-weight:700; display:inline; }
+    .stretch-time {
+      display:inline-block;
+      margin-right:8px;
+      font-size:.75rem; font-weight:700;
+      color:#3C3489; background:#EEEDFE;
+      padding:2px 8px; border-radius:20px;
+      float:left;
+    }
+    .stretch-detail {
+      font-size:.82rem; color:#444; margin-top:6px; line-height:1.5;
+    }
+    .stretch-tip {
+      font-size:.75rem; color:#085041; margin-top:5px;
+      padding: 5px 10px; background:#E1F5EE; border-radius:8px;
+    }
+
+    /* SVG placeholder icon when no image */
+    .stretch-placeholder {
+      width:100%; height:120px;
+      background:linear-gradient(135deg,#EEEDFE,#ddd8f8);
+      display:flex; align-items:center; justify-content:center;
+      font-size:3rem;
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="hdr-top">
+    <h1>🛏️ מתיחות בוקר</h1>
+    <nav style="display:flex;gap:4px">
+      <button class="tab-btn active" onclick="history.back()">← חזרה</button>
+    </nav>
+  </div>
+</header>
+
+<main style="padding-bottom:110px">
+
+  <!-- Overview -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon" style="background:#F3E5F5;font-size:1.5rem">🛏️</div>
+      <div>
+        <div class="card-title">מתיחות בוקר על המיטה</div>
+        <div class="card-subtitle">5–10 דקות | לפני הקימה | כל יום</div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge" style="background:#F3E5F5;color:#6A1B9A">⏱ 5–10 דקות</span>
+      <span class="badge" style="background:#F5F5F5;color:#444">🛏️ על המיטה</span>
+    </div>
+    <div class="alert-box info mt-8">💡 עשה אותן לפני שאתה קם — הגוף עדיין חמים מהשינה</div>
+    <div class="alert-box tip">✅ נשימה עמוקה: שאף, ובנשיפה תן לגוף להתמתח עוד קצת</div>
+  </div>
+
+  <!-- Stretches -->
+
+  <div class="stretch-card">
+    <img class="stretch-img"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Knee-to-chest_stretch.jpg/640px-Knee-to-chest_stretch.jpg"
+      onerror="this.style.display='none'" alt="ברכיים לחזה">
+    <div class="stretch-placeholder" id="ph1" style="display:none">🦵</div>
+    <div class="stretch-body">
+      <span class="stretch-num">1</span>
+      <span class="stretch-name">מתיחת עמוד שדרה — ברכיים לחזה</span>
+      <span class="stretch-time">30 שניות</span>
+      <div class="stretch-detail">שכיבה על הגב. שתי ברכיים כפופות לחזה, חבק אותן בידיים. הרגע את הגב התחתון.</div>
+      <div class="stretch-tip">הגב התחתון נשטח לחלוטין — מושלם אחרי לילה של שינה</div>
+    </div>
+  </div>
+
+  <div class="stretch-card">
+    <img class="stretch-img"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Supta_Matsyendrasana_Yoga-Asana_Nina-Mel.jpg/640px-Supta_Matsyendrasana_Yoga-Asana_Nina-Mel.jpg"
+      onerror="this.style.display='none'" alt="פיתול עמוד שדרה">
+    <div class="stretch-body">
+      <span class="stretch-num">2</span>
+      <span class="stretch-name">פיתול עמוד שדרה</span>
+      <span class="stretch-time">30 שניות כל צד</span>
+      <div class="stretch-detail">שכיבה על הגב. ברך אחת מעל לצד הנגדי, כתפיים נשארות שטוחות. הסתכל לכיוון הנגדי.</div>
+      <div class="stretch-tip">אל תדחף בכוח — תן לכוח המשיכה לעשות את העבודה</div>
+    </div>
+  </div>
+
+  <div class="stretch-card">
+    <div class="stretch-placeholder">🦋</div>
+    <div class="stretch-body">
+      <span class="stretch-num">3</span>
+      <span class="stretch-name">מתיחת ירך (Figure 4)</span>
+      <span class="stretch-time">30 שניות כל צד</span>
+      <div class="stretch-detail">שכיבה על הגב. קרסול רגל אחת על ברך הרגל השנייה. משוך את הרגל התומכת אליך עד תחושת מתח בישבן.</div>
+      <div class="stretch-tip">מצוין לישבן ולשריר הפיריפורמיס — גורם נפוץ לכאב גב תחתון</div>
+    </div>
+  </div>
+
+  <div class="stretch-card">
+    <div class="stretch-placeholder">🦵</div>
+    <div class="stretch-body">
+      <span class="stretch-num">4</span>
+      <span class="stretch-name">מתיחת המסטרינג</span>
+      <span class="stretch-time">30 שניות כל צד</span>
+      <div class="stretch-detail">שכיבה על הגב. הרם רגל אחת ישרה כלפי מעלה. אחוז בירך (או בגרב) ומשוך אליך בעדינות.</div>
+      <div class="stretch-tip">הרגל לא חייבת להיות ישרה לגמרי — לך עד לנקודה נעימה</div>
+    </div>
+  </div>
+
+  <div class="stretch-card">
+    <div class="stretch-placeholder">🙆</div>
+    <div class="stretch-body">
+      <span class="stretch-num">5</span>
+      <span class="stretch-name">מתיחת חזה + כתפיים</span>
+      <span class="stretch-time">30 שניות</span>
+      <div class="stretch-detail">שכיבה על הגב. ידיים פשוטות לצדדים בגובה הכתף, כפות ידיים למעלה. תן לכוח המשיכה לפתוח את החזה.</div>
+      <div class="stretch-tip">נשום עמוק — החזה נפתח עוד יותר בכל נשיפה</div>
+    </div>
+  </div>
+
+  <div class="stretch-card">
+    <div class="stretch-placeholder">🙇</div>
+    <div class="stretch-body">
+      <span class="stretch-num">6</span>
+      <span class="stretch-name">מתיחת צוואר קדימה</span>
+      <span class="stretch-time">20 שניות</span>
+      <div class="stretch-detail">ישיבה על המיטה. סנטר לחזה, ידיים על עורף בעדינות. לא ללחוץ בכוח.</div>
+      <div class="stretch-tip">אחרי לילה של שינה הצוואר נוקשה — לאט לאט בלבד</div>
+    </div>
+  </div>
+
+  <div class="stretch-card">
+    <img class="stretch-img"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Balasana_%28Child%27s_Pose%29.jpg/640px-Balasana_%28Child%27s_Pose%29.jpg"
+      onerror="this.style.display='none'" alt="Child's Pose">
+    <div class="stretch-body">
+      <span class="stretch-num">7</span>
+      <span class="stretch-name">Child's Pose (ילד)</span>
+      <span class="stretch-time">30 שניות</span>
+      <div class="stretch-detail">כריעה על המיטה, ישב על העקבים, ידיים פשוטות קדימה, מצח על המיטה. מתח את הגב ושחרר.</div>
+      <div class="stretch-tip">אחת המתיחות הטובות ביותר לגב תחתון ורגיעה כללית</div>
+    </div>
+  </div>
+
+  <div class="stretch-card">
+    <div class="stretch-placeholder">🐱</div>
+    <div class="stretch-body">
+      <span class="stretch-num">8</span>
+      <span class="stretch-name">חתול-פרה (Cat-Cow)</span>
+      <span class="stretch-time">8 חזרות איטיות</span>
+      <div class="stretch-detail">על ארבע על המיטה. <strong>חתול:</strong> קמר גב מעלה, סנטר לחזה. <strong>פרה:</strong> גב מטה, ראש מעלה. זרום לאט.</div>
+      <div class="stretch-tip">מחמם עמוד שדרה ומפעיל אותו לקראת היום — עשה לאט בתיאום עם הנשימה</div>
+    </div>
+  </div>
+
+  <!-- Tips -->
+  <div class="card">
+    <div class="section-title">🗓️ סדר הבוקר המלא המוצע</div>
+    <ul class="steps-list mt-8">
+      <li class="step">
+        <div class="step-num">⏰</div>
+        <div><div class="step-action">קימה</div></div>
+      </li>
+      <li class="step">
+        <div class="step-num" style="background:#F3E5F5;color:#6A1B9A">🛏️</div>
+        <div>
+          <div class="step-action">מתיחות על המיטה</div>
+          <div class="step-detail">5–7 דקות</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" style="background:#FFF8E1;color:#F57F17">🌅</div>
+        <div>
+          <div class="step-action">שגרת כושר בוקר</div>
+          <div class="step-detail">15–20 דקות</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num">🚿</div>
+        <div><div class="step-action">מקלחת</div></div>
+      </li>
+    </ul>
+    <div class="alert-box info mt-8">💡 אחרי אימון בחדר כושר — הארך כל מתיחה ל-45 שניות, הגוף צריך יותר</div>
+  </div>
+
+</main>
+
+<script>
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('../sw.js');
+  Utils.renderTimerBar();
+</script>
+</body>
+</html>
