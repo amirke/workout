@@ -1784,7 +1784,7 @@
         "motion":  "גומיה מגיעה לפנים עם מרפקים גבוהים בצדדים (צורת W).",
         "warn":  "אל תטה ראש קדימה — שמור צוואר ניטרלי",
         "tip":  "תרגיל מצוין לבריאות כתף — בצע כל יום אם רוצה",
-        "image":  "images/כנגד גומיה/08961105-Band-face-pull_Shoulders_max-POTASH.png",
+        "image":  "images/מתיחות/Face Pull עם גומייה.webp",
         "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/",
         "equipment_category":  "גומיה",
         "body_areas":  [
@@ -3731,5 +3731,217 @@
         "tip":  "מצוין לחיזוק הצד החיצוני של הישבן — עוזר לכאבי ברכיים",
         "image":  "images/כנגד גומיה/24601105-Resistance-Band-Lateral-Walk_Hips_medium-GIMP.webp",
         "instructor_url":  "https://www.instructor.co.il/body-section/gluteus/"
+    },
+    {
+        "id":  "pushdown_cable",
+        "name_he":  "פשיטת מרפקים — כבל",
+        "name_en":  "Cable Triceps Pushdown",
+        "machine":  "כבל פולי עליון + חבל/מוט",
+        "day":  "day1",
+        "sets":  "3 × 12–15",
+        "rest_sec":  60,
+        "equipment_category":  "כבל פולי",
+        "body_areas":  [
+                           "יד אחורית"
+                       ],
+        "primary_muscles":  [
+                                {
+                                    "he":  "טריצפס",
+                                    "en":  "Triceps Brachii",
+                                    "url":  "https://www.instructor.co.il/body-section/back-arms/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "אנקוניאוס",
+                                      "en":  "Anconeus",
+                                      "url":  "https://www.instructor.co.il/body-section/back-arms/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עמוד",
+                          "detail":  "מול הפולי, מרפקים צמודים לגוף"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "אחוז",
+                          "detail":  "בחבל — אגרופים כלפי מטה, מרפקים ב-90°"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "דחף",
+                          "detail":  "דחף מטה עד יישור מלא — מרפקים קבועים"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "חזור לאט ל-90° — אל תרים מרפקים"
+                      }
+                  ],
+        "motion":  "מרפקים נשארים קבועים בצד הגוף. רק הזרוע התחתונה נעה.",
+        "warn":  "אל תרים מרפקים — הם נשארים קרוב לגוף כל הזמן",
+        "tip":  "בחבל: פתח ידיים בפסגה לתחושת כיווץ מלאה",
+        "image":  "images/POLY/02001103-Cable-Pushdown-with-rope-attachment_Upper-Arms_max-POTASH.webp",
+        "instructor_url":  "https://www.instructor.co.il/body-section/back-arms/"
+    },
+    {
+        "id":  "assisted_pullup",
+        "name_he":  "עליית מתח בסיוע (Gravitron)",
+        "name_en":  "Assisted Pull-Up",
+        "machine":  "Graviton Machine / Assisted Pull-Up",
+        "day":  "day3",
+        "sets":  "3 × 8–12",
+        "rest_sec":  90,
+        "equipment_category":  "מכונה ייעודית",
+        "body_areas":  [
+                           "גב",
+                           "יד קדמית"
+                       ],
+        "primary_muscles":  [
+                                {
+                                    "he":  "גב רחב",
+                                    "en":  "Latissimus Dorsi",
+                                    "url":  "https://www.instructor.co.il/muscle/latissimus-dorsi/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "ביצפס",
+                                      "en":  "Biceps Brachii",
+                                      "url":  "https://www.instructor.co.il/body-section/front-arms/"
+                                  },
+                                  {
+                                      "he":  "טרפז תיכון",
+                                      "en":  "Middle Trapezius",
+                                      "url":  "https://www.instructor.co.il/body-section/upper-back/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "כרע",
+                          "detail":  "על הפלטה — ככל שהמשקל נגד גבוה יותר, קל יותר"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "אחוז",
+                          "detail":  "אחיזה רחבה, כפות ידיים קדימה"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "משוך",
+                          "detail":  "משוך עד שהסנטר מעל לבר — שכמות יורדות"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "הורד לאט עד יישור מלא — 3 שניות"
+                      }
+                  ],
+        "motion":  "גוף עולה ישר, שכמות יורדות ומתכנסות בפסגה.",
+        "warn":  "אל תתנדנד — תנועה שליטה בלבד",
+        "tip":  "הפחת משקל נגד בהדרגה — המטרה עליית מתח מלאה ללא סיוע",
+        "image":  "images/מכונות/00171105-Assisted-Pull-up_Back_max.png",
+        "instructor_url":  "https://www.instructor.co.il/muscle/latissimus-dorsi/"
+    },
+    {
+        "id":  "leg_press_day",
+        "name_he":  "לחיצת רגליים",
+        "name_en":  "Leg Press",
+        "machine":  "Leg Press Machine",
+        "day":  "day5",
+        "sets":  "3 × 12–15",
+        "rest_sec":  90,
+        "equipment_category":  "מכונה ייעודית",
+        "body_areas":  [
+                           "רגליים",
+                           "ישבן"
+                       ],
+        "primary_muscles":  [
+                                {
+                                    "he":  "ארבע ראשי",
+                                    "en":  "Quadriceps",
+                                    "url":  "https://www.instructor.co.il/body-section/front-thigh/"
+                                },
+                                {
+                                    "he":  "ישבן",
+                                    "en":  "Gluteus Maximus",
+                                    "url":  "https://www.instructor.co.il/body-section/gluteus/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "כלבי ירך",
+                                      "en":  "Hamstrings",
+                                      "url":  "https://www.instructor.co.il/body-section/back-thigh/"
+                                  },
+                                  {
+                                      "he":  "שוק",
+                                      "en":  "Calves",
+                                      "url":  "https://www.instructor.co.il/body-section/calf/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "שב",
+                          "detail":  "ברגליים ברוחב כתפיים על הפלטה — לא צמודות ולא רחבות מדי"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "שחרר",
+                          "detail":  "שחרר את הבטיחות — גב שטוח על המשענת"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "כפוף",
+                          "detail":  "כפוף ברכיים עד ~90° — ברכיים מעל האצבעות"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "דחף",
+                          "detail":  "דחף מעלה עד יישור כמעט מלא — לא ננעל ברכיים"
+                      }
+                  ],
+        "motion":  "מיקום רגליים גבוה = יותר ישבן. נמוך = יותר ארבע ראשי.",
+        "warn":  "אל תנעל ברכיים בפסגה — עומס יתר על מפרק",
+        "tip":  "מתחיל עם משקל קל — לומד מסלול תנועה נכון לפני הוספת משקל",
+        "image":  "images/מכונות/29511105-Lever-Horizontal-Leg-Press_Thighs_max.webp",
+        "instructor_url":  "https://www.instructor.co.il/body-section/front-thigh/"
     }
 ];
