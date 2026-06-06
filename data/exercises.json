@@ -84,7 +84,7 @@
         "motion":  "מוט יורד בקו אנכי ישר לחזה התחתון. מרפקים ב-45°. ירידה 2–3 שניות, עלייה מהירה.",
         "warn":  "לא לקפוץ מהחזה — ירידה בשליטה תמיד",
         "tip":  "מוט ריק להתחלה — המטרה ללמוד תנועה",
-        "image":  "images/POLY/01511105-Cable-Bench-Press_Chest_max-POTASH.png",
+        "image":  "images/מתיחות/Bench Press.jpg",
         "instructor_url":  "https://www.instructor.co.il/body-section/chest/",
         "equipment_category":  "מוט חופשי",
         "body_areas":  [
@@ -172,7 +172,7 @@
         "motion":  "מוט עולה ישר מעל הראש. ראש נע קלות לאחור ביציאה, חוזר ביחס.",
         "warn":  "אל תקמור גב תחתון — הדק ליבה כל הזמן",
         "tip":  "נשום פנימה לפני הדחיפה, נשוף בפסגה",
-        "image":  "images/משקולות יד/21371105-Dumbbell-Arnold-Press_Shoulders_max.png",
+        "image":  "images/מתיחות/Overhead Press.jpg",
         "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/",
         "equipment_category":  "מוט חופשי",
         "body_areas":  [
@@ -249,7 +249,7 @@
         "motion":  "המשקולות יורדות בקשת קלה לצדי החזה.",
         "warn":  "אל תנמיך מתחת לקו החזה — עומס יתר על כתף",
         "tip":  "הצמד את המשקולות בפסגה לתחושת כיווץ מקסימלי",
-        "image":  "images/משקולות יד/02891105-Dumbbell-Bench-Press_Chest_max-POTASH-1.png",
+        "image":  "images/מתיחות/Incline DB Press.jpg",
         "instructor_url":  "https://www.instructor.co.il/body-section/chest/",
         "equipment_category":  "משקולות יד",
         "body_areas":  [
@@ -727,7 +727,7 @@
         "motion":  "זרוע תחתונה נעה בלבד, מרפק נשאר במקום.",
         "warn":  "לא לנדנד גוף לאחור — כוח, לא תנופה",
         "tip":  "ניתן לבצע לסירוגין (יד אחת) או שתי ידיים יחד — שתי האפשרויות עובדות",
-        "image":  "images/משקולות יד/16501105-Dumbbell-Alternating-Seated-Bicep-Curl-on-Exercise-Ball_Upper-Arms_medium.webp",
+        "image":  "images/מתיחות/Bicep Curl.png",
         "instructor_url":  "https://www.instructor.co.il/body-section/front-arms/",
         "equipment_category":  "משקולות יד",
         "body_areas":  [
@@ -798,7 +798,7 @@
         "motion":  "גפיים נעות בצלב — ידיים ורגליים בצד נגדי.",
         "warn":  "לא לאפשר גב תחתון לקמר — זה הכי חשוב",
         "tip":  "נשום החוצה כשמוריד גפיים",
-        "image":  "images/משקל גוף/31411105-Bird-Dog-female_max-POTASH.webp",
+        "image":  "images/מתיחות/Dead Bug.png",
         "instructor_url":  "https://www.instructor.co.il/body-section/abdomen/",
         "equipment_category":  "משקל גוף",
         "body_areas":  [
@@ -1065,7 +1065,7 @@
         "motion":  "ירידה מאונכת, ברך קדמית מעל קרסול.",
         "warn":  "ברך קדמית לא מעבר לאצבע הגדולה",
         "tip":  "התחל ללא משקל — תנועה נכונה קודם",
-        "image":  "images/משקולות יד/12151105-Dumbbell-side-lunge_hips_max-POTASH.png",
+        "image":  "images/מתיחות/Forward Lunge.jpg",
         "instructor_url":  "https://www.instructor.co.il/body-section/front-thigh/",
         "equipment_category":  "משקולות יד",
         "body_areas":  [
@@ -1386,7 +1386,7 @@
         "motion":  "המשקולות עולות ישר מעל הראש. בפסגה — המרפקים כמעט נעולים.",
         "warn":  "אל תקמור גב תחתון — אם קורה, בצע בישיבה",
         "tip":  "לגיוון: התחל כפות ידיים פנימה וסובב החוצה תוך הדחיפה (Arnold Press)",
-        "image":  "images/משקולות יד/21371105-Dumbbell-Arnold-Press_Shoulders_max.png",
+        "image":  "images/מתיחות/Overhead Press.jpg",
         "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/",
         "equipment_category":  "משקולות יד",
         "body_areas":  [
@@ -2052,7 +2052,7 @@
         "motion":  "מכרע לאחור (Reverse Lunge) — פחות עומס על ברך, מתאים לבית.",
         "warn":  "ברך קדמית לא מעבר לאצבע הגדולה",
         "tip":  "Reverse Lunge בטוח יותר מקדמי — מומלץ אם יש כאבי ברכיים",
-        "image":  "images/משקולות יד/12151105-Dumbbell-side-lunge_hips_max-POTASH.png",
+        "image":  "images/מתיחות/Forward Lunge.jpg",
         "instructor_url":  "https://www.instructor.co.il/body-section/front-thigh/",
         "equipment_category":  "משקולות יד",
         "body_areas":  [
@@ -3245,7 +3245,7 @@
         "motion":  "זרועות עולות בקשת לצדדים. מרפקים כפופים קלות לאורך כל הדרך.",
         "warn":  "אל תשתמש בתנופה — כוח שרירי בלבד",
         "tip":  "ירידה איטית חשובה יותר מהעלייה — מנצלת את התנגדות הגומיה",
-        "image":  "images/כנגד גומיה/67361105-Resistance-Band-Standing-Balance-Hip-Abduction-female_Hips_medium.webp",
+        "image":  "images/מתיחות/Band Lateral Raise.jpg",
         "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/"
     },
     {

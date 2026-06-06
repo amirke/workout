@@ -161,10 +161,7 @@ window.Utils = (function() {
       '<button onclick="Utils.adjustDuration(10)"  style="' + b + '">+10</button>',
       '<button onclick="Utils.adjustDuration(30)"  style="' + b + '">+30</button>',
 
-      // מסך דלוק
-      '<button id="wlBtn" onclick="Utils.toggleWakeLock()" style="' + bw + '" title="שמור מסך דלוק">🌙</button>',
-
-      '<button id="wlBtn" onclick="Utils.toggleWakeLock()" style="' + bw + '" title="מסך דלוק">🌙</button>'
+      '<button id="wlBtn" onclick="Utils.toggleWakeLock()" style="' + bw + '" title="שמור מסך דלוק">🌙</button>'
     ].join('');
 
     document.body.appendChild(bar);
