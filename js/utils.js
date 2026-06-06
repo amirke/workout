@@ -154,33 +154,31 @@ window.Utils = (function() {
       'font-family:Heebo,sans-serif;direction:rtl;user-select:none';
 
     var b  = 'border:none;border-radius:8px;cursor:pointer;font-weight:700;' +
-             'padding:7px 10px;font-size:.8rem;background:rgba(255,255,255,.12);color:#fff;flex-shrink:0';
+             'padding:6px 14px;font-size:.82rem;background:rgba(255,255,255,.13);color:#fff';
     var bm = 'border:none;border-radius:8px;cursor:pointer;font-weight:700;' +
-             'padding:7px 16px;font-size:1.1rem;background:#3C3489;color:#fff;flex-shrink:0';
-    var bw = 'border:none;cursor:pointer;font-size:1rem;background:transparent;' +
-             'color:rgba(255,255,255,.5);padding:7px 8px;flex-shrink:0';
+             'padding:6px 22px;font-size:1rem;background:#3C3489;color:#fff';
+    var bw = 'border:none;cursor:pointer;font-size:.95rem;background:transparent;color:rgba(255,255,255,.5);padding:6px 8px';
+    var pb = 'calc(8px + env(safe-area-inset-bottom,0px))';
 
     bar.innerHTML =
-      // Progress bar דק בראש
+      // Progress bar
       '<div style="height:3px;background:rgba(255,255,255,.07)">' +
         '<div id="tmrProgress" style="height:3px;width:100%;background:#4ade80;transition:width .9s linear,background .3s"></div>' +
       '</div>' +
-      // שורת כפתורים + תצוגה גדולה
-      '<div style="display:flex;align-items:center;gap:8px;padding:10px 12px;' +
-           'padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))">' +
-        '<button onclick="Utils.adjustDuration(-30)" style="' + b + '">−30</button>' +
+      // שורה 1 — תצוגת זמן גדולה
+      '<div style="text-align:center;padding:8px 12px 4px">' +
+        '<div id="tmrDisplay" style="font-size:2.2rem;font-weight:800;color:#4ade80;' +
+             'font-variant-numeric:tabular-nums;letter-spacing:.04em;line-height:1">1:00</div>' +
+        '<div id="tmrTotal" style="font-size:.6rem;color:rgba(255,255,255,.3);margin-top:2px">סה״כ 1:00</div>' +
+      '</div>' +
+      // שורה 2 — כפתורי שליטה
+      '<div style="display:flex;align-items:center;justify-content:center;gap:8px;' +
+           'padding:4px 12px;padding-bottom:' + pb + '">' +
         '<button onclick="Utils.adjustDuration(-10)" style="' + b + '">−10</button>' +
-        // תצוגה מרכזית
-        '<div style="flex:1;text-align:center;line-height:1">' +
-          '<div id="tmrDisplay" style="font-size:2rem;font-weight:800;color:#4ade80;' +
-               'font-variant-numeric:tabular-nums;letter-spacing:.03em">1:00</div>' +
-          '<div id="tmrTotal" style="font-size:.6rem;color:rgba(255,255,255,.3);margin-top:2px">סה״כ 1:00</div>' +
-        '</div>' +
-        '<button onclick="Utils.adjustDuration(10)"  style="' + b + '">+10</button>' +
-        '<button onclick="Utils.adjustDuration(30)"  style="' + b + '">+30</button>' +
-        '<button id="tmrStart" onclick="Utils.toggleTimer()"     style="' + bm + '">▶</button>' +
-        '<button onclick="Utils.resetTimer()"                    style="' + b  + '">↺</button>' +
-        '<button id="wlBtn"    onclick="Utils.toggleWakeLock()"  style="' + bw + '" title="מסך דלוק">🌙</button>' +
+        '<button id="tmrStart" onclick="Utils.toggleTimer()"    style="' + bm + '">▶</button>' +
+        '<button onclick="Utils.resetTimer()"                   style="' + b  + '">↺</button>' +
+        '<button onclick="Utils.adjustDuration(10)"             style="' + b  + '">+10</button>' +
+        '<button id="wlBtn"   onclick="Utils.toggleWakeLock()"  style="' + bw + '" title="מסך דלוק">🌙</button>' +
       '</div>';
 
     document.body.appendChild(bar);
