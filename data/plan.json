@@ -1,81 +1,58 @@
 {
   "week": [
     {
-      "day": "sunday",
-      "day_he": "ראשון",
-      "type": "strength",
-      "label": "כוח A",
-      "subtitle": "חזה + כתפיים",
-      "color": "purple",
+      "day": "sunday", "day_he": "ראשון", "type": "strength",
+      "label": "כוח A", "subtitle": "חזה + כתפיים", "color": "purple",
       "page": "pages/day1.html",
-      "gym_exercise_ids":  ["bench_press", "ohp", "incline_db_press", "lateral_raise", "plank"],
-      "home_exercise_ids": ["home_db_bench_press", "home_db_ohp", "home_db_fly", "home_db_lateral_raise", "plank"]
+      "gym_exercise_ids":        ["bench_press", "ohp", "incline_db_press", "lateral_raise", "plank"],
+      "home_exercise_ids":       ["home_db_bench_press", "home_db_ohp", "home_db_fly", "home_db_lateral_raise", "plank"],
+      "suspension_exercise_ids": ["sus_chest_press", "sus_fly", "sus_reverse_fly", "sus_y_raise", "sus_row"],
+      "band_exercise_ids":       ["band_chest_day", "band_ohp_day", "band_lateral_day", "home_band_face_pull", "plank"],
+      "warmup": "chest_shoulders"
     },
     {
-      "day": "monday",
-      "day_he": "שני",
-      "type": "cardio",
-      "label": "קרדיו",
-      "subtitle": "LISS — אירובי נמוך",
-      "color": "green",
+      "day": "monday", "day_he": "שני", "type": "cardio",
+      "label": "קרדיו", "subtitle": "LISS — אירובי נמוך", "color": "green",
       "page": "pages/day2.html",
-      "gym_exercise_ids":  [],
-      "home_exercise_ids": []
+      "gym_exercise_ids": [], "home_exercise_ids": [], "suspension_exercise_ids": [], "band_exercise_ids": []
     },
     {
-      "day": "tuesday",
-      "day_he": "שלישי",
-      "type": "strength",
-      "label": "כוח B",
-      "subtitle": "גב + ביצפס",
-      "color": "purple",
+      "day": "tuesday", "day_he": "שלישי", "type": "strength",
+      "label": "כוח B", "subtitle": "גב + ביצפס", "color": "purple",
       "page": "pages/day3.html",
-      "gym_exercise_ids":  ["bent_over_row", "lat_pulldown", "face_pull", "bicep_curl", "dead_bug"],
-      "home_exercise_ids": ["home_db_one_arm_row", "home_band_pulldown", "home_band_face_pull", "bicep_curl", "dead_bug"]
+      "gym_exercise_ids":        ["bent_over_row", "lat_pulldown", "face_pull", "bicep_curl", "dead_bug"],
+      "home_exercise_ids":       ["home_db_one_arm_row", "home_band_pulldown", "home_band_face_pull", "bicep_curl", "dead_bug"],
+      "suspension_exercise_ids": ["sus_row", "sus_pull_up", "sus_face_pull", "sus_arm_curl", "sus_crunch"],
+      "band_exercise_ids":       ["band_row_day", "band_pulldown_day", "home_band_face_pull", "band_curl_day", "dead_bug"],
+      "warmup": "back_biceps"
     },
     {
-      "day": "wednesday",
-      "day_he": "רביעי",
-      "type": "rest",
-      "label": "מנוחה",
-      "subtitle": "התאוששות",
-      "color": "gray",
+      "day": "wednesday", "day_he": "רביעי", "type": "rest",
+      "label": "מנוחה", "subtitle": "התאוששות", "color": "gray",
       "page": "pages/day4.html",
-      "gym_exercise_ids":  [],
-      "home_exercise_ids": []
+      "gym_exercise_ids": [], "home_exercise_ids": [], "suspension_exercise_ids": [], "band_exercise_ids": []
     },
     {
-      "day": "thursday",
-      "day_he": "חמישי",
-      "type": "strength",
-      "label": "כוח C",
-      "subtitle": "רגליים + ליבה",
-      "color": "purple",
+      "day": "thursday", "day_he": "חמישי", "type": "strength",
+      "label": "כוח C", "subtitle": "רגליים + ליבה", "color": "purple",
       "page": "pages/day5.html",
-      "gym_exercise_ids":  ["squat", "rdl", "forward_lunge", "glute_bridge", "side_plank"],
-      "home_exercise_ids": ["home_db_squat", "home_db_rdl", "home_db_lunge", "home_band_hip_thrust", "side_plank"]
+      "gym_exercise_ids":        ["squat", "rdl", "forward_lunge", "glute_bridge", "side_plank"],
+      "home_exercise_ids":       ["home_db_squat", "home_db_rdl", "home_db_lunge", "home_band_hip_thrust", "side_plank"],
+      "suspension_exercise_ids": ["sus_squat", "sus_lunge", "sus_hip_thrust", "sus_mountain_climber", "sus_crunch"],
+      "band_exercise_ids":       ["band_squat_day", "band_deadlift_day", "band_hip_thrust_day", "band_lateral_walk_day", "side_plank"],
+      "warmup": "legs_core"
     },
     {
-      "day": "friday",
-      "day_he": "שישי",
-      "type": "cardio",
-      "label": "קרדיו",
-      "subtitle": "HIIT / LISS",
-      "color": "green",
+      "day": "friday", "day_he": "שישי", "type": "cardio",
+      "label": "קרדיו", "subtitle": "HIIT / LISS", "color": "green",
       "page": "pages/day6.html",
-      "gym_exercise_ids":  [],
-      "home_exercise_ids": []
+      "gym_exercise_ids": [], "home_exercise_ids": [], "suspension_exercise_ids": [], "band_exercise_ids": []
     },
     {
-      "day": "saturday",
-      "day_he": "שבת",
-      "type": "rest",
-      "label": "מנוחה",
-      "subtitle": "שבת שלום",
-      "color": "gray",
+      "day": "saturday", "day_he": "שבת", "type": "rest",
+      "label": "מנוחה", "subtitle": "שבת שלום", "color": "gray",
       "page": "pages/day4.html",
-      "gym_exercise_ids":  [],
-      "home_exercise_ids": []
+      "gym_exercise_ids": [], "home_exercise_ids": [], "suspension_exercise_ids": [], "band_exercise_ids": []
     }
   ]
 }

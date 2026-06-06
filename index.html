@@ -54,9 +54,11 @@
   <!-- שורה ראשונה: כותרת + מתג -->
   <div class="hdr-row">
     <h1 style="margin:0;font-size:1rem;font-weight:700;flex:1">💪 תכנית כושר</h1>
-    <div class="header-mode-toggle">
-      <button id="globalGym"  onclick="setWorkoutMode('gym')">🏋️ חדר כושר</button>
-      <button id="globalHome" onclick="setWorkoutMode('home')">🏠 בית</button>
+    <div class="header-mode-toggle" id="modeToggle">
+      <button data-mode="gym"        onclick="setWorkoutMode('gym')">🏋️ חדר</button>
+      <button data-mode="home"       onclick="setWorkoutMode('home')">🏠 בית</button>
+      <button data-mode="suspension" onclick="setWorkoutMode('suspension')">🪢 רצועות</button>
+      <button data-mode="band"       onclick="setWorkoutMode('band')">🔴 גומיות</button>
     </div>
   </div>
   <!-- שורה שנייה: טאבים -->
@@ -108,16 +110,13 @@
     });
   });
 
-  // ── מתג gym / home ─────────────────────────────
+  // ── מתג 4 מצבים ────────────────────────────────
   function setWorkoutMode(mode) {
     Data.setMode(mode);
-    var isGym = mode === 'gym';
-    var gBtn = document.getElementById('globalGym');
-    var hBtn = document.getElementById('globalHome');
-    gBtn.style.background = isGym  ? 'rgba(255,255,255,0.25)' : 'transparent';
-    gBtn.style.color      = '#fff';
-    hBtn.style.background = !isGym ? 'rgba(255,255,255,0.25)' : 'transparent';
-    hBtn.style.color      = '#fff';
+    document.querySelectorAll('#modeToggle button').forEach(function(b) {
+      b.style.background = b.dataset.mode === mode ? 'rgba(255,255,255,0.25)' : 'transparent';
+      b.style.color = '#fff';
+    });
   }
 
   // הפעל ברירת מחדל

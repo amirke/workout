@@ -66,14 +66,63 @@ window.Render = (() => {
       wireLoggers(content);
     }
 
+    function warmupCard() {
+      const wu = Data.getWarmup(dayPlan.warmup);
+      if (!wu) return '';
+      const steps = wu.steps.map(function(s, i) {
+        return '<li class="step"><div class="step-num" style="background:#6B6B6B">' + (i+1) + '</div>' +
+               '<div><div class="step-action">' + s.action + '</div>' +
+               '<div class="step-detail">' + s.detail + '</div></div></li>';
+      }).join('');
+      return '<div class="card" style="margin-bottom:8px;border-right:3px solid #E67E22">' +
+             '<div class="section-title" style="color:#7C4700">🔥 ' + wu.title + ' — ' + wu.duration + '</div>' +
+             '<ul class="steps-list mt-8">' + steps + '</ul>' +
+             UI.alertBox('בצע את החימום לפני שמגיע לתרגיל הראשון', 'warn') +
+             '</div>';
+    }
+
     function load() {
       exercises = Data.getExercisesForDay(dayPlan);
       const mode   = Data.getMode();
-      const modeHe = mode === 'gym' ? '🏋️ חדר כושר' : '🏠 בית';
-      if (titleEl) titleEl.textContent = dayPlan.label + ' — ' + modeHe;
+      const cfg    = Data.MODE_CONFIG[mode] || Data.MODE_CONFIG.gym;
+      if (titleEl) titleEl.textContent = dayPlan.label + ' — ' + cfg.label;
 
-      if (nav) UI.buildExNav(nav, exercises, showEx);
-      showEx(0);
+      if (nav) {
+        // Add warmup as first tab
+        nav.innerHTML = '';
+        const back = document.createElement('button');
+        back.className = 'tab-btn';
+        back.textContent = '← חזרה';
+        back.onclick = function() { history.back(); };
+        nav.appendChild(back);
+
+        const wuBtn = document.createElement('button');
+        wuBtn.className = 'tab-btn';
+        wuBtn.textContent = '🔥 חימום';
+        wuBtn.onclick = function() {
+          nav.querySelectorAll('.tab-btn').forEach(function(b,j) { b.classList.toggle('active', j===1); });
+          content.innerHTML = warmupCard();
+        };
+        nav.appendChild(wuBtn);
+
+        exercises.forEach(function(ex, i) {
+          const btn = document.createElement('button');
+          btn.className = 'tab-btn';
+          btn.textContent = ex.name_he;
+          btn.onclick = function() {
+            nav.querySelectorAll('.tab-btn').forEach(function(b,j) { b.classList.toggle('active', j===i+2); });
+            showEx(i);
+          };
+          nav.appendChild(btn);
+        });
+
+        // Default: show warmup first
+        nav.querySelectorAll('.tab-btn').forEach(function(b,j) { b.classList.toggle('active', j===1); });
+        content.innerHTML = warmupCard();
+      } else {
+        content.innerHTML = warmupCard();
+        showEx(0);
+      }
     }
 
     load();
