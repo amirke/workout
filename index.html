@@ -18,11 +18,48 @@
   <script src="js/data.js"></script>
   <script src="js/components.js"></script>
   <script src="js/render.js"></script>
+  <style>
+    /* מתג בהדר */
+    .header-mode-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      margin-right: auto;   /* דוחף לצד שמאל ב-RTL */
+      flex-shrink: 0;
+    }
+    .header-mode-toggle button {
+      padding: 5px 13px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Heebo', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background .15s, color .15s;
+    }
+    .hdr-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 4px;
+    }
+  </style>
 </head>
 <body>
 
 <header class="site-header">
-  <h1>💪 תכנית כושר</h1>
+  <!-- שורה ראשונה: כותרת + מתג -->
+  <div class="hdr-row">
+    <h1 style="margin:0;font-size:1rem;font-weight:700;flex:1">💪 תכנית כושר</h1>
+    <div class="header-mode-toggle">
+      <button id="globalGym"  onclick="setWorkoutMode('gym')">🏋️ חדר כושר</button>
+      <button id="globalHome" onclick="setWorkoutMode('home')">🏠 בית</button>
+    </div>
+  </div>
+  <!-- שורה שנייה: טאבים -->
   <nav class="tab-nav" id="mainNav">
     <button class="tab-btn active" data-panel="week">לוח שבועי</button>
     <button class="tab-btn"        data-panel="today">אימון היום</button>
@@ -33,22 +70,6 @@
 <main>
   <section id="panel-week">
     <p class="text-muted text-sm mb-4" id="todayBanner"></p>
-
-    <!-- מתג gym / home -->
-    <div id="modeBar" style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-      <span class="text-muted text-sm">סוג אימון:</span>
-      <div style="display:flex;border-radius:12px;overflow:hidden;border:1.5px solid #EEEDFE">
-        <button id="globalGym"  onclick="setWorkoutMode('gym')"
-                style="padding:7px 16px;border:none;cursor:pointer;font-family:Heebo,sans-serif;font-size:.82rem;font-weight:700">
-          🏋️ חדר כושר
-        </button>
-        <button id="globalHome" onclick="setWorkoutMode('home')"
-                style="padding:7px 16px;border:none;cursor:pointer;font-family:Heebo,sans-serif;font-size:.82rem;font-weight:700">
-          🏠 בית
-        </button>
-      </div>
-    </div>
-
     <div id="dayList"></div>
   </section>
 
@@ -91,14 +112,23 @@
   function setWorkoutMode(mode) {
     Data.setMode(mode);
     var isGym = mode === 'gym';
-    document.getElementById('globalGym').style.background  = isGym  ? '#3C3489' : '#fff';
-    document.getElementById('globalGym').style.color       = isGym  ? '#fff'    : '#3C3489';
-    document.getElementById('globalHome').style.background = !isGym ? '#3C3489' : '#fff';
-    document.getElementById('globalHome').style.color      = !isGym ? '#fff'    : '#3C3489';
+    var gBtn = document.getElementById('globalGym');
+    var hBtn = document.getElementById('globalHome');
+    gBtn.style.background = isGym  ? 'rgba(255,255,255,0.25)' : 'transparent';
+    gBtn.style.color      = '#fff';
+    hBtn.style.background = !isGym ? 'rgba(255,255,255,0.25)' : 'transparent';
+    hBtn.style.color      = '#fff';
   }
 
   // הפעל ברירת מחדל
   setWorkoutMode(Data.getMode());
+
+  // ── Service Worker ─────────────────────────────
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+      .then(function() { console.log('SW registered'); })
+      .catch(function(e) { console.log('SW error:', e); });
+  }
 
   // ── Render ─────────────────────────────────────
   Render.renderDashboard();
