@@ -15,10 +15,27 @@
   <script src="../js/data.js"></script>
   <script src="../js/components.js"></script>
   <script src="../js/render.js"></script>
-</head>
+  <style>
+    .header-mode-toggle {
+      display:flex;border-radius:20px;overflow:hidden;
+      border:1.5px solid rgba(255,255,255,0.3);flex-shrink:0;
+    }
+    .header-mode-toggle button {
+      padding:5px 13px;border:none;cursor:pointer;
+      font-family:'Heebo',sans-serif;font-size:.78rem;font-weight:700;
+      color:#fff;white-space:nowrap;transition:background .15s;
+    }
+    .hdr-row { display:flex;align-items:center;gap:10px;padding-bottom:4px; }
+  </style></head>
 <body>
 <header class="site-header">
+  <div class="hdr-row">
   <h1 id="pageTitle">קרדיו שני — LISS</h1>
+  <div class="header-mode-toggle">
+    <button id="hdrGym"  onclick="setWorkoutMode('gym')">🏋️ חדר</button>
+    <button id="hdrHome" onclick="setWorkoutMode('home')">🏠 בית</button>
+  </div>
+</div>
   <nav class="tab-nav" id="exNav"></nav>
 </header>
 <main id="content">
@@ -27,5 +44,16 @@
 <script>
   Render.renderLissPage();
 </script>
-</body>
+<script>
+  function setWorkoutMode(mode) {
+    Data.setMode(mode);
+    var g = document.getElementById('hdrGym');
+    var h = document.getElementById('hdrHome');
+    if (!g||!h) return;
+    g.style.background = mode==='gym'  ? 'rgba(255,255,255,0.25)' : 'transparent';
+    h.style.background = mode==='home' ? 'rgba(255,255,255,0.25)' : 'transparent';
+  }
+  setWorkoutMode(Data.getMode());
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('../sw.js');
+</script></body>
 </html>
