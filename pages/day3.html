@@ -16,44 +16,64 @@
   <script src="../js/components.js"></script>
   <script src="../js/render.js"></script>
   <style>
-    .header-mode-toggle {
-      display:flex;border-radius:20px;overflow:hidden;
-      border:1.5px solid rgba(255,255,255,0.3);flex-shrink:0;
+    .hdr-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 8px;
     }
-    .header-mode-toggle button {
-      padding:5px 13px;border:none;cursor:pointer;
-      font-family:'Heebo',sans-serif;font-size:.78rem;font-weight:700;
-      color:#fff;white-space:nowrap;transition:background .15s;
+    .hdr-top h1 { margin: 0; font-size: 1rem; font-weight: 700; }
+    .mode-pill {
+      display: flex;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      flex-shrink: 0;
     }
-    .hdr-row { display:flex;align-items:center;gap:10px;padding-bottom:4px; }
-  </style></head>
+    .mode-pill button {
+      padding: 4px 11px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Heebo', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      color: #fff;
+      background: transparent;
+      transition: background .15s;
+    }
+    .mode-pill button.active-mode { background: rgba(255,255,255,0.25); }
+  </style>
+</head>
 <body>
 <header class="site-header">
-  <div class="hdr-row">
-  <h1 id="pageTitle">כוח B — גב + ביצפס</h1>
-  <div class="header-mode-toggle">
-    <button id="hdrGym"  onclick="setWorkoutMode('gym')">🏋️ חדר</button>
-    <button id="hdrHome" onclick="setWorkoutMode('home')">🏠 בית</button>
+  <div class="hdr-top">
+    <h1 id="pageTitle">🏋️ כוח B</h1>
+    <div class="mode-pill">
+      <button data-mode="gym"  onclick="setWorkoutMode('gym')">🏋️ חדר</button>
+      <button data-mode="home" onclick="setWorkoutMode('home')">🏠 בית</button>
+    </div>
   </div>
-</div>
   <nav class="tab-nav" id="exNav"></nav>
 </header>
 <main id="content">
   <div class="card"><div class="text-muted text-sm">טוען...</div></div>
 </main>
 <script>
+  window.__rerender = function() { Render.renderStrengthPage('tuesday'); };
   Render.renderStrengthPage('tuesday');
 </script>
 <script>
   function setWorkoutMode(mode) {
     Data.setMode(mode);
-    var g = document.getElementById('hdrGym');
-    var h = document.getElementById('hdrHome');
-    if (!g||!h) return;
-    g.style.background = mode==='gym'  ? 'rgba(255,255,255,0.25)' : 'transparent';
-    h.style.background = mode==='home' ? 'rgba(255,255,255,0.25)' : 'transparent';
+    document.querySelectorAll('.mode-pill button').forEach(function(b) {
+      b.classList.toggle('active-mode', b.dataset.mode === mode);
+    });
+    if (typeof window.__rerender === 'function') window.__rerender();
   }
+  // Init on load
   setWorkoutMode(Data.getMode());
+  // Service Worker
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('../sw.js');
-</script></body>
+</script>
+</body>
 </html>

@@ -12,23 +12,7 @@ window.Render = (() => {
     });
   }
 
-  // ── מתג gym/home לאימון כוח ──────────────────
-  function modeToggleHTML() {
-    const isGym = Data.getMode() === 'gym';
-    const on  = 'background:#3C3489;color:#fff';
-    const off = 'background:#fff;color:#3C3489';
-    return `<div style="display:flex;border-radius:12px;overflow:hidden;
-                border:1.5px solid #EEEDFE;width:fit-content;margin-bottom:10px">
-      <button id="modeGym"
-        style="padding:8px 16px;border:none;cursor:pointer;
-               font-family:Heebo,sans-serif;font-size:.85rem;font-weight:700;
-               ${isGym ? on : off}">🏋️ חדר כושר</button>
-      <button id="modeHome"
-        style="padding:8px 16px;border:none;cursor:pointer;
-               font-family:Heebo,sans-serif;font-size:.85rem;font-weight:700;
-               ${!isGym ? on : off}">🏠 בית</button>
-    </div>`;
-  }
+  // (מתג mode נמצא בהדר — ראה .mode-pill בכל עמוד)
 
   // ── מתג קרדיו gym/home ──────────────────────
   function buildCardioToggle(nav, tabs) {
@@ -85,28 +69,10 @@ window.Render = (() => {
     function load() {
       exercises = Data.getExercisesForDay(dayPlan);
       const mode   = Data.getMode();
-      const modeHe = mode === 'gym' ? 'חדר כושר' : 'בית';
-      if (titleEl) titleEl.textContent = '🏋️ ' + dayPlan.label + ' — ' + modeHe;
+      const modeHe = mode === 'gym' ? '🏋️ חדר כושר' : '🏠 בית';
+      if (titleEl) titleEl.textContent = dayPlan.label + ' — ' + modeHe;
 
       if (nav) UI.buildExNav(nav, exercises, showEx);
-
-      content.innerHTML = `
-        <div class="card" style="margin-bottom:8px">
-          ${modeToggleHTML()}
-          <div class="badge-row">
-            ${UI.badge(dayPlan.label, 'purple')}
-            ${UI.badge(exercises.length + ' תרגילים', 'gray')}
-          </div>
-          ${UI.alertBox('חימום 5 דקות לפני התחלה — הליכה + סיבובי כתפיים', 'info')}
-        </div>`;
-
-      content.querySelector('#modeGym')?.addEventListener('click', () => {
-        Data.setMode('gym'); load();
-      });
-      content.querySelector('#modeHome')?.addEventListener('click', () => {
-        Data.setMode('home'); load();
-      });
-
       showEx(0);
     }
 
