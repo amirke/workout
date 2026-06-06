@@ -1,5 +1,5 @@
 // Service Worker — מאפשר PWA + עבודה אופליין
-const CACHE = 'workout-v1';
+const CACHE = 'workout-v3';  // bump = forces cache clear on Android
 
 const ASSETS = [
   './',
