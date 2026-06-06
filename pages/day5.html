@@ -15,6 +15,7 @@
   <script src="../js/data.js"></script>
   <script src="../js/components.js"></script>
   <script src="../js/render.js"></script>
+  <script src="../js/utils.js"></script>
   <style>
     .hdr-top { display:flex;align-items:center;justify-content:space-between;padding-bottom:8px; }
     .hdr-top h1 { margin:0;font-size:.95rem;font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
@@ -53,6 +54,8 @@
   }
   setWorkoutMode(Data.getMode());
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('../sw.js');
+  // טיימר
+  Utils.renderTimerBar();
 </script>
 </body>
 </html>
