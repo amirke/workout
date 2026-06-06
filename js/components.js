@@ -61,6 +61,30 @@ window.UI = (() => {
     return `<span class="badge" style="${BADGE_STYLES[color||'purple']}">${text}</span>`;
   }
 
+  // ── צבע לפי קטגוריית ציוד ─────────────────────
+  const EQUIP_STYLE = {
+    'מוט חופשי':      'background:#F0EEF9;color:#3C3489',
+    'משקולות יד':     'background:#F0EEF9;color:#3C3489',
+    'כבל פולי':       'background:#E1F5EE;color:#085041',
+    'גומיה':           'background:#FFF3E0;color:#7C4700',
+    'משקל גוף':       'background:#F5F5F5;color:#444',
+    'מכונה ייעודית':  'background:#FCE4EC;color:#880E4F',
+    'רצועות':         'background:#E8F5E9;color:#1B5E20'
+  };
+
+  function equipBadge(cat) {
+    if (!cat) return '';
+    var s = EQUIP_STYLE[cat] || 'background:#eee;color:#333';
+    return '<span class="badge" style="' + s + '">🏷️ ' + cat + '</span>';
+  }
+
+  function areaBadges(areas) {
+    if (!areas || !areas.length) return '';
+    return areas.map(function(a) {
+      return '<span class="badge" style="background:#EEEDFE;color:#3C3489">💪 ' + a + '</span>';
+    }).join('');
+  }
+
   // ── כרטיס תרגיל ───────────────────────────────
   function exerciseCard(ex, index) {
     const src = imgPath(ex.image);
@@ -74,10 +98,19 @@ window.UI = (() => {
             <div class="ex-machine">📍 ${ex.machine}</div>
           </div>
         </div>
-        <div class="badge-row">
+
+        <!-- ציוד + אזורי גוף -->
+        <div class="badge-row" style="flex-wrap:wrap;gap:5px">
+          ${equipBadge(ex.equipment_category)}
+          ${areaBadges(ex.body_areas)}
+        </div>
+
+        <!-- סטים + מנוחה -->
+        <div class="badge-row" style="margin-top:6px">
           ${badge('⚡ ' + ex.sets, 'purple')}
           ${badge('⏱ ' + ex.rest_sec + '″ מנוחה', 'gray')}
         </div>
+
         ${src ? `<img class="exercise-img mt-8" src="${src}" alt="${ex.name_en}"
           loading="lazy" onerror="this.style.display='none'">` : ''}
         <div class="divider mt-8"></div>

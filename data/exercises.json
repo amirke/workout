@@ -1,927 +1,2141 @@
 ﻿[
-  {
-    "id": "bench_press",
-    "name_he": "לחיצת חזה",
-    "name_en": "Bench Press",
-    "machine": "ספסל שטוח (Flat Bench) + מוט",
-    "day": "day1",
-    "sets": "3 × 8–10",
-    "rest_sec": 90,
-    "primary_muscles": [
-      {"he": "חזה גדול", "en": "Pectoralis Major", "url": "https://www.instructor.co.il/muscle/pectoralis-major/"},
-      {"he": "חזה עליון", "en": "Clavicular Head", "url": "https://www.instructor.co.il/body-section/chest/"}
-    ],
-    "secondary_muscles": [
-      {"he": "דלתואיד קדמי", "en": "Anterior Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"},
-      {"he": "טריצפס", "en": "Triceps Brachii", "url": "https://www.instructor.co.il/body-section/back-arms/"}
-    ],
-    "stabilizers": [
-      {"he": "שרירי הסיבוב בכתף", "en": "Rotator Cuff", "url": "https://www.instructor.co.il/body-section/scapula/"}
-    ],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 27.3, "cy_pct": 34.2, "rx_pct": 8.6, "ry_pct": 9.9, "type": "primary"},
-        {"cx_pct": 18.0, "cy_pct": 28.3, "rx_pct": 3.9, "ry_pct": 7.0, "type": "secondary"}
-      ],
-      "back": []
-    },
-    "steps": [
-      {"num": 1, "action": "שכב", "detail": "על ספסל שטוח, גב צמוד, רגליים על הרצפה"},
-      {"num": 2, "action": "אחיזה", "detail": "רוחב כתפיים + קצת יותר, אגודלים עוטפים"},
-      {"num": 3, "action": "הורד", "detail": "2–3 שניות בשליטה לחזה התחתון, מרפקים 45°"},
-      {"num": 4, "action": "דחף", "detail": "מהר וחזק למעלה, נשוף"}
-    ],
-    "motion": "מוט יורד בקו אנכי ישר לחזה התחתון. מרפקים ב-45°. ירידה 2–3 שניות, עלייה מהירה.",
-    "warn": "לא לקפוץ מהחזה — ירידה בשליטה תמיד",
-    "tip": "מוט ריק להתחלה — המטרה ללמוד תנועה",
-    "image": "images/POLY/01511105-Cable-Bench-Press_Chest_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/chest/"
-  },
-  {
-    "id": "ohp",
-    "name_he": "לחיצת כתפיים",
-    "name_en": "OHP (Overhead Press)",
-    "machine": "מוט / משקולות עומד",
-    "day": "day1",
-    "sets": "3 × 8–10",
-    "rest_sec": 90,
-    "primary_muscles": [
-      {"he": "דלתואיד", "en": "Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"}
-    ],
-    "secondary_muscles": [
-      {"he": "טריצפס", "en": "Triceps Brachii", "url": "https://www.instructor.co.il/body-section/back-arms/"},
-      {"he": "טרפז עליון", "en": "Upper Trapezius", "url": "https://www.instructor.co.il/body-section/upper-back/"}
-    ],
-    "stabilizers": [
-      {"he": "ליבה", "en": "Core", "url": "https://www.instructor.co.il/body-section/abdomen/"}
-    ],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 18.0, "cy_pct": 28.3, "rx_pct": 5.0, "ry_pct": 7.5, "type": "primary"},
-        {"cx_pct": 82.0, "cy_pct": 28.3, "rx_pct": 5.0, "ry_pct": 7.5, "type": "primary"}
-      ],
-      "back": []
-    },
-    "steps": [
-      {"num": 1, "action": "עמוד", "detail": "רגליים ברוחב כתפיים, גב ישר"},
-      {"num": 2, "action": "אחיזה", "detail": "רוחב כתפיים, מרפקים לפנים"},
-      {"num": 3, "action": "דחף", "detail": "לחץ למעלה ישר מעל הראש, אל תנעל מרפקים"},
-      {"num": 4, "action": "הורד", "detail": "בשליטה לגובה הסנטר/עיניים"}
-    ],
-    "motion": "מוט עולה ישר מעל הראש. ראש נע קלות לאחור ביציאה, חוזר ביחס.",
-    "warn": "אל תקמור גב תחתון — הדק ליבה כל הזמן",
-    "tip": "נשום פנימה לפני הדחיפה, נשוף בפסגה",
-    "image": "images/משקולות יד/21371105-Dumbbell-Arnold-Press_Shoulders_max.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/shoulder/"
-  },
-  {
-    "id": "incline_db_press",
-    "name_he": "לחיצת חזה עליון",
-    "name_en": "Incline DB Press",
-    "machine": "ספסל נטייה 30–45°",
-    "day": "day1",
-    "sets": "3 × 10–12",
-    "rest_sec": 75,
-    "primary_muscles": [
-      {"he": "חזה עליון", "en": "Upper Pectoralis", "url": "https://www.instructor.co.il/body-section/chest/"}
-    ],
-    "secondary_muscles": [
-      {"he": "דלתואיד קדמי", "en": "Anterior Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"},
-      {"he": "טריצפס", "en": "Triceps Brachii", "url": "https://www.instructor.co.il/body-section/back-arms/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 27.3, "cy_pct": 30.0, "rx_pct": 7.0, "ry_pct": 7.5, "type": "primary"}
-      ],
-      "back": []
-    },
-    "steps": [
-      {"num": 1, "action": "הגדר", "detail": "כוון ספסל ל-30–45 מעלות"},
-      {"num": 2, "action": "שכב", "detail": "גב צמוד לספסל, משקולות בגובה כתפיים"},
-      {"num": 3, "action": "דחף", "detail": "דחף למעלה-פנימה, המשקולות מתקרבים בפסגה"},
-      {"num": 4, "action": "הורד", "detail": "בשליטה 2 שניות עד לגובה החזה"}
-    ],
-    "motion": "משקולות יורדים בקשת קלה בצדי החזה.",
-    "warn": "אל תנמיך מתחת לקו החזה — עומס יתר על כתף",
-    "tip": "נגע המשקולות בפסגה לתחושת סיכום שריר",
-    "image": "images/משקולות יד/02891105-Dumbbell-Bench-Press_Chest_max-POTASH-1.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/chest/"
-  },
-  {
-    "id": "lateral_raise",
-    "name_he": "הרמה צדית לכתפיים",
-    "name_en": "Lateral Raise",
-    "machine": "משקולות 5–8 ק\"ג",
-    "day": "day1",
-    "sets": "3 × 12–15",
-    "rest_sec": 60,
-    "primary_muscles": [
-      {"he": "דלתואיד מדיאלי", "en": "Medial Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"}
-    ],
-    "secondary_muscles": [
-      {"he": "טרפז", "en": "Trapezius", "url": "https://www.instructor.co.il/body-section/upper-back/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 18.0, "cy_pct": 28.3, "rx_pct": 4.5, "ry_pct": 6.0, "type": "primary"},
-        {"cx_pct": 82.0, "cy_pct": 28.3, "rx_pct": 4.5, "ry_pct": 6.0, "type": "primary"}
-      ],
-      "back": []
-    },
-    "steps": [
-      {"num": 1, "action": "עמוד", "detail": "משקולות בצדים, קצת כפוף במרפק"},
-      {"num": 2, "action": "הרם", "detail": "הרם לצדדים עד גובה הכתף, אגודל כלפי מטה קלות"},
-      {"num": 3, "action": "החזק", "detail": "שנייה בפסגה"},
-      {"num": 4, "action": "הורד", "detail": "לאט 2 שניות חזרה"}
-    ],
-    "motion": "זרועות עולות כלפי חוץ בקשת עגולה.",
-    "warn": "אל תשתמש בתנופה — שריר, לא מומנטום",
-    "tip": "דמיין שאתה שופך מים מכוס בפסגה",
-    "image": "images/משקולות יד/03341105-Dumbbell-Lateral-Raise_shoulder_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/shoulder/"
-  },
-  {
-    "id": "plank",
-    "name_he": "פלאנק",
-    "name_en": "Plank",
-    "machine": "רצפה",
-    "day": "day1",
-    "sets": "3 × 30–45 שניות",
-    "rest_sec": 60,
-    "primary_muscles": [
-      {"he": "שרירי הבטן", "en": "Rectus Abdominis", "url": "https://www.instructor.co.il/body-section/abdomen/"},
-      {"he": "שרירי הליבה", "en": "Transverse Abdominis", "url": "https://www.instructor.co.il/body-section/abdomen/"}
-    ],
-    "secondary_muscles": [
-      {"he": "דלתואיד", "en": "Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"},
-      {"he": "ישבן", "en": "Gluteus", "url": "https://www.instructor.co.il/body-section/gluteus/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 50.0, "cy_pct": 52.0, "rx_pct": 10.0, "ry_pct": 8.0, "type": "primary"}
-      ],
-      "back": []
-    },
-    "steps": [
-      {"num": 1, "action": "שכב", "detail": "על אמות הידיים, מרפקים מתחת לכתפיים"},
-      {"num": 2, "action": "הרם", "detail": "הרם גוף ישר מראש עד עקבים"},
-      {"num": 3, "action": "הדק", "detail": "הדק בטן וישבן — אל תרכין ירכיים"},
-      {"num": 4, "action": "נשום", "detail": "נשום רגיל, שמור על ישור"}
-    ],
-    "motion": "גוף ישר כמו קרש. אין קיפוף ואין הרמת ישבן.",
-    "warn": "אם כואב גב תחתון — הפסק, כנראה ירכיים שוקעות",
-    "tip": "מבט לרצפה, צוואר ניטרלי",
-    "image": "images/משקל גוף/04651105-Front-Plank_Waist_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/abdomen/"
-  },
-  {
-    "id": "bent_over_row",
-    "name_he": "חתירה כפופה",
-    "name_en": "Bent-Over Row",
-    "machine": "מוט חופשי",
-    "day": "day3",
-    "sets": "3 × 8–10",
-    "rest_sec": 90,
-    "primary_muscles": [
-      {"he": "גב רחב", "en": "Latissimus Dorsi", "url": "https://www.instructor.co.il/muscle/latissimus-dorsi/"},
-      {"he": "טרפז אמצעי", "en": "Rhomboids", "url": "https://www.instructor.co.il/body-section/upper-back/"}
-    ],
-    "secondary_muscles": [
-      {"he": "ביצפס", "en": "Biceps Brachii", "url": "https://www.instructor.co.il/body-section/front-arms/"},
-      {"he": "דלתואיד אחורי", "en": "Posterior Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"}
-    ],
-    "stabilizers": [
-      {"he": "שרירי גב תחתון", "en": "Erector Spinae", "url": "https://www.instructor.co.il/body-section/lower-back/"}
-    ],
-    "anat_overlays": {
-      "front": [],
-      "back": [
-        {"cx_pct": 50.0, "cy_pct": 38.0, "rx_pct": 18.0, "ry_pct": 14.0, "type": "primary"}
-      ]
-    },
-    "steps": [
-      {"num": 1, "action": "כפוף", "detail": "45°, גב ישר, מוט תלוי בזרועות"},
-      {"num": 2, "action": "חתור", "detail": "משוך המוט לבטן התחתונה, מרפקים צמודים"},
-      {"num": 3, "action": "סחט", "detail": "סחט שכמות בפסגה שנייה"},
-      {"num": 4, "action": "הורד", "detail": "2 שניות בשליטה"}
-    ],
-    "motion": "מוט עולה בקו ישר לבטן, מרפקים עולים גבוה מהגב.",
-    "warn": "לא לעגל גב תחתון — מאמץ גב ישר כל הזמן",
-    "tip": "חשוב על משיכת המרפקים לאחור, לא על היד",
-    "image": "images/משקולות יד/23251105-Dumbbell-Pronated-to-Neutral-Grip-Row-female_Back_max.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/upper-back/"
-  },
-  {
-    "id": "lat_pulldown",
-    "name_he": "משיכת כבל עליון",
-    "name_en": "Lat Pulldown",
-    "machine": "Cable Machine",
-    "day": "day3",
-    "sets": "3 × 10–12",
-    "rest_sec": 75,
-    "primary_muscles": [
-      {"he": "גב רחב", "en": "Latissimus Dorsi", "url": "https://www.instructor.co.il/muscle/latissimus-dorsi/"}
-    ],
-    "secondary_muscles": [
-      {"he": "ביצפס", "en": "Biceps Brachii", "url": "https://www.instructor.co.il/body-section/front-arms/"},
-      {"he": "טרפז תחתון", "en": "Lower Trapezius", "url": "https://www.instructor.co.il/body-section/upper-back/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [],
-      "back": [
-        {"cx_pct": 50.0, "cy_pct": 42.0, "rx_pct": 20.0, "ry_pct": 16.0, "type": "primary"}
-      ]
-    },
-    "steps": [
-      {"num": 1, "action": "שב", "detail": "ירכיים מתחת לרפידה, גב ישר קלות אחורה"},
-      {"num": 2, "action": "אחיזה", "detail": "רחבה מכתפיים, כפות ידיים קדימה"},
-      {"num": 3, "action": "משוך", "detail": "משוך לחזה העליון, שכמות יורדות"},
-      {"num": 4, "action": "החזר", "detail": "בשליטה, ידיים מתארכות עד למתיחה"}
-    ],
-    "motion": "בר יורד לחזה בקשת, מרפקים נעים לכיוון האגן.",
-    "warn": "לא להשתמש בתנופת גוף — עבודת גב טהורה",
-    "tip": "בפסגה — חזה קדימה, לא סנטר",
-    "image": "images/POLY/01501105-Cable-Bar-Lateral-Pulldown_Back_max.webp",
-    "instructor_url": "https://www.instructor.co.il/muscle/latissimus-dorsi/"
-  },
-  {
-    "id": "face_pull",
-    "name_he": "משיכת פנים",
-    "name_en": "Face Pull",
-    "machine": "Cable + Rope",
-    "day": "day3",
-    "sets": "3 × 12–15",
-    "rest_sec": 60,
-    "primary_muscles": [
-      {"he": "דלתואיד אחורי", "en": "Posterior Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"},
-      {"he": "טרפז אמצעי", "en": "Rhomboids", "url": "https://www.instructor.co.il/body-section/upper-back/"}
-    ],
-    "secondary_muscles": [
-      {"he": "שרירי הסיבוב בכתף", "en": "Rotator Cuff", "url": "https://www.instructor.co.il/body-section/scapula/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [],
-      "back": [
-        {"cx_pct": 50.0, "cy_pct": 30.0, "rx_pct": 15.0, "ry_pct": 10.0, "type": "primary"}
-      ]
-    },
-    "steps": [
-      {"num": 1, "action": "כוון", "detail": "כבל בגובה הפנים, חבל מחובר"},
-      {"num": 2, "action": "אחוז", "detail": "שתי ידיים, אגודלים פנימה"},
-      {"num": 3, "action": "משוך", "detail": "לפנים — מרפקים גבוהים, ידיים נפרדות"},
-      {"num": 4, "action": "החזר", "detail": "לאט, מתח שכמות קדימה"}
-    ],
-    "motion": "חבל מגיע לפנים עם מרפקים גבוהים בצדדים.",
-    "warn": "אל תטה ראש — שמור נייטרלי",
-    "tip": "תרגיל מצוין לבריאות כתף — לא לדלג עליו",
-    "image": "images/POLY/08961105-Band-face-pull_Shoulders_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/shoulder/"
-  },
-  {
-    "id": "bicep_curl",
-    "name_he": "כפיפת ביצפס",
-    "name_en": "Bicep Curl",
-    "machine": "משקולות / EZ Bar",
-    "day": "day3",
-    "sets": "3 × 10–12",
-    "rest_sec": 60,
-    "primary_muscles": [
-      {"he": "ביצפס", "en": "Biceps Brachii", "url": "https://www.instructor.co.il/body-section/front-arms/"}
-    ],
-    "secondary_muscles": [
-      {"he": "ברכיאליס", "en": "Brachialis", "url": "https://www.instructor.co.il/body-section/front-arms/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 14.0, "cy_pct": 45.0, "rx_pct": 3.5, "ry_pct": 7.0, "type": "primary"},
-        {"cx_pct": 86.0, "cy_pct": 45.0, "rx_pct": 3.5, "ry_pct": 7.0, "type": "primary"}
-      ],
-      "back": []
-    },
-    "steps": [
-      {"num": 1, "action": "עמוד", "detail": "משקולות בצדים, כפות ידיים קדימה"},
-      {"num": 2, "action": "כפוף", "detail": "כפוף מרפק, הרם לכתף — מרפק קבוע"},
-      {"num": 3, "action": "סחט", "detail": "סחט ביצפס בפסגה"},
-      {"num": 4, "action": "הורד", "detail": "2 שניות בשליטה"}
-    ],
-    "motion": "זרוע תחתונה נעה בלבד, מרפק נשאר במקום.",
-    "warn": "לא לנדנד גוף לאחור — כוח, לא תנופה",
-    "tip": "חליפי ידיים או ביחד — שתי אפשרויות עובדות",
-    "image": "images/משקולות יד/16501105-Dumbbell-Alternating-Seated-Bicep-Curl-on-Exercise-Ball_Upper-Arms_medium.webp",
-    "instructor_url": "https://www.instructor.co.il/body-section/front-arms/"
-  },
-  {
-    "id": "dead_bug",
-    "name_he": "חרק מת",
-    "name_en": "Dead Bug",
-    "machine": "רצפה",
-    "day": "day3",
-    "sets": "3 × 8 לכל צד",
-    "rest_sec": 60,
-    "primary_muscles": [
-      {"he": "שרירי הליבה", "en": "Transverse Abdominis", "url": "https://www.instructor.co.il/body-section/abdomen/"}
-    ],
-    "secondary_muscles": [
-      {"he": "שרירי הגב התחתון", "en": "Erector Spinae", "url": "https://www.instructor.co.il/body-section/lower-back/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 50.0, "cy_pct": 52.0, "rx_pct": 10.0, "ry_pct": 8.0, "type": "primary"}
-      ],
-      "back": []
-    },
-    "steps": [
-      {"num": 1, "action": "שכב", "detail": "על גב, ידיים למעלה, ברכיים ב-90°"},
-      {"num": 2, "action": "הדק", "detail": "הדק גב תחתון לרצפה — שמור כל הזמן"},
-      {"num": 3, "action": "הורד", "detail": "יד שמאל + רגל ימין למטה ביחד"},
-      {"num": 4, "action": "חזור", "detail": "חזרה ל-90° ועבר לצד השני"}
-    ],
-    "motion": "גפיים נעות בצלב — ידיים ורגליים בצד נגדי.",
-    "warn": "לא לאפשר גב תחתון לקמר — זה הכי חשוב",
-    "tip": "נשום החוצה כשמוריד גפיים",
-    "image": "images/משקל גוף/31411105-Bird-Dog-female_max-POTASH.webp",
-    "instructor_url": "https://www.instructor.co.il/body-section/abdomen/"
-  },
-  {
-    "id": "squat",
-    "name_he": "סקוואט",
-    "name_en": "Squat",
-    "machine": "Squat Rack / Smith Machine",
-    "day": "day5",
-    "sets": "3 × 10–12",
-    "rest_sec": 90,
-    "primary_muscles": [
-      {"he": "ארבע ראשי", "en": "Quadriceps", "url": "https://www.instructor.co.il/body-section/front-thigh/"},
-      {"he": "ישבן", "en": "Gluteus Maximus", "url": "https://www.instructor.co.il/body-section/gluteus/"}
-    ],
-    "secondary_muscles": [
-      {"he": "כלבי ירך", "en": "Hamstrings", "url": "https://www.instructor.co.il/body-section/back-thigh/"},
-      {"he": "שוק", "en": "Calves", "url": "https://www.instructor.co.il/body-section/calf/"}
-    ],
-    "stabilizers": [
-      {"he": "ליבה", "en": "Core", "url": "https://www.instructor.co.il/body-section/abdomen/"}
-    ],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 35.0, "cy_pct": 68.0, "rx_pct": 9.0, "ry_pct": 12.0, "type": "primary"},
-        {"cx_pct": 65.0, "cy_pct": 68.0, "rx_pct": 9.0, "ry_pct": 12.0, "type": "primary"}
-      ],
-      "back": [
-        {"cx_pct": 50.0, "cy_pct": 60.0, "rx_pct": 12.0, "ry_pct": 8.0, "type": "secondary"}
-      ]
-    },
-    "steps": [
-      {"num": 1, "action": "עמוד", "detail": "רגליים קצת יותר מרוחב כתפיים, אצבעות בחוץ"},
-      {"num": 2, "action": "שב", "detail": "כוון ברכיים מעל האצבעות, ירכיים אחורה ומטה"},
-      {"num": 3, "action": "עמק", "detail": "ירד עד ירכיים מקבילות לרצפה"},
-      {"num": 4, "action": "עלה", "detail": "דחף דרך העקבים, גב ישר"}
-    ],
-    "motion": "ירכיים יורדות לאחור ומטה, חזה נשאר גבוה.",
-    "warn": "ברכיים לא נופלות פנימה — שמור על יישור",
-    "tip": "התחל עם משקל גוף להתרגל לתנועה",
-    "image": "images/משקולות יד/04131105-Dumbbell-Squat_Hips_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/front-thigh/"
-  },
-  {
-    "id": "rdl",
-    "name_he": "מתיחת מלך הרומנים",
-    "name_en": "Romanian Deadlift",
-    "machine": "משקולות / מוט",
-    "day": "day5",
-    "sets": "3 × 10–12",
-    "rest_sec": 90,
-    "primary_muscles": [
-      {"he": "כלבי ירך", "en": "Hamstrings", "url": "https://www.instructor.co.il/body-section/back-thigh/"},
-      {"he": "ישבן", "en": "Gluteus Maximus", "url": "https://www.instructor.co.il/body-section/gluteus/"}
-    ],
-    "secondary_muscles": [
-      {"he": "שרירי גב תחתון", "en": "Erector Spinae", "url": "https://www.instructor.co.il/body-section/lower-back/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [],
-      "back": [
-        {"cx_pct": 35.0, "cy_pct": 68.0, "rx_pct": 8.0, "ry_pct": 12.0, "type": "primary"},
-        {"cx_pct": 65.0, "cy_pct": 68.0, "rx_pct": 8.0, "ry_pct": 12.0, "type": "primary"},
-        {"cx_pct": 50.0, "cy_pct": 60.0, "rx_pct": 10.0, "ry_pct": 7.0, "type": "secondary"}
-      ]
-    },
-    "steps": [
-      {"num": 1, "action": "עמוד", "detail": "ידיות/מוט בפני הירכיים, גב ישר"},
-      {"num": 2, "action": "כפוף", "detail": "כפוף ירכיים אחורה, הרם ידיות לאורך הרגל"},
-      {"num": 3, "action": "עצור", "detail": "כשמרגיש מתיחה בכלבי ירך — עצור"},
-      {"num": 4, "action": "עלה", "detail": "דחף ירכיים קדימה, גב ישר"}
-    ],
-    "motion": "ירכיים נעות אחורה, גב נשאר ישר, המוט צמוד לרגל.",
-    "warn": "לא לעגל גב תחתון — מתיחת ירך, לא כפיפה",
-    "tip": "תרגיש מתיחה בגב הרגל — זה הסימן הנכון",
-    "image": "images/משקולות יד/04321105-Dumbbell-Stiff-Leg-Deadlift_Waist_max.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/back-thigh/"
-  },
-  {
-    "id": "forward_lunge",
-    "name_he": "מדרך קדמי",
-    "name_en": "Forward Lunge",
-    "machine": "משקולות קלים",
-    "day": "day5",
-    "sets": "3 × 10 לכל רגל",
-    "rest_sec": 60,
-    "primary_muscles": [
-      {"he": "ארבע ראשי", "en": "Quadriceps", "url": "https://www.instructor.co.il/body-section/front-thigh/"},
-      {"he": "ישבן", "en": "Gluteus", "url": "https://www.instructor.co.il/body-section/gluteus/"}
-    ],
-    "secondary_muscles": [
-      {"he": "כלבי ירך", "en": "Hamstrings", "url": "https://www.instructor.co.il/body-section/back-thigh/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 35.0, "cy_pct": 68.0, "rx_pct": 8.0, "ry_pct": 11.0, "type": "primary"}
-      ],
-      "back": []
-    },
-    "steps": [
-      {"num": 1, "action": "עמוד", "detail": "משקולות בצדים, גב ישר"},
-      {"num": 2, "action": "צעד", "detail": "צעד ארוך קדימה עם רגל אחת"},
-      {"num": 3, "action": "שב", "detail": "כפוף שתי הברכיים ל-90°, ברך אחורית כמעט לרצפה"},
-      {"num": 4, "action": "חזור", "detail": "דחף חזרה לנקודת ההתחלה"}
-    ],
-    "motion": "ירידה מאונכת, ברך קדמית מעל קרסול.",
-    "warn": "ברך קדמית לא מעבר לאצבע הגדולה",
-    "tip": "התחל ללא משקל — תנועה נכונה קודם",
-    "image": "images/משקולות יד/12151105-Dumbbell-side-lunge_hips_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/front-thigh/"
-  },
-  {
-    "id": "glute_bridge",
-    "name_he": "גשר ישבן",
-    "name_en": "Glute Bridge",
-    "machine": "רצפה",
-    "day": "day5",
-    "sets": "3 × 15",
-    "rest_sec": 60,
-    "primary_muscles": [
-      {"he": "ישבן", "en": "Gluteus Maximus", "url": "https://www.instructor.co.il/body-section/gluteus/"}
-    ],
-    "secondary_muscles": [
-      {"he": "כלבי ירך", "en": "Hamstrings", "url": "https://www.instructor.co.il/body-section/back-thigh/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "back": [
-        {"cx_pct": 50.0, "cy_pct": 60.0, "rx_pct": 13.0, "ry_pct": 9.0, "type": "primary"}
-      ],
-      "front": []
-    },
-    "steps": [
-      {"num": 1, "action": "שכב", "detail": "גב על הרצפה, ברכיים כפופות, רגליים שטוחות"},
-      {"num": 2, "action": "הרם", "detail": "הרם ירכיים עד לקו ישר כתף-ירך-ברך"},
-      {"num": 3, "action": "סחט", "detail": "סחט ישבן בפסגה 2 שניות"},
-      {"num": 4, "action": "הורד", "detail": "לאט לרצפה"}
-    ],
-    "motion": "ירכיים עולות ויורדות, גב תחתון נשאר ניטרלי.",
-    "warn": "לא לקמר גב תחתון בפסגה",
-    "tip": "הוסף משקל על הבטן לאתגר",
-    "image": "images/כנגד גומיה/14081105-Band-Hip-Lift_Hips_medium.webp",
-    "instructor_url": "https://www.instructor.co.il/body-section/gluteus/"
-  },
-  {
-    "id": "side_plank",
-    "name_he": "פלאנק צדי",
-    "name_en": "Side Plank",
-    "machine": "רצפה",
-    "day": "day5",
-    "sets": "3 × 25–35 שניות לכל צד",
-    "rest_sec": 60,
-    "primary_muscles": [
-      {"he": "אלכסוני הבטן", "en": "Obliques", "url": "https://www.instructor.co.il/body-section/abdomen/"}
-    ],
-    "secondary_muscles": [
-      {"he": "ליבה", "en": "Core", "url": "https://www.instructor.co.il/body-section/abdomen/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 42.0, "cy_pct": 52.0, "rx_pct": 6.0, "ry_pct": 9.0, "type": "primary"},
-        {"cx_pct": 58.0, "cy_pct": 52.0, "rx_pct": 6.0, "ry_pct": 9.0, "type": "primary"}
-      ],
-      "back": []
-    },
-    "steps": [
-      {"num": 1, "action": "שכב", "detail": "על הצד, אמת יד מתחת לכתף"},
-      {"num": 2, "action": "הרם", "detail": "הרם ירכיים — גוף ישר מראש עד עקבים"},
-      {"num": 3, "action": "הדק", "detail": "הדק ליבה, ירכיים לא יורדות"},
-      {"num": 4, "action": "שמור", "detail": "נשום, שמור זמן הנדרש"}
-    ],
-    "motion": "גוף ישר בצד, נשען על אמת יד ועל כף הרגל.",
-    "warn": "ירכיים לא נופלות לאמצע — זה סימן לחולשה",
-    "tip": "התחל עם ברכיים כפופות אם קשה",
-    "image": "images/משקל גוף/07151105-Side-Plank-m_Waist_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/abdomen/"
-  },
+    {
+        "id":  "bench_press",
+        "name_he":  "לחיצת חזה",
+        "name_en":  "Bench Press",
+        "machine":  "ספסל שטוח (Flat Bench) + מוט",
+        "day":  "day1",
+        "sets":  "3 × 8–10",
+        "rest_sec":  90,
+        "primary_muscles":  [
+                                {
+                                    "he":  "חזה גדול",
+                                    "en":  "Pectoralis Major",
+                                    "url":  "https://www.instructor.co.il/muscle/pectoralis-major/"
+                                },
+                                {
+                                    "he":  "חזה עליון",
+                                    "en":  "Clavicular Head",
+                                    "url":  "https://www.instructor.co.il/body-section/chest/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "דלתואיד קדמי",
+                                      "en":  "Anterior Deltoid",
+                                      "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                  },
+                                  {
+                                      "he":  "טריצפס",
+                                      "en":  "Triceps Brachii",
+                                      "url":  "https://www.instructor.co.il/body-section/back-arms/"
+                                  }
+                              ],
+        "stabilizers":  [
+                            {
+                                "he":  "שרירי הסיבוב בכתף",
+                                "en":  "Rotator Cuff",
+                                "url":  "https://www.instructor.co.il/body-section/scapula/"
+                            }
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  27.3,
+                                                "cy_pct":  34.2,
+                                                "rx_pct":  8.6,
+                                                "ry_pct":  9.9,
+                                                "type":  "primary"
+                                            },
+                                            {
+                                                "cx_pct":  18.0,
+                                                "cy_pct":  28.3,
+                                                "rx_pct":  3.9,
+                                                "ry_pct":  7.0,
+                                                "type":  "secondary"
+                                            }
+                                        ],
+                              "back":  [
 
-  {
-    "id": "home_db_bench_press",
-    "name_he": "לחיצת חזה — משקולות",
-    "name_en": "Dumbbell Chest Press (Floor/Bench)",
-    "machine": "משקולות — על הרצפה או ספסל",
-    "mode": "home",
-    "day": "day1",
-    "sets": "3 × 10–12",
-    "rest_sec": 75,
-    "primary_muscles": [
-      {"he": "חזה גדול", "en": "Pectoralis Major", "url": "https://www.instructor.co.il/body-section/chest/"}
-    ],
-    "secondary_muscles": [
-      {"he": "דלתואיד קדמי", "en": "Anterior Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"},
-      {"he": "טריצפס", "en": "Triceps Brachii", "url": "https://www.instructor.co.il/body-section/back-arms/"}
-    ],
-    "stabilizers": [
-      {"he": "מסור קדמי", "en": "Serratus Anterior", "url": "https://www.instructor.co.il/body-section/chest/"}
-    ],
-    "anat_overlays": {
-      "front": [{"cx_pct": 27.3, "cy_pct": 34.2, "rx_pct": 8.6, "ry_pct": 9.9, "type": "primary"}],
-      "back": []
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "שכב",
+                          "detail":  "על ספסל שטוח, גב צמוד, רגליים על הרצפה"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "אחיזה",
+                          "detail":  "רוחב כתפיים + קצת יותר, אגודלים עוטפים"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "הורד",
+                          "detail":  "2–3 שניות בשליטה לחזה התחתון, מרפקים 45°"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "דחף",
+                          "detail":  "מהר וחזק למעלה, נשוף"
+                      }
+                  ],
+        "motion":  "מוט יורד בקו אנכי ישר לחזה התחתון. מרפקים ב-45°. ירידה 2–3 שניות, עלייה מהירה.",
+        "warn":  "לא לקפוץ מהחזה — ירידה בשליטה תמיד",
+        "tip":  "מוט ריק להתחלה — המטרה ללמוד תנועה",
+        "image":  "images/POLY/01511105-Cable-Bench-Press_Chest_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/chest/",
+        "equipment_category":  "מוט חופשי",
+        "body_areas":  [
+                           "חזה",
+                           "כתפיים"
+                       ]
     },
-    "steps": [
-      {"num": 1, "action": "שכב", "detail": "על הרצפה (או ספסל), ברכיים כפופות, משקולות בגובה החזה"},
-      {"num": 2, "action": "אחיזה", "detail": "מרפקים בזווית 45° מהגוף — לא 90°"},
-      {"num": 3, "action": "דחף", "detail": "דחף למעלה עד יישור כמעט מלא, משקולות מתקרבים"},
-      {"num": 4, "action": "הורד", "detail": "2–3 שניות בשליטה עד הרצפה/החזה"}
-    ],
-    "motion": "על הרצפה: הרצפה מגבילה את הטווח — פחות עומס על הכתף, מתאים למתחיל.",
-    "warn": "אל תנמיך המרפקים מתחת לגובה הכתפיים — הרצפה תשמש כבטיחות",
-    "tip": "אם אין ספסל — Floor Press על הרצפה זה תרגיל מצוין בפני עצמו",
-    "image": "images/משקולות יד/02891105-Dumbbell-Bench-Press_Chest_max-POTASH-1.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/chest/"
-  },
+    {
+        "id":  "ohp",
+        "name_he":  "לחיצת כתפיים",
+        "name_en":  "OHP (Overhead Press)",
+        "machine":  "מוט / משקולות עומד",
+        "day":  "day1",
+        "sets":  "3 × 8–10",
+        "rest_sec":  90,
+        "primary_muscles":  [
+                                {
+                                    "he":  "דלתואיד",
+                                    "en":  "Deltoid",
+                                    "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "טריצפס",
+                                      "en":  "Triceps Brachii",
+                                      "url":  "https://www.instructor.co.il/body-section/back-arms/"
+                                  },
+                                  {
+                                      "he":  "טרפז עליון",
+                                      "en":  "Upper Trapezius",
+                                      "url":  "https://www.instructor.co.il/body-section/upper-back/"
+                                  }
+                              ],
+        "stabilizers":  [
+                            {
+                                "he":  "ליבה",
+                                "en":  "Core",
+                                "url":  "https://www.instructor.co.il/body-section/abdomen/"
+                            }
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  18.0,
+                                                "cy_pct":  28.3,
+                                                "rx_pct":  5.0,
+                                                "ry_pct":  7.5,
+                                                "type":  "primary"
+                                            },
+                                            {
+                                                "cx_pct":  82.0,
+                                                "cy_pct":  28.3,
+                                                "rx_pct":  5.0,
+                                                "ry_pct":  7.5,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
 
-  {
-    "id": "home_db_ohp",
-    "name_he": "לחיצת כתפיים — משקולות",
-    "name_en": "Dumbbell Overhead Press (Seated/Standing)",
-    "machine": "משקולות — בישיבה או עמידה",
-    "mode": "home",
-    "day": "day1",
-    "sets": "3 × 10–12",
-    "rest_sec": 75,
-    "primary_muscles": [
-      {"he": "דלתואיד", "en": "Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"}
-    ],
-    "secondary_muscles": [
-      {"he": "טריצפס", "en": "Triceps Brachii", "url": "https://www.instructor.co.il/body-section/back-arms/"},
-      {"he": "טרפז עליון", "en": "Upper Trapezius", "url": "https://www.instructor.co.il/body-section/upper-back/"}
-    ],
-    "stabilizers": [
-      {"he": "ליבה", "en": "Core", "url": "https://www.instructor.co.il/body-section/abdomen/"}
-    ],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 18.0, "cy_pct": 28.3, "rx_pct": 5.0, "ry_pct": 7.5, "type": "primary"},
-        {"cx_pct": 82.0, "cy_pct": 28.3, "rx_pct": 5.0, "ry_pct": 7.5, "type": "primary"}
-      ],
-      "back": []
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עמוד",
+                          "detail":  "רגליים ברוחב כתפיים, גב ישר"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "אחיזה",
+                          "detail":  "רוחב כתפיים, מרפקים לפנים"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "דחף",
+                          "detail":  "לחץ למעלה ישר מעל הראש, אל תנעל מרפקים"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "בשליטה לגובה הסנטר/עיניים"
+                      }
+                  ],
+        "motion":  "מוט עולה ישר מעל הראש. ראש נע קלות לאחור ביציאה, חוזר ביחס.",
+        "warn":  "אל תקמור גב תחתון — הדק ליבה כל הזמן",
+        "tip":  "נשום פנימה לפני הדחיפה, נשוף בפסגה",
+        "image":  "images/משקולות יד/21371105-Dumbbell-Arnold-Press_Shoulders_max.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/",
+        "equipment_category":  "מוט חופשי",
+        "body_areas":  [
+                           "כתפיים",
+                           "יד אחורית"
+                       ]
     },
-    "steps": [
-      {"num": 1, "action": "מנח", "detail": "שב על כסא ישר או עמוד — גב ישר, ליבה מכווצת"},
-      {"num": 2, "action": "התחלה", "detail": "משקולות בגובה הכתפיים, מרפקים קדימה"},
-      {"num": 3, "action": "דחף", "detail": "דחף ישר מעלה עד קירוב המשקולות מעל הראש"},
-      {"num": 4, "action": "הורד", "detail": "בשליטה 2 שניות עד לגובה הכתפיים"}
-    ],
-    "motion": "בישיבה — ה-Arnold Press (סופינציה → פרונציה) מגייס יותר שרירי כתף.",
-    "warn": "אל תקמור גב תחתון — אם קורה, בצע בישיבה",
-    "tip": "נסה Arnold Press: התחל כפות ידיים פנימה, סובב החוצה תוך הדחיפה",
-    "image": "images/משקולות יד/21371105-Dumbbell-Arnold-Press_Shoulders_max.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/shoulder/"
-  },
+    {
+        "id":  "incline_db_press",
+        "name_he":  "לחיצת חזה עליון",
+        "name_en":  "Incline DB Press",
+        "machine":  "ספסל נטייה 30–45°",
+        "day":  "day1",
+        "sets":  "3 × 10–12",
+        "rest_sec":  75,
+        "primary_muscles":  [
+                                {
+                                    "he":  "חזה עליון",
+                                    "en":  "Upper Pectoralis",
+                                    "url":  "https://www.instructor.co.il/body-section/chest/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "דלתואיד קדמי",
+                                      "en":  "Anterior Deltoid",
+                                      "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                  },
+                                  {
+                                      "he":  "טריצפס",
+                                      "en":  "Triceps Brachii",
+                                      "url":  "https://www.instructor.co.il/body-section/back-arms/"
+                                  }
+                              ],
+        "stabilizers":  [
 
-  {
-    "id": "home_db_fly",
-    "name_he": "פרפר — משקולות",
-    "name_en": "Dumbbell Fly (Floor/Bench)",
-    "machine": "משקולות — על הרצפה או ספסל",
-    "mode": "home",
-    "day": "day1",
-    "sets": "3 × 12–15",
-    "rest_sec": 60,
-    "primary_muscles": [
-      {"he": "חזה גדול", "en": "Pectoralis Major", "url": "https://www.instructor.co.il/body-section/chest/"}
-    ],
-    "secondary_muscles": [
-      {"he": "דלתואיד קדמי", "en": "Anterior Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"}
-    ],
-    "stabilizers": [
-      {"he": "מסור קדמי", "en": "Serratus Anterior", "url": "https://www.instructor.co.il/body-section/chest/"}
-    ],
-    "anat_overlays": {
-      "front": [{"cx_pct": 27.3, "cy_pct": 34.2, "rx_pct": 9.0, "ry_pct": 10.0, "type": "primary"}],
-      "back": []
-    },
-    "steps": [
-      {"num": 1, "action": "שכב", "detail": "על הרצפה/ספסל, משקולות מעל החזה, מרפקים כפופים קלות"},
-      {"num": 2, "action": "פתח", "detail": "הרחק ידיים לצדדים בקשת — עד גובה הכתפיים"},
-      {"num": 3, "action": "החזר", "detail": "קרב ידיים בחזרה מעל החזה בתנועת חיבוק"},
-      {"num": 4, "action": "סחט", "detail": "בפסגה — סחט חזה שנייה"}
-    ],
-    "motion": "תנועת חיבוק רחב. המרפקים נשארים כפופים בזווית קבועה לאורך כל התנועה.",
-    "warn": "אל תנמיך מתחת לגובה הכתפיים — עומס יתר על כתף קדמית",
-    "tip": "פחות משקל יותר טווח — זה הכלל בפרפר",
-    "image": "images/משקולות יד/03081105-Dumbbell-Fly_Chest-FIX_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/chest/"
-  },
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  27.3,
+                                                "cy_pct":  30.0,
+                                                "rx_pct":  7.0,
+                                                "ry_pct":  7.5,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
 
-  {
-    "id": "home_db_lateral_raise",
-    "name_he": "הרמה צדית — משקולות",
-    "name_en": "Dumbbell Lateral Raise",
-    "machine": "משקולות קלים 3–8 ק\"ג",
-    "mode": "home",
-    "day": "day1",
-    "sets": "3 × 15–20",
-    "rest_sec": 45,
-    "primary_muscles": [
-      {"he": "דלתואיד מדיאלי", "en": "Medial Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"}
-    ],
-    "secondary_muscles": [
-      {"he": "טרפז עליון", "en": "Upper Trapezius", "url": "https://www.instructor.co.il/body-section/upper-back/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 18.0, "cy_pct": 28.3, "rx_pct": 4.5, "ry_pct": 6.0, "type": "primary"},
-        {"cx_pct": 82.0, "cy_pct": 28.3, "rx_pct": 4.5, "ry_pct": 6.0, "type": "primary"}
-      ],
-      "back": []
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "הגדר",
+                          "detail":  "כוון ספסל ל-30–45 מעלות"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "שכב",
+                          "detail":  "גב צמוד לספסל, משקולות בגובה כתפיים"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "דחף",
+                          "detail":  "דחף למעלה-פנימה, המשקולות מתקרבים בפסגה"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "בשליטה 2 שניות עד לגובה החזה"
+                      }
+                  ],
+        "motion":  "משקולות יורדים בקשת קלה בצדי החזה.",
+        "warn":  "אל תנמיך מתחת לקו החזה — עומס יתר על כתף",
+        "tip":  "נגע המשקולות בפסגה לתחושת סיכום שריר",
+        "image":  "images/משקולות יד/02891105-Dumbbell-Bench-Press_Chest_max-POTASH-1.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/chest/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "חזה",
+                           "כתפיים"
+                       ]
     },
-    "steps": [
-      {"num": 1, "action": "עמוד", "detail": "משקולות בצדים, כפיפה קלה במרפק"},
-      {"num": 2, "action": "הרם", "detail": "הרם לצדדים עד גובה הכתף — אגודל מופנה קלות מטה"},
-      {"num": 3, "action": "החזק", "detail": "שנייה בפסגה"},
-      {"num": 4, "action": "הורד", "detail": "לאט 3 שניות — הירידה חשובה כמו העלייה"}
-    ],
-    "motion": "זרועות עולות כלפי חוץ בקשת עגולה. לא להשתמש בתנופה.",
-    "warn": "אל תגביה מעל גובה הכתף — פגיעה ב-Supraspinatus",
-    "tip": "אם יש גומיה — אפשר לבצע גם עם גומיה לסירוגין תחת הרגל",
-    "image": "images/משקולות יד/03341105-Dumbbell-Lateral-Raise_shoulder_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/shoulder/"
-  },
+    {
+        "id":  "lateral_raise",
+        "name_he":  "הרמה צדית לכתפיים",
+        "name_en":  "Lateral Raise",
+        "machine":  "משקולות 5–8 ק\"ג",
+        "day":  "day1",
+        "sets":  "3 × 12–15",
+        "rest_sec":  60,
+        "primary_muscles":  [
+                                {
+                                    "he":  "דלתואיד מדיאלי",
+                                    "en":  "Medial Deltoid",
+                                    "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "טרפז",
+                                      "en":  "Trapezius",
+                                      "url":  "https://www.instructor.co.il/body-section/upper-back/"
+                                  }
+                              ],
+        "stabilizers":  [
 
-  {
-    "id": "home_db_one_arm_row",
-    "name_he": "חתירה ביד אחת — דמבל",
-    "name_en": "One-Arm Dumbbell Row",
-    "machine": "דמבל אחד — נשען על כיסא/ספה",
-    "mode": "home",
-    "day": "day3",
-    "sets": "3 × 10–12 לכל יד",
-    "rest_sec": 75,
-    "primary_muscles": [
-      {"he": "גב רחב", "en": "Latissimus Dorsi", "url": "https://www.instructor.co.il/muscle/latissimus-dorsi/"},
-      {"he": "רומבואידים", "en": "Rhomboids", "url": "https://www.instructor.co.il/body-section/upper-back/"}
-    ],
-    "secondary_muscles": [
-      {"he": "ביצפס", "en": "Biceps Brachii", "url": "https://www.instructor.co.il/body-section/front-arms/"},
-      {"he": "דלתואיד אחורי", "en": "Posterior Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"}
-    ],
-    "stabilizers": [
-      {"he": "זוקפי גו", "en": "Erector Spinae", "url": "https://www.instructor.co.il/body-section/lower-back/"}
-    ],
-    "anat_overlays": {
-      "front": [],
-      "back": [{"cx_pct": 50.0, "cy_pct": 38.0, "rx_pct": 18.0, "ry_pct": 14.0, "type": "primary"}]
-    },
-    "steps": [
-      {"num": 1, "action": "עמדה", "detail": "הנח יד ורגל שמאל על כיסא/ספה — גב מקביל לרצפה"},
-      {"num": 2, "action": "תחלה", "detail": "דמבל תלוי בזרוע ימין, כתף נמוכה"},
-      {"num": 3, "action": "חתור", "detail": "משוך המרפק מעלה ולאחור — כמו הפעלת מנוע"},
-      {"num": 4, "action": "הורד", "detail": "2 שניות בשליטה עד מתיחה מלאה"}
-    ],
-    "motion": "מרפק עולה גבוה מהגב. שכמה מתקפלת בפסגה.",
-    "warn": "לא לסובב הגו לעזור — עובד רק מהגב",
-    "tip": "חשוב על משיכת המרפק אחורה, לא על היד",
-    "image": "images/משקולות יד/23931105-Dumbbell-One-Arm-Bent-over-Row-female_Shoulders_max.webp",
-    "instructor_url": "https://www.instructor.co.il/body-section/upper-back/"
-  },
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  18.0,
+                                                "cy_pct":  28.3,
+                                                "rx_pct":  4.5,
+                                                "ry_pct":  6.0,
+                                                "type":  "primary"
+                                            },
+                                            {
+                                                "cx_pct":  82.0,
+                                                "cy_pct":  28.3,
+                                                "rx_pct":  4.5,
+                                                "ry_pct":  6.0,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
 
-  {
-    "id": "home_band_pulldown",
-    "name_he": "משיכה עליונה — גומיה",
-    "name_en": "Resistance Band Lat Pulldown",
-    "machine": "גומיית התנגדות — עגינה בדלת/מעל",
-    "mode": "home",
-    "day": "day3",
-    "sets": "3 × 12–15",
-    "rest_sec": 60,
-    "primary_muscles": [
-      {"he": "גב רחב", "en": "Latissimus Dorsi", "url": "https://www.instructor.co.il/muscle/latissimus-dorsi/"}
-    ],
-    "secondary_muscles": [
-      {"he": "ביצפס", "en": "Biceps Brachii", "url": "https://www.instructor.co.il/body-section/front-arms/"},
-      {"he": "טרפז תחתון", "en": "Lower Trapezius", "url": "https://www.instructor.co.il/body-section/upper-back/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [],
-      "back": [{"cx_pct": 50.0, "cy_pct": 42.0, "rx_pct": 20.0, "ry_pct": 16.0, "type": "primary"}]
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עמוד",
+                          "detail":  "משקולות בצדים, קצת כפוף במרפק"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "הרם",
+                          "detail":  "הרם לצדדים עד גובה הכתף, אגודל כלפי מטה קלות"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "החזק",
+                          "detail":  "שנייה בפסגה"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "לאט 2 שניות חזרה"
+                      }
+                  ],
+        "motion":  "זרועות עולות כלפי חוץ בקשת עגולה.",
+        "warn":  "אל תשתמש בתנופה — שריר, לא מומנטום",
+        "tip":  "דמיין שאתה שופך מים מכוס בפסגה",
+        "image":  "images/משקולות יד/03341105-Dumbbell-Lateral-Raise_shoulder_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "כתפיים"
+                       ]
     },
-    "steps": [
-      {"num": 1, "action": "עגינה", "detail": "עגן גומיה גבוה (דלת, ווים) — שב מתחת"},
-      {"num": 2, "action": "אחיזה", "detail": "אחוז בגומיה רחב מכתפיים, ידיים בסופינציה"},
-      {"num": 3, "action": "משוך", "detail": "משוך לחזה — שכמות יורדות ומתכנסות"},
-      {"num": 4, "action": "שחרר", "detail": "לאט עד יישור מלא — מתיחה בגב"}
-    ],
-    "motion": "גומיה יורדת לחזה בקשת, מרפקים נעים לכיוון האגן.",
-    "warn": "אל תשתמש בתנופת גוף — עבודת גב טהורה",
-    "tip": "ניתן לבצע עם גומיה בסופינציה (כפות ידיים פנימה) — קל יותר ועובד ביצפס",
-    "image": "images/כנגד גומיה/31161105-Band-Fixed-Back-Underhand-Pulldown_Back_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/muscle/latissimus-dorsi/"
-  },
+    {
+        "id":  "plank",
+        "name_he":  "פלאנק",
+        "name_en":  "Plank",
+        "machine":  "רצפה",
+        "day":  "day1",
+        "sets":  "3 × 30–45 שניות",
+        "rest_sec":  60,
+        "primary_muscles":  [
+                                {
+                                    "he":  "שרירי הבטן",
+                                    "en":  "Rectus Abdominis",
+                                    "url":  "https://www.instructor.co.il/body-section/abdomen/"
+                                },
+                                {
+                                    "he":  "שרירי הליבה",
+                                    "en":  "Transverse Abdominis",
+                                    "url":  "https://www.instructor.co.il/body-section/abdomen/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "דלתואיד",
+                                      "en":  "Deltoid",
+                                      "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                  },
+                                  {
+                                      "he":  "ישבן",
+                                      "en":  "Gluteus",
+                                      "url":  "https://www.instructor.co.il/body-section/gluteus/"
+                                  }
+                              ],
+        "stabilizers":  [
 
-  {
-    "id": "home_band_face_pull",
-    "name_he": "משיכה לפנים — גומיה",
-    "name_en": "Resistance Band Face Pull",
-    "machine": "גומיית התנגדות — עגינה בגובה הפנים",
-    "mode": "home",
-    "day": "day3",
-    "sets": "3 × 15–20",
-    "rest_sec": 45,
-    "primary_muscles": [
-      {"he": "דלתואיד אחורי", "en": "Posterior Deltoid", "url": "https://www.instructor.co.il/body-section/shoulder/"},
-      {"he": "טרפז אמצעי", "en": "Middle Trapezius", "url": "https://www.instructor.co.il/body-section/upper-back/"}
-    ],
-    "secondary_muscles": [
-      {"he": "שרירי הסיבוב בכתף", "en": "Rotator Cuff", "url": "https://www.instructor.co.il/body-section/scapula/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [],
-      "back": [{"cx_pct": 50.0, "cy_pct": 30.0, "rx_pct": 15.0, "ry_pct": 10.0, "type": "primary"}]
-    },
-    "steps": [
-      {"num": 1, "action": "עגינה", "detail": "עגן גומיה בגובה הפנים — ידית דלת, וו קיר"},
-      {"num": 2, "action": "אחוז", "detail": "שתי ידיים באגרופים, אגודלים פנימה"},
-      {"num": 3, "action": "משוך", "detail": "משוך לפנים עם מרפקים גבוהים — ידיים נפרדות"},
-      {"num": 4, "action": "החזר", "detail": "לאט, שכמות נמתחות קדימה"}
-    ],
-    "motion": "גומיה מגיעה לפנים עם מרפקים גבוהים בצדדים (צורת W).",
-    "warn": "אל תטה ראש קדימה — שמור צוואר ניטרלי",
-    "tip": "תרגיל מצוין לבריאות כתף — בצע כל יום אם רוצה",
-    "image": "images/כנגד גומיה/08961105-Band-face-pull_Shoulders_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/shoulder/"
-  },
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  50.0,
+                                                "cy_pct":  52.0,
+                                                "rx_pct":  10.0,
+                                                "ry_pct":  8.0,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
 
-  {
-    "id": "home_db_squat",
-    "name_he": "סקוואט — משקולות",
-    "name_en": "Dumbbell Goblet Squat",
-    "machine": "דמבל אחד כבד / שניים בצדדים",
-    "mode": "home",
-    "day": "day5",
-    "sets": "3 × 12–15",
-    "rest_sec": 75,
-    "primary_muscles": [
-      {"he": "ארבע ראשי", "en": "Quadriceps", "url": "https://www.instructor.co.il/body-section/front-thigh/"},
-      {"he": "ישבן", "en": "Gluteus Maximus", "url": "https://www.instructor.co.il/body-section/gluteus/"}
-    ],
-    "secondary_muscles": [
-      {"he": "כלבי ירך", "en": "Hamstrings", "url": "https://www.instructor.co.il/body-section/back-thigh/"},
-      {"he": "שוק", "en": "Calves", "url": "https://www.instructor.co.il/body-section/calf/"}
-    ],
-    "stabilizers": [
-      {"he": "ליבה", "en": "Core", "url": "https://www.instructor.co.il/body-section/abdomen/"}
-    ],
-    "anat_overlays": {
-      "front": [
-        {"cx_pct": 35.0, "cy_pct": 68.0, "rx_pct": 9.0, "ry_pct": 12.0, "type": "primary"},
-        {"cx_pct": 65.0, "cy_pct": 68.0, "rx_pct": 9.0, "ry_pct": 12.0, "type": "primary"}
-      ],
-      "back": [{"cx_pct": 50.0, "cy_pct": 60.0, "rx_pct": 12.0, "ry_pct": 8.0, "type": "secondary"}]
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "שכב",
+                          "detail":  "על אמות הידיים, מרפקים מתחת לכתפיים"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "הרם",
+                          "detail":  "הרם גוף ישר מראש עד עקבים"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "הדק",
+                          "detail":  "הדק בטן וישבן — אל תרכין ירכיים"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "נשום",
+                          "detail":  "נשום רגיל, שמור על ישור"
+                      }
+                  ],
+        "motion":  "גוף ישר כמו קרש. אין קיפוף ואין הרמת ישבן.",
+        "warn":  "אם כואב גב תחתון — הפסק, כנראה ירכיים שוקעות",
+        "tip":  "מבט לרצפה, צוואר ניטרלי",
+        "image":  "images/משקל גוף/04651105-Front-Plank_Waist_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/abdomen/",
+        "equipment_category":  "משקל גוף",
+        "body_areas":  [
+                           "ליבה"
+                       ]
     },
-    "steps": [
-      {"num": 1, "action": "מנח", "detail": "Goblet: אחוז דמבל אחד כבד בשתי ידיים מול החזה"},
-      {"num": 2, "action": "עמדה", "detail": "רגליים קצת יותר מרוחב כתפיים, אצבעות בחוץ"},
-      {"num": 3, "action": "שב", "detail": "ירכיים אחורה ומטה — ברכיים מעל האצבעות"},
-      {"num": 4, "action": "עלה", "detail": "דחף דרך העקבים, גב ישר"}
-    ],
-    "motion": "Goblet Squat מאלץ גוף זקוף ומאפשר שפיפה עמוקה יותר.",
-    "warn": "ברכיים לא נופלות פנימה — הדגש על הפנייה החוצה",
-    "tip": "לא ברוח? גם סקוואט עם 2 משקולות בצדדים עובד מצוין",
-    "image": "images/משקולות יד/04131105-Dumbbell-Squat_Hips_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/front-thigh/"
-  },
+    {
+        "id":  "bent_over_row",
+        "name_he":  "חתירה כפופה",
+        "name_en":  "Bent-Over Row",
+        "machine":  "מוט חופשי",
+        "day":  "day3",
+        "sets":  "3 × 8–10",
+        "rest_sec":  90,
+        "primary_muscles":  [
+                                {
+                                    "he":  "גב רחב",
+                                    "en":  "Latissimus Dorsi",
+                                    "url":  "https://www.instructor.co.il/muscle/latissimus-dorsi/"
+                                },
+                                {
+                                    "he":  "טרפז אמצעי",
+                                    "en":  "Rhomboids",
+                                    "url":  "https://www.instructor.co.il/body-section/upper-back/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "ביצפס",
+                                      "en":  "Biceps Brachii",
+                                      "url":  "https://www.instructor.co.il/body-section/front-arms/"
+                                  },
+                                  {
+                                      "he":  "דלתואיד אחורי",
+                                      "en":  "Posterior Deltoid",
+                                      "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                  }
+                              ],
+        "stabilizers":  [
+                            {
+                                "he":  "שרירי גב תחתון",
+                                "en":  "Erector Spinae",
+                                "url":  "https://www.instructor.co.il/body-section/lower-back/"
+                            }
+                        ],
+        "anat_overlays":  {
+                              "front":  [
 
-  {
-    "id": "home_db_rdl",
-    "name_he": "דדליפט ברגל ישרה — משקולות",
-    "name_en": "Dumbbell Romanian Deadlift",
-    "machine": "משקולות",
-    "mode": "home",
-    "day": "day5",
-    "sets": "3 × 12–15",
-    "rest_sec": 75,
-    "primary_muscles": [
-      {"he": "כלבי ירך", "en": "Hamstrings", "url": "https://www.instructor.co.il/body-section/back-thigh/"},
-      {"he": "ישבן", "en": "Gluteus Maximus", "url": "https://www.instructor.co.il/body-section/gluteus/"}
-    ],
-    "secondary_muscles": [
-      {"he": "שרירי גב תחתון", "en": "Erector Spinae", "url": "https://www.instructor.co.il/body-section/lower-back/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "front": [],
-      "back": [
-        {"cx_pct": 35.0, "cy_pct": 68.0, "rx_pct": 8.0, "ry_pct": 12.0, "type": "primary"},
-        {"cx_pct": 65.0, "cy_pct": 68.0, "rx_pct": 8.0, "ry_pct": 12.0, "type": "primary"}
-      ]
+                                        ],
+                              "back":  [
+                                           {
+                                               "cx_pct":  50.0,
+                                               "cy_pct":  38.0,
+                                               "rx_pct":  18.0,
+                                               "ry_pct":  14.0,
+                                               "type":  "primary"
+                                           }
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "כפוף",
+                          "detail":  "45°, גב ישר, מוט תלוי בזרועות"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "חתור",
+                          "detail":  "משוך המוט לבטן התחתונה, מרפקים צמודים"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "סחט",
+                          "detail":  "סחט שכמות בפסגה שנייה"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "2 שניות בשליטה"
+                      }
+                  ],
+        "motion":  "מוט עולה בקו ישר לבטן, מרפקים עולים גבוה מהגב.",
+        "warn":  "לא לעגל גב תחתון — מאמץ גב ישר כל הזמן",
+        "tip":  "חשוב על משיכת המרפקים לאחור, לא על היד",
+        "image":  "images/משקולות יד/23251105-Dumbbell-Pronated-to-Neutral-Grip-Row-female_Back_max.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/upper-back/",
+        "equipment_category":  "מוט חופשי",
+        "body_areas":  [
+                           "גב",
+                           "יד קדמית"
+                       ]
     },
-    "steps": [
-      {"num": 1, "action": "עמוד", "detail": "משקולות בפני הירכיים, גב ישר, כתפיים אחורה"},
-      {"num": 2, "action": "כפוף", "detail": "כפוף ירכיים אחורה — משקולות יורדים לאורך הרגל"},
-      {"num": 3, "action": "עצור", "detail": "כשמרגיש מתיחה חזקה בכלבי הירך — עצור"},
-      {"num": 4, "action": "עלה", "detail": "דחף ירכיים קדימה, גב ישר, סחוט ישבן בפסגה"}
-    ],
-    "motion": "ירכיים נעות אחורה, משקולות צמודים לרגל. גב ישר לכל אורך הדרך.",
-    "warn": "לא לעגל גב תחתון — אם זה קורה, הגעת עמוק מדי",
-    "tip": "תרגיש מתיחה בגב הרגל — זה הסימן שאתה בטווח הנכון",
-    "image": "images/משקולות יד/04321105-Dumbbell-Stiff-Leg-Deadlift_Waist_max.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/back-thigh/"
-  },
+    {
+        "id":  "lat_pulldown",
+        "name_he":  "משיכת כבל עליון",
+        "name_en":  "Lat Pulldown",
+        "machine":  "Cable Machine",
+        "day":  "day3",
+        "sets":  "3 × 10–12",
+        "rest_sec":  75,
+        "primary_muscles":  [
+                                {
+                                    "he":  "גב רחב",
+                                    "en":  "Latissimus Dorsi",
+                                    "url":  "https://www.instructor.co.il/muscle/latissimus-dorsi/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "ביצפס",
+                                      "en":  "Biceps Brachii",
+                                      "url":  "https://www.instructor.co.il/body-section/front-arms/"
+                                  },
+                                  {
+                                      "he":  "טרפז תחתון",
+                                      "en":  "Lower Trapezius",
+                                      "url":  "https://www.instructor.co.il/body-section/upper-back/"
+                                  }
+                              ],
+        "stabilizers":  [
 
-  {
-    "id": "home_db_lunge",
-    "name_he": "מכרעים — משקולות",
-    "name_en": "Dumbbell Reverse Lunge",
-    "machine": "משקולות",
-    "mode": "home",
-    "day": "day5",
-    "sets": "3 × 10–12 לכל רגל",
-    "rest_sec": 60,
-    "primary_muscles": [
-      {"he": "ארבע ראשי", "en": "Quadriceps", "url": "https://www.instructor.co.il/body-section/front-thigh/"},
-      {"he": "ישבן", "en": "Gluteus Maximus", "url": "https://www.instructor.co.il/body-section/gluteus/"}
-    ],
-    "secondary_muscles": [
-      {"he": "כלבי ירך", "en": "Hamstrings", "url": "https://www.instructor.co.il/body-section/back-thigh/"}
-    ],
-    "stabilizers": [
-      {"he": "שרירי ייצוב", "en": "Stabilizers", "url": "https://www.instructor.co.il/body-section/abdomen/"}
-    ],
-    "anat_overlays": {
-      "front": [{"cx_pct": 35.0, "cy_pct": 68.0, "rx_pct": 8.0, "ry_pct": 11.0, "type": "primary"}],
-      "back": []
-    },
-    "steps": [
-      {"num": 1, "action": "עמוד", "detail": "משקולות בצדים, גב ישר"},
-      {"num": 2, "action": "צעד אחורה", "detail": "צעד גדול לאחור עם רגל ימין"},
-      {"num": 3, "action": "שב", "detail": "ירד עד ברך אחורית כמעט נוגעת ברצפה — ברך קדמית ב-90°"},
-      {"num": 4, "action": "חזור", "detail": "דחף דרך הרגל הקדמית, חזור לעמידה"}
-    ],
-    "motion": "מכרע לאחור (Reverse Lunge) — פחות עומס על ברך, מתאים לבית.",
-    "warn": "ברך קדמית לא מעבר לאצבע הגדולה",
-    "tip": "Reverse Lunge בטוח יותר מקדמי — מומלץ אם יש כאבי ברכיים",
-    "image": "images/משקולות יד/12151105-Dumbbell-side-lunge_hips_max-POTASH.png",
-    "instructor_url": "https://www.instructor.co.il/body-section/front-thigh/"
-  },
+                        ],
+        "anat_overlays":  {
+                              "front":  [
 
-  {
-    "id": "home_band_hip_thrust",
-    "name_he": "גשר ישבן — גומיה",
-    "name_en": "Resistance Band Hip Thrust",
-    "machine": "גומיית לולאה / גומיה רגילה",
-    "mode": "home",
-    "day": "day5",
-    "sets": "3 × 15–20",
-    "rest_sec": 45,
-    "primary_muscles": [
-      {"he": "ישבן", "en": "Gluteus Maximus", "url": "https://www.instructor.co.il/body-section/gluteus/"}
-    ],
-    "secondary_muscles": [
-      {"he": "כלבי ירך", "en": "Hamstrings", "url": "https://www.instructor.co.il/body-section/back-thigh/"},
-      {"he": "גלוטאוס מדיוס", "en": "Gluteus Medius", "url": "https://www.instructor.co.il/body-section/gluteus/"}
-    ],
-    "stabilizers": [],
-    "anat_overlays": {
-      "back": [{"cx_pct": 50.0, "cy_pct": 60.0, "rx_pct": 13.0, "ry_pct": 9.0, "type": "primary"}],
-      "front": []
+                                        ],
+                              "back":  [
+                                           {
+                                               "cx_pct":  50.0,
+                                               "cy_pct":  42.0,
+                                               "rx_pct":  20.0,
+                                               "ry_pct":  16.0,
+                                               "type":  "primary"
+                                           }
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "שב",
+                          "detail":  "ירכיים מתחת לרפידה, גב ישר קלות אחורה"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "אחיזה",
+                          "detail":  "רחבה מכתפיים, כפות ידיים קדימה"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "משוך",
+                          "detail":  "משוך לחזה העליון, שכמות יורדות"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "החזר",
+                          "detail":  "בשליטה, ידיים מתארכות עד למתיחה"
+                      }
+                  ],
+        "motion":  "בר יורד לחזה בקשת, מרפקים נעים לכיוון האגן.",
+        "warn":  "לא להשתמש בתנופת גוף — עבודת גב טהורה",
+        "tip":  "בפסגה — חזה קדימה, לא סנטר",
+        "image":  "images/POLY/01501105-Cable-Bar-Lateral-Pulldown_Back_max.webp",
+        "instructor_url":  "https://www.instructor.co.il/muscle/latissimus-dorsi/",
+        "equipment_category":  "כבל פולי",
+        "body_areas":  [
+                           "גב",
+                           "יד קדמית"
+                       ]
     },
-    "steps": [
-      {"num": 1, "action": "מנח", "detail": "שכב על גב, הנח גומיה על האגן, ברכיים כפופות"},
-      {"num": 2, "action": "הרם", "detail": "הרם ישבן עד גוף ישר מכתפיים לברכיים"},
-      {"num": 3, "action": "סחט", "detail": "סחט ישבן בחוזקה — 2 שניות בפסגה"},
-      {"num": 4, "action": "הורד", "detail": "לאט — לא ליגוע ברצפה בין חזרות"}
-    ],
-    "motion": "הגומיה מוסיפה התנגדות בפסגה — שם שריר הישבן הכי חזק.",
-    "warn": "לא לקמר גב תחתון — שמור ניטרלי",
-    "tip": "הוסף גומיה סביב הברכיים לגיוס נוסף של גלוטאוס מדיוס",
-    "image": "images/כנגד גומיה/14081105-Band-Hip-Lift_Hips_medium.webp",
-    "instructor_url": "https://www.instructor.co.il/body-section/gluteus/"
-  }
+    {
+        "id":  "face_pull",
+        "name_he":  "משיכת פנים",
+        "name_en":  "Face Pull",
+        "machine":  "Cable + Rope",
+        "day":  "day3",
+        "sets":  "3 × 12–15",
+        "rest_sec":  60,
+        "primary_muscles":  [
+                                {
+                                    "he":  "דלתואיד אחורי",
+                                    "en":  "Posterior Deltoid",
+                                    "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                },
+                                {
+                                    "he":  "טרפז אמצעי",
+                                    "en":  "Rhomboids",
+                                    "url":  "https://www.instructor.co.il/body-section/upper-back/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "שרירי הסיבוב בכתף",
+                                      "en":  "Rotator Cuff",
+                                      "url":  "https://www.instructor.co.il/body-section/scapula/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+
+                                        ],
+                              "back":  [
+                                           {
+                                               "cx_pct":  50.0,
+                                               "cy_pct":  30.0,
+                                               "rx_pct":  15.0,
+                                               "ry_pct":  10.0,
+                                               "type":  "primary"
+                                           }
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "כוון",
+                          "detail":  "כבל בגובה הפנים, חבל מחובר"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "אחוז",
+                          "detail":  "שתי ידיים, אגודלים פנימה"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "משוך",
+                          "detail":  "לפנים — מרפקים גבוהים, ידיים נפרדות"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "החזר",
+                          "detail":  "לאט, מתח שכמות קדימה"
+                      }
+                  ],
+        "motion":  "חבל מגיע לפנים עם מרפקים גבוהים בצדדים.",
+        "warn":  "אל תטה ראש — שמור נייטרלי",
+        "tip":  "תרגיל מצוין לבריאות כתף — לא לדלג עליו",
+        "image":  "images/POLY/08961105-Band-face-pull_Shoulders_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/",
+        "equipment_category":  "כבל פולי",
+        "body_areas":  [
+                           "כתפיים",
+                           "גב"
+                       ]
+    },
+    {
+        "id":  "bicep_curl",
+        "name_he":  "כפיפת ביצפס",
+        "name_en":  "Bicep Curl",
+        "machine":  "משקולות / EZ Bar",
+        "day":  "day3",
+        "sets":  "3 × 10–12",
+        "rest_sec":  60,
+        "primary_muscles":  [
+                                {
+                                    "he":  "ביצפס",
+                                    "en":  "Biceps Brachii",
+                                    "url":  "https://www.instructor.co.il/body-section/front-arms/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "ברכיאליס",
+                                      "en":  "Brachialis",
+                                      "url":  "https://www.instructor.co.il/body-section/front-arms/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  14.0,
+                                                "cy_pct":  45.0,
+                                                "rx_pct":  3.5,
+                                                "ry_pct":  7.0,
+                                                "type":  "primary"
+                                            },
+                                            {
+                                                "cx_pct":  86.0,
+                                                "cy_pct":  45.0,
+                                                "rx_pct":  3.5,
+                                                "ry_pct":  7.0,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עמוד",
+                          "detail":  "משקולות בצדים, כפות ידיים קדימה"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "כפוף",
+                          "detail":  "כפוף מרפק, הרם לכתף — מרפק קבוע"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "סחט",
+                          "detail":  "סחט ביצפס בפסגה"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "2 שניות בשליטה"
+                      }
+                  ],
+        "motion":  "זרוע תחתונה נעה בלבד, מרפק נשאר במקום.",
+        "warn":  "לא לנדנד גוף לאחור — כוח, לא תנופה",
+        "tip":  "חליפי ידיים או ביחד — שתי אפשרויות עובדות",
+        "image":  "images/משקולות יד/16501105-Dumbbell-Alternating-Seated-Bicep-Curl-on-Exercise-Ball_Upper-Arms_medium.webp",
+        "instructor_url":  "https://www.instructor.co.il/body-section/front-arms/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "יד קדמית"
+                       ]
+    },
+    {
+        "id":  "dead_bug",
+        "name_he":  "חרק מת",
+        "name_en":  "Dead Bug",
+        "machine":  "רצפה",
+        "day":  "day3",
+        "sets":  "3 × 8 לכל צד",
+        "rest_sec":  60,
+        "primary_muscles":  [
+                                {
+                                    "he":  "שרירי הליבה",
+                                    "en":  "Transverse Abdominis",
+                                    "url":  "https://www.instructor.co.il/body-section/abdomen/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "שרירי הגב התחתון",
+                                      "en":  "Erector Spinae",
+                                      "url":  "https://www.instructor.co.il/body-section/lower-back/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  50.0,
+                                                "cy_pct":  52.0,
+                                                "rx_pct":  10.0,
+                                                "ry_pct":  8.0,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "שכב",
+                          "detail":  "על גב, ידיים למעלה, ברכיים ב-90°"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "הדק",
+                          "detail":  "הדק גב תחתון לרצפה — שמור כל הזמן"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "הורד",
+                          "detail":  "יד שמאל + רגל ימין למטה ביחד"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "חזור",
+                          "detail":  "חזרה ל-90° ועבר לצד השני"
+                      }
+                  ],
+        "motion":  "גפיים נעות בצלב — ידיים ורגליים בצד נגדי.",
+        "warn":  "לא לאפשר גב תחתון לקמר — זה הכי חשוב",
+        "tip":  "נשום החוצה כשמוריד גפיים",
+        "image":  "images/משקל גוף/31411105-Bird-Dog-female_max-POTASH.webp",
+        "instructor_url":  "https://www.instructor.co.il/body-section/abdomen/",
+        "equipment_category":  "משקל גוף",
+        "body_areas":  [
+                           "ליבה"
+                       ]
+    },
+    {
+        "id":  "squat",
+        "name_he":  "סקוואט",
+        "name_en":  "Squat",
+        "machine":  "מוט חופשי + Squat Rack",
+        "day":  "day5",
+        "sets":  "3 × 10–12",
+        "rest_sec":  90,
+        "primary_muscles":  [
+                                {
+                                    "he":  "ארבע ראשי",
+                                    "en":  "Quadriceps",
+                                    "url":  "https://www.instructor.co.il/body-section/front-thigh/"
+                                },
+                                {
+                                    "he":  "ישבן",
+                                    "en":  "Gluteus Maximus",
+                                    "url":  "https://www.instructor.co.il/body-section/gluteus/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "כלבי ירך",
+                                      "en":  "Hamstrings",
+                                      "url":  "https://www.instructor.co.il/body-section/back-thigh/"
+                                  },
+                                  {
+                                      "he":  "שוק",
+                                      "en":  "Calves",
+                                      "url":  "https://www.instructor.co.il/body-section/calf/"
+                                  }
+                              ],
+        "stabilizers":  [
+                            {
+                                "he":  "ליבה",
+                                "en":  "Core",
+                                "url":  "https://www.instructor.co.il/body-section/abdomen/"
+                            }
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  35.0,
+                                                "cy_pct":  68.0,
+                                                "rx_pct":  9.0,
+                                                "ry_pct":  12.0,
+                                                "type":  "primary"
+                                            },
+                                            {
+                                                "cx_pct":  65.0,
+                                                "cy_pct":  68.0,
+                                                "rx_pct":  9.0,
+                                                "ry_pct":  12.0,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
+                                           {
+                                               "cx_pct":  50.0,
+                                               "cy_pct":  60.0,
+                                               "rx_pct":  12.0,
+                                               "ry_pct":  8.0,
+                                               "type":  "secondary"
+                                           }
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עמוד",
+                          "detail":  "רגליים קצת יותר מרוחב כתפיים, אצבעות בחוץ"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "שב",
+                          "detail":  "כוון ברכיים מעל האצבעות, ירכיים אחורה ומטה"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "עמק",
+                          "detail":  "ירד עד ירכיים מקבילות לרצפה"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "עלה",
+                          "detail":  "דחף דרך העקבים, גב ישר"
+                      }
+                  ],
+        "motion":  "ירכיים יורדות לאחור ומטה, חזה נשאר גבוה.",
+        "warn":  "ברכיים לא נופלות פנימה — שמור על יישור",
+        "tip":  "התחל עם משקל גוף להתרגל לתנועה",
+        "image":  "images/משקולות יד/04131105-Dumbbell-Squat_Hips_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/front-thigh/",
+        "equipment_category":  "מוט חופשי",
+        "body_areas":  [
+                           "רגליים",
+                           "ישבן"
+                       ]
+    },
+    {
+        "id":  "rdl",
+        "name_he":  "דדליפט רומני",
+        "name_en":  "Romanian Deadlift",
+        "machine":  "משקולות / מוט",
+        "day":  "day5",
+        "sets":  "3 × 10–12",
+        "rest_sec":  90,
+        "primary_muscles":  [
+                                {
+                                    "he":  "כלבי ירך",
+                                    "en":  "Hamstrings",
+                                    "url":  "https://www.instructor.co.il/body-section/back-thigh/"
+                                },
+                                {
+                                    "he":  "ישבן",
+                                    "en":  "Gluteus Maximus",
+                                    "url":  "https://www.instructor.co.il/body-section/gluteus/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "שרירי גב תחתון",
+                                      "en":  "Erector Spinae",
+                                      "url":  "https://www.instructor.co.il/body-section/lower-back/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+
+                                        ],
+                              "back":  [
+                                           {
+                                               "cx_pct":  35.0,
+                                               "cy_pct":  68.0,
+                                               "rx_pct":  8.0,
+                                               "ry_pct":  12.0,
+                                               "type":  "primary"
+                                           },
+                                           {
+                                               "cx_pct":  65.0,
+                                               "cy_pct":  68.0,
+                                               "rx_pct":  8.0,
+                                               "ry_pct":  12.0,
+                                               "type":  "primary"
+                                           },
+                                           {
+                                               "cx_pct":  50.0,
+                                               "cy_pct":  60.0,
+                                               "rx_pct":  10.0,
+                                               "ry_pct":  7.0,
+                                               "type":  "secondary"
+                                           }
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עמוד",
+                          "detail":  "ידיות/מוט בפני הירכיים, גב ישר"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "כפוף",
+                          "detail":  "כפוף ירכיים אחורה, הרם ידיות לאורך הרגל"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "עצור",
+                          "detail":  "כשמרגיש מתיחה בכלבי ירך — עצור"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "עלה",
+                          "detail":  "דחף ירכיים קדימה, גב ישר"
+                      }
+                  ],
+        "motion":  "ירכיים נעות אחורה, גב נשאר ישר, המוט צמוד לרגל.",
+        "warn":  "לא לעגל גב תחתון — מתיחת ירך, לא כפיפה",
+        "tip":  "תרגיש מתיחה בגב הרגל — זה הסימן הנכון",
+        "image":  "images/משקולות יד/04321105-Dumbbell-Stiff-Leg-Deadlift_Waist_max.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/back-thigh/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "רגליים",
+                           "ישבן",
+                           "גב תחתון"
+                       ]
+    },
+    {
+        "id":  "forward_lunge",
+        "name_he":  "מדרך קדמי",
+        "name_en":  "Forward Lunge",
+        "machine":  "משקולות קלים",
+        "day":  "day5",
+        "sets":  "3 × 10 לכל רגל",
+        "rest_sec":  60,
+        "primary_muscles":  [
+                                {
+                                    "he":  "ארבע ראשי",
+                                    "en":  "Quadriceps",
+                                    "url":  "https://www.instructor.co.il/body-section/front-thigh/"
+                                },
+                                {
+                                    "he":  "ישבן",
+                                    "en":  "Gluteus",
+                                    "url":  "https://www.instructor.co.il/body-section/gluteus/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "כלבי ירך",
+                                      "en":  "Hamstrings",
+                                      "url":  "https://www.instructor.co.il/body-section/back-thigh/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  35.0,
+                                                "cy_pct":  68.0,
+                                                "rx_pct":  8.0,
+                                                "ry_pct":  11.0,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עמוד",
+                          "detail":  "משקולות בצדים, גב ישר"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "צעד",
+                          "detail":  "צעד ארוך קדימה עם רגל אחת"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "שב",
+                          "detail":  "כפוף שתי הברכיים ל-90°, ברך אחורית כמעט לרצפה"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "חזור",
+                          "detail":  "דחף חזרה לנקודת ההתחלה"
+                      }
+                  ],
+        "motion":  "ירידה מאונכת, ברך קדמית מעל קרסול.",
+        "warn":  "ברך קדמית לא מעבר לאצבע הגדולה",
+        "tip":  "התחל ללא משקל — תנועה נכונה קודם",
+        "image":  "images/משקולות יד/12151105-Dumbbell-side-lunge_hips_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/front-thigh/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "רגליים",
+                           "ישבן"
+                       ]
+    },
+    {
+        "id":  "glute_bridge",
+        "name_he":  "גשר ישבן",
+        "name_en":  "Glute Bridge",
+        "machine":  "רצפה",
+        "day":  "day5",
+        "sets":  "3 × 15",
+        "rest_sec":  60,
+        "primary_muscles":  [
+                                {
+                                    "he":  "ישבן",
+                                    "en":  "Gluteus Maximus",
+                                    "url":  "https://www.instructor.co.il/body-section/gluteus/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "כלבי ירך",
+                                      "en":  "Hamstrings",
+                                      "url":  "https://www.instructor.co.il/body-section/back-thigh/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "back":  [
+                                           {
+                                               "cx_pct":  50.0,
+                                               "cy_pct":  60.0,
+                                               "rx_pct":  13.0,
+                                               "ry_pct":  9.0,
+                                               "type":  "primary"
+                                           }
+                                       ],
+                              "front":  [
+
+                                        ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "שכב",
+                          "detail":  "גב על הרצפה, ברכיים כפופות, רגליים שטוחות"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "הרם",
+                          "detail":  "הרם ירכיים עד לקו ישר כתף-ירך-ברך"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "סחט",
+                          "detail":  "סחט ישבן בפסגה 2 שניות"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "לאט לרצפה"
+                      }
+                  ],
+        "motion":  "ירכיים עולות ויורדות, גב תחתון נשאר ניטרלי.",
+        "warn":  "לא לקמר גב תחתון בפסגה",
+        "tip":  "הוסף משקל על הבטן לאתגר",
+        "image":  "images/כנגד גומיה/14081105-Band-Hip-Lift_Hips_medium.webp",
+        "instructor_url":  "https://www.instructor.co.il/body-section/gluteus/",
+        "equipment_category":  "משקל גוף",
+        "body_areas":  [
+                           "ישבן",
+                           "רגליים"
+                       ]
+    },
+    {
+        "id":  "side_plank",
+        "name_he":  "פלאנק צדי",
+        "name_en":  "Side Plank",
+        "machine":  "רצפה",
+        "day":  "day5",
+        "sets":  "3 × 25–35 שניות לכל צד",
+        "rest_sec":  60,
+        "primary_muscles":  [
+                                {
+                                    "he":  "אלכסוני הבטן",
+                                    "en":  "Obliques",
+                                    "url":  "https://www.instructor.co.il/body-section/abdomen/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "ליבה",
+                                      "en":  "Core",
+                                      "url":  "https://www.instructor.co.il/body-section/abdomen/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  42.0,
+                                                "cy_pct":  52.0,
+                                                "rx_pct":  6.0,
+                                                "ry_pct":  9.0,
+                                                "type":  "primary"
+                                            },
+                                            {
+                                                "cx_pct":  58.0,
+                                                "cy_pct":  52.0,
+                                                "rx_pct":  6.0,
+                                                "ry_pct":  9.0,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "שכב",
+                          "detail":  "על הצד, אמת יד מתחת לכתף"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "הרם",
+                          "detail":  "הרם ירכיים — גוף ישר מראש עד עקבים"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "הדק",
+                          "detail":  "הדק ליבה, ירכיים לא יורדות"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "שמור",
+                          "detail":  "נשום, שמור זמן הנדרש"
+                      }
+                  ],
+        "motion":  "גוף ישר בצד, נשען על אמת יד ועל כף הרגל.",
+        "warn":  "ירכיים לא נופלות לאמצע — זה סימן לחולשה",
+        "tip":  "התחל עם ברכיים כפופות אם קשה",
+        "image":  "images/משקל גוף/07151105-Side-Plank-m_Waist_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/abdomen/",
+        "equipment_category":  "משקל גוף",
+        "body_areas":  [
+                           "ליבה"
+                       ]
+    },
+    {
+        "id":  "home_db_bench_press",
+        "name_he":  "לחיצת חזה — משקולות",
+        "name_en":  "Dumbbell Chest Press (Floor/Bench)",
+        "machine":  "משקולות — על הרצפה או ספסל",
+        "mode":  "home",
+        "day":  "day1",
+        "sets":  "3 × 10–12",
+        "rest_sec":  75,
+        "primary_muscles":  [
+                                {
+                                    "he":  "חזה גדול",
+                                    "en":  "Pectoralis Major",
+                                    "url":  "https://www.instructor.co.il/body-section/chest/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "דלתואיד קדמי",
+                                      "en":  "Anterior Deltoid",
+                                      "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                  },
+                                  {
+                                      "he":  "טריצפס",
+                                      "en":  "Triceps Brachii",
+                                      "url":  "https://www.instructor.co.il/body-section/back-arms/"
+                                  }
+                              ],
+        "stabilizers":  [
+                            {
+                                "he":  "מסור קדמי",
+                                "en":  "Serratus Anterior",
+                                "url":  "https://www.instructor.co.il/body-section/chest/"
+                            }
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  27.3,
+                                                "cy_pct":  34.2,
+                                                "rx_pct":  8.6,
+                                                "ry_pct":  9.9,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "שכב",
+                          "detail":  "על הרצפה (או ספסל), ברכיים כפופות, משקולות בגובה החזה"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "אחיזה",
+                          "detail":  "מרפקים בזווית 45° מהגוף — לא 90°"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "דחף",
+                          "detail":  "דחף למעלה עד יישור כמעט מלא, משקולות מתקרבים"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "2–3 שניות בשליטה עד הרצפה/החזה"
+                      }
+                  ],
+        "motion":  "על הרצפה: הרצפה מגבילה את הטווח — פחות עומס על הכתף, מתאים למתחיל.",
+        "warn":  "אל תנמיך המרפקים מתחת לגובה הכתפיים — הרצפה תשמש כבטיחות",
+        "tip":  "אם אין ספסל — Floor Press על הרצפה זה תרגיל מצוין בפני עצמו",
+        "image":  "images/משקולות יד/02891105-Dumbbell-Bench-Press_Chest_max-POTASH-1.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/chest/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "חזה",
+                           "כתפיים"
+                       ]
+    },
+    {
+        "id":  "home_db_ohp",
+        "name_he":  "לחיצת כתפיים — משקולות",
+        "name_en":  "Dumbbell Overhead Press (Seated/Standing)",
+        "machine":  "משקולות — בישיבה או עמידה",
+        "mode":  "home",
+        "day":  "day1",
+        "sets":  "3 × 10–12",
+        "rest_sec":  75,
+        "primary_muscles":  [
+                                {
+                                    "he":  "דלתואיד",
+                                    "en":  "Deltoid",
+                                    "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "טריצפס",
+                                      "en":  "Triceps Brachii",
+                                      "url":  "https://www.instructor.co.il/body-section/back-arms/"
+                                  },
+                                  {
+                                      "he":  "טרפז עליון",
+                                      "en":  "Upper Trapezius",
+                                      "url":  "https://www.instructor.co.il/body-section/upper-back/"
+                                  }
+                              ],
+        "stabilizers":  [
+                            {
+                                "he":  "ליבה",
+                                "en":  "Core",
+                                "url":  "https://www.instructor.co.il/body-section/abdomen/"
+                            }
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  18.0,
+                                                "cy_pct":  28.3,
+                                                "rx_pct":  5.0,
+                                                "ry_pct":  7.5,
+                                                "type":  "primary"
+                                            },
+                                            {
+                                                "cx_pct":  82.0,
+                                                "cy_pct":  28.3,
+                                                "rx_pct":  5.0,
+                                                "ry_pct":  7.5,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "מנח",
+                          "detail":  "שב על כסא ישר או עמוד — גב ישר, ליבה מכווצת"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "התחלה",
+                          "detail":  "משקולות בגובה הכתפיים, מרפקים קדימה"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "דחף",
+                          "detail":  "דחף ישר מעלה עד קירוב המשקולות מעל הראש"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "בשליטה 2 שניות עד לגובה הכתפיים"
+                      }
+                  ],
+        "motion":  "בישיבה — ה-Arnold Press (סופינציה → פרונציה) מגייס יותר שרירי כתף.",
+        "warn":  "אל תקמור גב תחתון — אם קורה, בצע בישיבה",
+        "tip":  "נסה Arnold Press: התחל כפות ידיים פנימה, סובב החוצה תוך הדחיפה",
+        "image":  "images/משקולות יד/21371105-Dumbbell-Arnold-Press_Shoulders_max.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "כתפיים",
+                           "יד אחורית"
+                       ]
+    },
+    {
+        "id":  "home_db_fly",
+        "name_he":  "פרפר — משקולות",
+        "name_en":  "Dumbbell Fly (Floor/Bench)",
+        "machine":  "משקולות — על הרצפה או ספסל",
+        "mode":  "home",
+        "day":  "day1",
+        "sets":  "3 × 12–15",
+        "rest_sec":  60,
+        "primary_muscles":  [
+                                {
+                                    "he":  "חזה גדול",
+                                    "en":  "Pectoralis Major",
+                                    "url":  "https://www.instructor.co.il/body-section/chest/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "דלתואיד קדמי",
+                                      "en":  "Anterior Deltoid",
+                                      "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                  }
+                              ],
+        "stabilizers":  [
+                            {
+                                "he":  "מסור קדמי",
+                                "en":  "Serratus Anterior",
+                                "url":  "https://www.instructor.co.il/body-section/chest/"
+                            }
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  27.3,
+                                                "cy_pct":  34.2,
+                                                "rx_pct":  9.0,
+                                                "ry_pct":  10.0,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "שכב",
+                          "detail":  "על הרצפה/ספסל, משקולות מעל החזה, מרפקים כפופים קלות"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "פתח",
+                          "detail":  "הרחק ידיים לצדדים בקשת — עד גובה הכתפיים"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "החזר",
+                          "detail":  "קרב ידיים בחזרה מעל החזה בתנועת חיבוק"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "סחט",
+                          "detail":  "בפסגה — סחט חזה שנייה"
+                      }
+                  ],
+        "motion":  "תנועת חיבוק רחב. המרפקים נשארים כפופים בזווית קבועה לאורך כל התנועה.",
+        "warn":  "אל תנמיך מתחת לגובה הכתפיים — עומס יתר על כתף קדמית",
+        "tip":  "פחות משקל יותר טווח — זה הכלל בפרפר",
+        "image":  "images/משקולות יד/03081105-Dumbbell-Fly_Chest-FIX_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/chest/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "חזה"
+                       ]
+    },
+    {
+        "id":  "home_db_lateral_raise",
+        "name_he":  "הרמה צדית — משקולות",
+        "name_en":  "Dumbbell Lateral Raise",
+        "machine":  "משקולות קלים 3–8 ק\"ג",
+        "mode":  "home",
+        "day":  "day1",
+        "sets":  "3 × 15–20",
+        "rest_sec":  45,
+        "primary_muscles":  [
+                                {
+                                    "he":  "דלתואיד מדיאלי",
+                                    "en":  "Medial Deltoid",
+                                    "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "טרפז עליון",
+                                      "en":  "Upper Trapezius",
+                                      "url":  "https://www.instructor.co.il/body-section/upper-back/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  18.0,
+                                                "cy_pct":  28.3,
+                                                "rx_pct":  4.5,
+                                                "ry_pct":  6.0,
+                                                "type":  "primary"
+                                            },
+                                            {
+                                                "cx_pct":  82.0,
+                                                "cy_pct":  28.3,
+                                                "rx_pct":  4.5,
+                                                "ry_pct":  6.0,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עמוד",
+                          "detail":  "משקולות בצדים, כפיפה קלה במרפק"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "הרם",
+                          "detail":  "הרם לצדדים עד גובה הכתף — אגודל מופנה קלות מטה"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "החזק",
+                          "detail":  "שנייה בפסגה"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "לאט 3 שניות — הירידה חשובה כמו העלייה"
+                      }
+                  ],
+        "motion":  "זרועות עולות כלפי חוץ בקשת עגולה. לא להשתמש בתנופה.",
+        "warn":  "אל תגביה מעל גובה הכתף — פגיעה ב-Supraspinatus",
+        "tip":  "אם יש גומיה — אפשר לבצע גם עם גומיה לסירוגין תחת הרגל",
+        "image":  "images/משקולות יד/03341105-Dumbbell-Lateral-Raise_shoulder_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "כתפיים"
+                       ]
+    },
+    {
+        "id":  "home_db_one_arm_row",
+        "name_he":  "חתירה ביד אחת — דמבל",
+        "name_en":  "One-Arm Dumbbell Row",
+        "machine":  "דמבל אחד — נשען על כיסא/ספה",
+        "mode":  "home",
+        "day":  "day3",
+        "sets":  "3 × 10–12 לכל יד",
+        "rest_sec":  75,
+        "primary_muscles":  [
+                                {
+                                    "he":  "גב רחב",
+                                    "en":  "Latissimus Dorsi",
+                                    "url":  "https://www.instructor.co.il/muscle/latissimus-dorsi/"
+                                },
+                                {
+                                    "he":  "רומבואידים",
+                                    "en":  "Rhomboids",
+                                    "url":  "https://www.instructor.co.il/body-section/upper-back/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "ביצפס",
+                                      "en":  "Biceps Brachii",
+                                      "url":  "https://www.instructor.co.il/body-section/front-arms/"
+                                  },
+                                  {
+                                      "he":  "דלתואיד אחורי",
+                                      "en":  "Posterior Deltoid",
+                                      "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                  }
+                              ],
+        "stabilizers":  [
+                            {
+                                "he":  "זוקפי גו",
+                                "en":  "Erector Spinae",
+                                "url":  "https://www.instructor.co.il/body-section/lower-back/"
+                            }
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+
+                                        ],
+                              "back":  [
+                                           {
+                                               "cx_pct":  50.0,
+                                               "cy_pct":  38.0,
+                                               "rx_pct":  18.0,
+                                               "ry_pct":  14.0,
+                                               "type":  "primary"
+                                           }
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עמדה",
+                          "detail":  "הנח יד ורגל שמאל על כיסא/ספה — גב מקביל לרצפה"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "תחלה",
+                          "detail":  "דמבל תלוי בזרוע ימין, כתף נמוכה"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "חתור",
+                          "detail":  "משוך המרפק מעלה ולאחור — כמו הפעלת מנוע"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "2 שניות בשליטה עד מתיחה מלאה"
+                      }
+                  ],
+        "motion":  "מרפק עולה גבוה מהגב. שכמה מתקפלת בפסגה.",
+        "warn":  "לא לסובב הגו לעזור — עובד רק מהגב",
+        "tip":  "חשוב על משיכת המרפק אחורה, לא על היד",
+        "image":  "images/משקולות יד/23931105-Dumbbell-One-Arm-Bent-over-Row-female_Shoulders_max.webp",
+        "instructor_url":  "https://www.instructor.co.il/body-section/upper-back/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "גב",
+                           "יד קדמית"
+                       ]
+    },
+    {
+        "id":  "home_band_pulldown",
+        "name_he":  "משיכה עליונה — גומיה",
+        "name_en":  "Resistance Band Lat Pulldown",
+        "machine":  "גומיית התנגדות — עגינה בדלת/מעל",
+        "mode":  "home",
+        "day":  "day3",
+        "sets":  "3 × 12–15",
+        "rest_sec":  60,
+        "primary_muscles":  [
+                                {
+                                    "he":  "גב רחב",
+                                    "en":  "Latissimus Dorsi",
+                                    "url":  "https://www.instructor.co.il/muscle/latissimus-dorsi/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "ביצפס",
+                                      "en":  "Biceps Brachii",
+                                      "url":  "https://www.instructor.co.il/body-section/front-arms/"
+                                  },
+                                  {
+                                      "he":  "טרפז תחתון",
+                                      "en":  "Lower Trapezius",
+                                      "url":  "https://www.instructor.co.il/body-section/upper-back/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+
+                                        ],
+                              "back":  [
+                                           {
+                                               "cx_pct":  50.0,
+                                               "cy_pct":  42.0,
+                                               "rx_pct":  20.0,
+                                               "ry_pct":  16.0,
+                                               "type":  "primary"
+                                           }
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עגינה",
+                          "detail":  "עגן גומיה גבוה (דלת, ווים) — שב מתחת"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "אחיזה",
+                          "detail":  "אחוז בגומיה רחב מכתפיים, ידיים בסופינציה"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "משוך",
+                          "detail":  "משוך לחזה — שכמות יורדות ומתכנסות"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "שחרר",
+                          "detail":  "לאט עד יישור מלא — מתיחה בגב"
+                      }
+                  ],
+        "motion":  "גומיה יורדת לחזה בקשת, מרפקים נעים לכיוון האגן.",
+        "warn":  "אל תשתמש בתנופת גוף — עבודת גב טהורה",
+        "tip":  "ניתן לבצע עם גומיה בסופינציה (כפות ידיים פנימה) — קל יותר ועובד ביצפס",
+        "image":  "images/כנגד גומיה/31161105-Band-Fixed-Back-Underhand-Pulldown_Back_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/muscle/latissimus-dorsi/",
+        "equipment_category":  "גומיה",
+        "body_areas":  [
+                           "גב",
+                           "יד קדמית"
+                       ]
+    },
+    {
+        "id":  "home_band_face_pull",
+        "name_he":  "משיכה לפנים — גומיה",
+        "name_en":  "Resistance Band Face Pull",
+        "machine":  "גומיית התנגדות — עגינה בגובה הפנים",
+        "mode":  "home",
+        "day":  "day3",
+        "sets":  "3 × 15–20",
+        "rest_sec":  45,
+        "primary_muscles":  [
+                                {
+                                    "he":  "דלתואיד אחורי",
+                                    "en":  "Posterior Deltoid",
+                                    "url":  "https://www.instructor.co.il/body-section/shoulder/"
+                                },
+                                {
+                                    "he":  "טרפז אמצעי",
+                                    "en":  "Middle Trapezius",
+                                    "url":  "https://www.instructor.co.il/body-section/upper-back/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "שרירי הסיבוב בכתף",
+                                      "en":  "Rotator Cuff",
+                                      "url":  "https://www.instructor.co.il/body-section/scapula/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+
+                                        ],
+                              "back":  [
+                                           {
+                                               "cx_pct":  50.0,
+                                               "cy_pct":  30.0,
+                                               "rx_pct":  15.0,
+                                               "ry_pct":  10.0,
+                                               "type":  "primary"
+                                           }
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עגינה",
+                          "detail":  "עגן גומיה בגובה הפנים — ידית דלת, וו קיר"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "אחוז",
+                          "detail":  "שתי ידיים באגרופים, אגודלים פנימה"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "משוך",
+                          "detail":  "משוך לפנים עם מרפקים גבוהים — ידיים נפרדות"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "החזר",
+                          "detail":  "לאט, שכמות נמתחות קדימה"
+                      }
+                  ],
+        "motion":  "גומיה מגיעה לפנים עם מרפקים גבוהים בצדדים (צורת W).",
+        "warn":  "אל תטה ראש קדימה — שמור צוואר ניטרלי",
+        "tip":  "תרגיל מצוין לבריאות כתף — בצע כל יום אם רוצה",
+        "image":  "images/כנגד גומיה/08961105-Band-face-pull_Shoulders_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/",
+        "equipment_category":  "גומיה",
+        "body_areas":  [
+                           "כתפיים",
+                           "גב"
+                       ]
+    },
+    {
+        "id":  "home_db_squat",
+        "name_he":  "סקוואט — משקולות",
+        "name_en":  "Dumbbell Goblet Squat",
+        "machine":  "דמבל אחד כבד / שניים בצדדים",
+        "mode":  "home",
+        "day":  "day5",
+        "sets":  "3 × 12–15",
+        "rest_sec":  75,
+        "primary_muscles":  [
+                                {
+                                    "he":  "ארבע ראשי",
+                                    "en":  "Quadriceps",
+                                    "url":  "https://www.instructor.co.il/body-section/front-thigh/"
+                                },
+                                {
+                                    "he":  "ישבן",
+                                    "en":  "Gluteus Maximus",
+                                    "url":  "https://www.instructor.co.il/body-section/gluteus/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "כלבי ירך",
+                                      "en":  "Hamstrings",
+                                      "url":  "https://www.instructor.co.il/body-section/back-thigh/"
+                                  },
+                                  {
+                                      "he":  "שוק",
+                                      "en":  "Calves",
+                                      "url":  "https://www.instructor.co.il/body-section/calf/"
+                                  }
+                              ],
+        "stabilizers":  [
+                            {
+                                "he":  "ליבה",
+                                "en":  "Core",
+                                "url":  "https://www.instructor.co.il/body-section/abdomen/"
+                            }
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  35.0,
+                                                "cy_pct":  68.0,
+                                                "rx_pct":  9.0,
+                                                "ry_pct":  12.0,
+                                                "type":  "primary"
+                                            },
+                                            {
+                                                "cx_pct":  65.0,
+                                                "cy_pct":  68.0,
+                                                "rx_pct":  9.0,
+                                                "ry_pct":  12.0,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
+                                           {
+                                               "cx_pct":  50.0,
+                                               "cy_pct":  60.0,
+                                               "rx_pct":  12.0,
+                                               "ry_pct":  8.0,
+                                               "type":  "secondary"
+                                           }
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "מנח",
+                          "detail":  "Goblet: אחוז דמבל אחד כבד בשתי ידיים מול החזה"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "עמדה",
+                          "detail":  "רגליים קצת יותר מרוחב כתפיים, אצבעות בחוץ"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "שב",
+                          "detail":  "ירכיים אחורה ומטה — ברכיים מעל האצבעות"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "עלה",
+                          "detail":  "דחף דרך העקבים, גב ישר"
+                      }
+                  ],
+        "motion":  "Goblet Squat מאלץ גוף זקוף ומאפשר שפיפה עמוקה יותר.",
+        "warn":  "ברכיים לא נופלות פנימה — הדגש על הפנייה החוצה",
+        "tip":  "לא ברוח? גם סקוואט עם 2 משקולות בצדדים עובד מצוין",
+        "image":  "images/משקולות יד/04131105-Dumbbell-Squat_Hips_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/front-thigh/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "רגליים",
+                           "ישבן"
+                       ]
+    },
+    {
+        "id":  "home_db_rdl",
+        "name_he":  "דדליפט ברגל ישרה — משקולות",
+        "name_en":  "Dumbbell Romanian Deadlift",
+        "machine":  "משקולות",
+        "mode":  "home",
+        "day":  "day5",
+        "sets":  "3 × 12–15",
+        "rest_sec":  75,
+        "primary_muscles":  [
+                                {
+                                    "he":  "כלבי ירך",
+                                    "en":  "Hamstrings",
+                                    "url":  "https://www.instructor.co.il/body-section/back-thigh/"
+                                },
+                                {
+                                    "he":  "ישבן",
+                                    "en":  "Gluteus Maximus",
+                                    "url":  "https://www.instructor.co.il/body-section/gluteus/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "שרירי גב תחתון",
+                                      "en":  "Erector Spinae",
+                                      "url":  "https://www.instructor.co.il/body-section/lower-back/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+
+                                        ],
+                              "back":  [
+                                           {
+                                               "cx_pct":  35.0,
+                                               "cy_pct":  68.0,
+                                               "rx_pct":  8.0,
+                                               "ry_pct":  12.0,
+                                               "type":  "primary"
+                                           },
+                                           {
+                                               "cx_pct":  65.0,
+                                               "cy_pct":  68.0,
+                                               "rx_pct":  8.0,
+                                               "ry_pct":  12.0,
+                                               "type":  "primary"
+                                           }
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עמוד",
+                          "detail":  "משקולות בפני הירכיים, גב ישר, כתפיים אחורה"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "כפוף",
+                          "detail":  "כפוף ירכיים אחורה — משקולות יורדים לאורך הרגל"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "עצור",
+                          "detail":  "כשמרגיש מתיחה חזקה בכלבי הירך — עצור"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "עלה",
+                          "detail":  "דחף ירכיים קדימה, גב ישר, סחוט ישבן בפסגה"
+                      }
+                  ],
+        "motion":  "ירכיים נעות אחורה, משקולות צמודים לרגל. גב ישר לכל אורך הדרך.",
+        "warn":  "לא לעגל גב תחתון — אם זה קורה, הגעת עמוק מדי",
+        "tip":  "תרגיש מתיחה בגב הרגל — זה הסימן שאתה בטווח הנכון",
+        "image":  "images/משקולות יד/04321105-Dumbbell-Stiff-Leg-Deadlift_Waist_max.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/back-thigh/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "רגליים",
+                           "ישבן",
+                           "גב תחתון"
+                       ]
+    },
+    {
+        "id":  "home_db_lunge",
+        "name_he":  "מכרעים — משקולות",
+        "name_en":  "Dumbbell Reverse Lunge",
+        "machine":  "משקולות",
+        "mode":  "home",
+        "day":  "day5",
+        "sets":  "3 × 10–12 לכל רגל",
+        "rest_sec":  60,
+        "primary_muscles":  [
+                                {
+                                    "he":  "ארבע ראשי",
+                                    "en":  "Quadriceps",
+                                    "url":  "https://www.instructor.co.il/body-section/front-thigh/"
+                                },
+                                {
+                                    "he":  "ישבן",
+                                    "en":  "Gluteus Maximus",
+                                    "url":  "https://www.instructor.co.il/body-section/gluteus/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "כלבי ירך",
+                                      "en":  "Hamstrings",
+                                      "url":  "https://www.instructor.co.il/body-section/back-thigh/"
+                                  }
+                              ],
+        "stabilizers":  [
+                            {
+                                "he":  "שרירי ייצוב",
+                                "en":  "Stabilizers",
+                                "url":  "https://www.instructor.co.il/body-section/abdomen/"
+                            }
+                        ],
+        "anat_overlays":  {
+                              "front":  [
+                                            {
+                                                "cx_pct":  35.0,
+                                                "cy_pct":  68.0,
+                                                "rx_pct":  8.0,
+                                                "ry_pct":  11.0,
+                                                "type":  "primary"
+                                            }
+                                        ],
+                              "back":  [
+
+                                       ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "עמוד",
+                          "detail":  "משקולות בצדים, גב ישר"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "צעד אחורה",
+                          "detail":  "צעד גדול לאחור עם רגל ימין"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "שב",
+                          "detail":  "ירד עד ברך אחורית כמעט נוגעת ברצפה — ברך קדמית ב-90°"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "חזור",
+                          "detail":  "דחף דרך הרגל הקדמית, חזור לעמידה"
+                      }
+                  ],
+        "motion":  "מכרע לאחור (Reverse Lunge) — פחות עומס על ברך, מתאים לבית.",
+        "warn":  "ברך קדמית לא מעבר לאצבע הגדולה",
+        "tip":  "Reverse Lunge בטוח יותר מקדמי — מומלץ אם יש כאבי ברכיים",
+        "image":  "images/משקולות יד/12151105-Dumbbell-side-lunge_hips_max-POTASH.png",
+        "instructor_url":  "https://www.instructor.co.il/body-section/front-thigh/",
+        "equipment_category":  "משקולות יד",
+        "body_areas":  [
+                           "רגליים",
+                           "ישבן"
+                       ]
+    },
+    {
+        "id":  "home_band_hip_thrust",
+        "name_he":  "גשר ישבן — גומיה",
+        "name_en":  "Resistance Band Hip Thrust",
+        "machine":  "גומיית לולאה / גומיה רגילה",
+        "mode":  "home",
+        "day":  "day5",
+        "sets":  "3 × 15–20",
+        "rest_sec":  45,
+        "primary_muscles":  [
+                                {
+                                    "he":  "ישבן",
+                                    "en":  "Gluteus Maximus",
+                                    "url":  "https://www.instructor.co.il/body-section/gluteus/"
+                                }
+                            ],
+        "secondary_muscles":  [
+                                  {
+                                      "he":  "כלבי ירך",
+                                      "en":  "Hamstrings",
+                                      "url":  "https://www.instructor.co.il/body-section/back-thigh/"
+                                  },
+                                  {
+                                      "he":  "גלוטאוס מדיוס",
+                                      "en":  "Gluteus Medius",
+                                      "url":  "https://www.instructor.co.il/body-section/gluteus/"
+                                  }
+                              ],
+        "stabilizers":  [
+
+                        ],
+        "anat_overlays":  {
+                              "back":  [
+                                           {
+                                               "cx_pct":  50.0,
+                                               "cy_pct":  60.0,
+                                               "rx_pct":  13.0,
+                                               "ry_pct":  9.0,
+                                               "type":  "primary"
+                                           }
+                                       ],
+                              "front":  [
+
+                                        ]
+                          },
+        "steps":  [
+                      {
+                          "num":  1,
+                          "action":  "מנח",
+                          "detail":  "שכב על גב, הנח גומיה על האגן, ברכיים כפופות"
+                      },
+                      {
+                          "num":  2,
+                          "action":  "הרם",
+                          "detail":  "הרם ישבן עד גוף ישר מכתפיים לברכיים"
+                      },
+                      {
+                          "num":  3,
+                          "action":  "סחט",
+                          "detail":  "סחט ישבן בחוזקה — 2 שניות בפסגה"
+                      },
+                      {
+                          "num":  4,
+                          "action":  "הורד",
+                          "detail":  "לאט — לא ליגוע ברצפה בין חזרות"
+                      }
+                  ],
+        "motion":  "הגומיה מוסיפה התנגדות בפסגה — שם שריר הישבן הכי חזק.",
+        "warn":  "לא לקמר גב תחתון — שמור ניטרלי",
+        "tip":  "הוסף גומיה סביב הברכיים לגיוס נוסף של גלוטאוס מדיוס",
+        "image":  "images/כנגד גומיה/14081105-Band-Hip-Lift_Hips_medium.webp",
+        "instructor_url":  "https://www.instructor.co.il/body-section/gluteus/",
+        "equipment_category":  "גומיה",
+        "body_areas":  [
+                           "ישבן",
+                           "רגליים"
+                       ]
+    }
 ]
