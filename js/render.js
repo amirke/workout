@@ -69,15 +69,35 @@ window.Render = (() => {
     function warmupCard() {
       const wu = Data.getWarmup(dayPlan.warmup);
       if (!wu) return '';
-      const steps = wu.steps.map(function(s, i) {
-        return '<li class="step"><div class="step-num" style="background:#6B6B6B">' + (i+1) + '</div>' +
-               '<div><div class="step-action">' + s.action + '</div>' +
-               '<div class="step-detail">' + s.detail + '</div></div></li>';
-      }).join('');
+
+      // תמוך בפורמט חדש (phases) ובישן (steps)
+      var phasesHTML = '';
+      if (wu.phases) {
+        phasesHTML = wu.phases.map(function(ph) {
+          var stepsHTML = ph.steps.map(function(s, i) {
+            return '<li class="step">' +
+              '<div class="step-num" style="background:#6B6B6B">' + (i+1) + '</div>' +
+              '<div><div class="step-action">' + s.action + '</div>' +
+              '<div class="step-detail">' + s.detail + '</div></div></li>';
+          }).join('');
+          return '<div style="margin-bottom:10px">' +
+                 '<div style="font-size:.75rem;font-weight:700;color:#7C4700;margin-bottom:6px">' + ph.phase + '</div>' +
+                 '<ul class="steps-list">' + stepsHTML + '</ul>' +
+                 '</div>';
+        }).join('');
+      } else if (wu.steps) {
+        phasesHTML = '<ul class="steps-list">' +
+          wu.steps.map(function(s, i) {
+            return '<li class="step"><div class="step-num" style="background:#6B6B6B">' + (i+1) + '</div>' +
+                   '<div><div class="step-action">' + s.action + '</div>' +
+                   '<div class="step-detail">' + s.detail + '</div></div></li>';
+          }).join('') + '</ul>';
+      }
+
       return '<div class="card" style="margin-bottom:8px;border-right:3px solid #E67E22">' +
-             '<div class="section-title" style="color:#7C4700">🔥 ' + wu.title + ' — ' + wu.duration + '</div>' +
-             '<ul class="steps-list mt-8">' + steps + '</ul>' +
-             UI.alertBox('בצע את החימום לפני שמגיע לתרגיל הראשון', 'warn') +
+             '<div class="section-title" style="color:#7C4700;margin-bottom:10px">🔥 ' + wu.title + ' — ' + wu.duration + '</div>' +
+             phasesHTML +
+             UI.alertBox('ריצה קלה לפני האימון מפחיתה פציעות ומשפרת ביצועים', 'tip') +
              '</div>';
     }
 
