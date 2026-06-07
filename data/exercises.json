@@ -172,7 +172,7 @@
         "motion":  "מוט עולה ישר מעל הראש. ראש נע קלות לאחור ביציאה, חוזר ביחס.",
         "warn":  "אל תקמור גב תחתון — הדק ליבה כל הזמן",
         "tip":  "נשום פנימה לפני הדחיפה, נשוף בפסגה",
-        "image":  "images/מתיחות/Overhead Press.jpg",
+        "image":  "images/אמיר/לחיצת כתפיים עם מוט OHP.png",
         "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/",
         "equipment_category":  "מוט חופשי",
         "body_areas":  [
