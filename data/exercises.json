@@ -249,7 +249,7 @@
         "motion":  "המשקולות יורדות בקשת קלה לצדי החזה.",
         "warn":  "אל תנמיך מתחת לקו החזה — עומס יתר על כתף",
         "tip":  "הצמד את המשקולות בפסגה לתחושת כיווץ מקסימלי",
-        "image":  "images/מתיחות/Incline DB Press.jpg",
+        "image":  "images/אמיר/לחיצת חזה עם משקולות יד שיפוע 30 אמיר.png",
         "instructor_url":  "https://www.instructor.co.il/body-section/chest/",
         "equipment_category":  "משקולות יד",
         "body_areas":  [
@@ -1297,7 +1297,7 @@
         "motion":  "על הרצפה: הרצפה מגבילה את הטווח — פחות עומס על הכתף, מתאים למתחיל.",
         "warn":  "אל תנמיך את המרפקים מתחת לגובה הכתפיים — הרצפה תשמש כבטיחות",
         "tip":  "אם אין ספסל — לחיצה על הרצפה (Floor Press) היא תרגיל מצוין בפני עצמו",
-        "image":  "images/משקולות יד/02891105-Dumbbell-Bench-Press_Chest_max-POTASH-1.png",
+        "image":  "images/אמיר/לחיצת חזה עם משקולות יד שיפוע 30 אמיר.png",
         "instructor_url":  "https://www.instructor.co.il/body-section/chest/",
         "equipment_category":  "משקולות יד",
         "body_areas":  [
@@ -1386,7 +1386,7 @@
         "motion":  "המשקולות עולות ישר מעל הראש. בפסגה — המרפקים כמעט נעולים.",
         "warn":  "אל תקמור גב תחתון — אם קורה, בצע בישיבה",
         "tip":  "לגיוון: התחל כפות ידיים פנימה וסובב החוצה תוך הדחיפה (Arnold Press)",
-        "image":  "images/מתיחות/Overhead Press.jpg",
+        "image":  "images/אמיר/לחיצת כתפיים עם משקולת יד אמיר.png",
         "instructor_url":  "https://www.instructor.co.il/body-section/shoulder/",
         "equipment_category":  "משקולות יד",
         "body_areas":  [
