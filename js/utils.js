@@ -142,43 +142,46 @@ window.Utils = (function() {
     paint();
   }
 
-  // ── render bottom bar — גדול ויפה ──────────
+  // ── render bottom bar ────────────────────────
   function renderTimerBar() {
     if (document.getElementById('timerBar')) return;
 
     var bar = document.createElement('div');
     bar.id = 'timerBar';
+    // גובה קבוע ומחושב מראש — לא יכול לגדול
     bar.style.cssText =
       'position:fixed;bottom:0;left:0;right:0;z-index:300;' +
       'background:#1c1c1a;border-top:2px solid rgba(255,255,255,.08);' +
-      'font-family:Heebo,sans-serif;direction:rtl;user-select:none';
+      'font-family:Heebo,sans-serif;direction:rtl;user-select:none;' +
+      'box-sizing:border-box;overflow:hidden';
 
-    var b  = 'border:none;border-radius:8px;cursor:pointer;font-weight:700;' +
-             'padding:6px 14px;font-size:.82rem;background:rgba(255,255,255,.13);color:#fff';
-    var bm = 'border:none;border-radius:8px;cursor:pointer;font-weight:700;' +
-             'padding:6px 22px;font-size:1rem;background:#3C3489;color:#fff';
-    var bw = 'border:none;cursor:pointer;font-size:.95rem;background:transparent;color:rgba(255,255,255,.5);padding:6px 8px';
-    var pb = 'calc(8px + env(safe-area-inset-bottom,0px))';
+    // כפתורים בגודל קבוע שלא יכולים לגדול
+    var btn = 'border:none;border-radius:8px;cursor:pointer;font-weight:700;white-space:nowrap;flex-shrink:0;';
+    var b   = btn + 'padding:5px 10px;font-size:.78rem;background:rgba(255,255,255,.13);color:#fff';
+    var bm  = btn + 'padding:5px 18px;font-size:.9rem;background:#3C3489;color:#fff';
+    var bw  = btn + 'padding:5px 6px;font-size:.9rem;background:transparent;color:rgba(255,255,255,.5)';
+    var pb  = 'calc(6px + env(safe-area-inset-bottom,0px))';
 
     bar.innerHTML =
       // Progress bar
-      '<div style="height:3px;background:rgba(255,255,255,.07)">' +
-        '<div id="tmrProgress" style="height:3px;width:100%;background:#4ade80;transition:width .9s linear,background .3s"></div>' +
+      '<div style="height:3px;background:rgba(255,255,255,.07);flex-shrink:0">' +
+        '<div id="tmrProgress" style="height:3px;width:100%;background:#4ade80;' +
+             'transition:width .9s linear,background .3s"></div>' +
       '</div>' +
-      // שורה 1 — תצוגת זמן גדולה
-      '<div style="text-align:center;padding:8px 12px 4px">' +
-        '<div id="tmrDisplay" style="font-size:2.2rem;font-weight:800;color:#4ade80;' +
-             'font-variant-numeric:tabular-nums;letter-spacing:.04em;line-height:1">1:00</div>' +
-        '<div id="tmrTotal" style="font-size:.6rem;color:rgba(255,255,255,.3);margin-top:2px">סה״כ 1:00</div>' +
+      // שורה 1 — זמן (בלי padding מיותר)
+      '<div style="text-align:center;padding:6px 0 2px;line-height:1">' +
+        '<span id="tmrDisplay" style="font-size:1.9rem;font-weight:800;color:#4ade80;' +
+              'font-variant-numeric:tabular-nums;letter-spacing:.03em">1:00</span>' +
+        ' <span id="tmrTotal" style="font-size:.6rem;color:rgba(255,255,255,.3)">/ 1:00</span>' +
       '</div>' +
-      // שורה 2 — כפתורי שליטה
-      '<div style="display:flex;align-items:center;justify-content:center;gap:8px;' +
-           'padding:4px 12px;padding-bottom:' + pb + '">' +
+      // שורה 2 — כפתורים בשורה אחת קשיחה
+      '<div style="display:flex;align-items:center;justify-content:center;' +
+           'gap:6px;padding:2px 8px;padding-bottom:' + pb + ';flex-wrap:nowrap">' +
         '<button onclick="Utils.adjustDuration(-10)" style="' + b + '">−10</button>' +
-        '<button id="tmrStart" onclick="Utils.toggleTimer()"    style="' + bm + '">▶</button>' +
-        '<button onclick="Utils.resetTimer()"                   style="' + b  + '">↺</button>' +
-        '<button onclick="Utils.adjustDuration(10)"             style="' + b  + '">+10</button>' +
-        '<button id="wlBtn"   onclick="Utils.toggleWakeLock()"  style="' + bw + '" title="מסך דלוק">🌙</button>' +
+        '<button id="tmrStart" onclick="Utils.toggleTimer()"   style="' + bm + '">▶</button>' +
+        '<button onclick="Utils.resetTimer()"                  style="' + b  + '">↺</button>' +
+        '<button onclick="Utils.adjustDuration(10)"            style="' + b  + '">+10</button>' +
+        '<button id="wlBtn" onclick="Utils.toggleWakeLock()"   style="' + bw + '" title="מסך דלוק">🌙</button>' +
       '</div>';
 
     document.body.appendChild(bar);

@@ -306,9 +306,16 @@ main { padding: 16px; max-width: 480px; margin: 0 auto; }
   /* אין max-height — התמונה מציגה את כל עצמה ביחס שלה */
 }
 
-/* ── טיימר — padding קבוע ב-CSS (לא JS) ── */
-body.has-timer main {
-  padding-bottom: 110px !important;
+/* ── טיימר — padding תחתון קבוע ── */
+/* גובה הטיימר: progress(3) + שורה1(~42) + שורה2(~38) + safe-area ≈ 95px */
+body.has-timer main,
+body.has-timer > main {
+  padding-bottom: 100px !important;
+}
+/* מניעת overflow בטיימר עצמו */
+#timerBar * {
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 /* ── Cardio blocks ── */
