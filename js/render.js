@@ -62,66 +62,24 @@ window.Render = (() => {
 
     let exercises = [];
 
-    function scrollToTop() {
-      var main = document.querySelector('main');
-      if (main) main.scrollTop = 0;
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
+    // ── גלול לאלמנט בעמוד ────────────────────────
+    function scrollToSection(id) {
+      var el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    function showEx(idx) {
-      content.innerHTML = UI.exerciseCard(exercises[idx], idx);
-      wireLoggers(content);
-      scrollToTop();
-    }
-
-    function warmupCard() {
-      const wu = Data.getWarmup(dayPlan.warmup);
-      if (!wu) return '';
-
-      // תמוך בפורמט חדש (phases) ובישן (steps)
-      var phasesHTML = '';
-      if (wu.phases) {
-        phasesHTML = wu.phases.map(function(ph) {
-          var stepsHTML = ph.steps.map(function(s, i) {
-            return '<li class="step">' +
-              '<div class="step-num" style="background:#6B6B6B">' + (i+1) + '</div>' +
-              '<div><div class="step-action">' + s.action + '</div>' +
-              '<div class="step-detail">' + s.detail + '</div></div></li>';
-          }).join('');
-          return '<div style="margin-bottom:10px">' +
-                 '<div style="font-size:.75rem;font-weight:700;color:#7C4700;margin-bottom:6px">' + ph.phase + '</div>' +
-                 '<ul class="steps-list">' + stepsHTML + '</ul>' +
-                 '</div>';
-        }).join('');
-      } else if (wu.steps) {
-        phasesHTML = '<ul class="steps-list">' +
-          wu.steps.map(function(s, i) {
-            return '<li class="step"><div class="step-num" style="background:#6B6B6B">' + (i+1) + '</div>' +
-                   '<div><div class="step-action">' + s.action + '</div>' +
-                   '<div class="step-detail">' + s.detail + '</div></div></li>';
-          }).join('') + '</ul>';
-      }
-
-      return '<div class="card" style="margin-bottom:8px;border-right:3px solid #E67E22">' +
-             '<div class="section-title" style="color:#7C4700;margin-bottom:10px">🔥 ' + wu.title + ' — ' + wu.duration + '</div>' +
-             phasesHTML +
-             UI.alertBox('ריצה קלה לפני האימון מפחיתה פציעות ומשפרת ביצועים', 'tip') +
-             '</div>';
-    }
-
-    function load() {
+    // ── בנה את כל התוכן פעם אחת ─────────────────
+    function buildFullPage() {
       exercises = Data.getExercisesForDay(dayPlan);
-      const mode   = Data.getMode();
-      const cfg    = Data.MODE_CONFIG[mode] || Data.MODE_CONFIG.gym;
+      const mode = Data.getMode();
+      const cfg  = Data.MODE_CONFIG[mode] || Data.MODE_CONFIG.gym;
       if (titleEl) titleEl.textContent = dayPlan.label + ' — ' + cfg.label;
 
+      // בנה nav עם כפתורי גלילה בלבד
       if (nav) {
-        // Add warmup as first tab
         nav.innerHTML = '';
         const back = document.createElement('button');
-        back.className = 'tab-btn';
+        back.className = 'tab-btn active';
         back.textContent = '← חזרה';
         back.onclick = function() { history.back(); };
         nav.appendChild(back);
@@ -129,34 +87,53 @@ window.Render = (() => {
         const wuBtn = document.createElement('button');
         wuBtn.className = 'tab-btn';
         wuBtn.textContent = '🔥 חימום';
-        wuBtn.onclick = function() {
-          nav.querySelectorAll('.tab-btn').forEach(function(b,j) { b.classList.toggle('active', j===1); });
-          content.innerHTML = warmupCard();
-          scrollToTop();
-        };
+        wuBtn.onclick = function() { scrollToSection('sec-warmup'); };
         nav.appendChild(wuBtn);
 
         exercises.forEach(function(ex, i) {
           const btn = document.createElement('button');
           btn.className = 'tab-btn';
           btn.textContent = ex.name_he;
-          btn.onclick = function() {
-            nav.querySelectorAll('.tab-btn').forEach(function(b,j) { b.classList.toggle('active', j===i+2); });
-            showEx(i);
-          };
+          btn.onclick = (function(idx) {
+            return function() { scrollToSection('sec-ex-' + idx); };
+          })(i);
           nav.appendChild(btn);
         });
-
-        // Default: show warmup first
-        nav.querySelectorAll('.tab-btn').forEach(function(b,j) { b.classList.toggle('active', j===1); });
-        content.innerHTML = warmupCard();
-      } else {
-        content.innerHTML = warmupCard();
-        showEx(0);
       }
+
+      // ── בנה את כל התוכן פעם אחת ──────────────
+      var wu = Data.getWarmup(dayPlan.warmup);
+      var warmupHTML = '';
+      if (wu) {
+        var phasesHTML = '';
+        if (wu.phases) {
+          phasesHTML = wu.phases.map(function(ph) {
+            var stepsHTML = ph.steps.map(function(s, i) {
+              return '<li class="step"><div class="step-num" style="background:#6B6B6B">' + (i+1) + '</div>' +
+                     '<div><div class="step-action">' + s.action + '</div><div class="step-detail">' + s.detail + '</div></div></li>';
+            }).join('');
+            return '<div style="margin-bottom:10px"><div style="font-size:.75rem;font-weight:700;color:#7C4700;margin-bottom:6px">' +
+                   ph.phase + '</div><ul class="steps-list">' + stepsHTML + '</ul></div>';
+          }).join('');
+        }
+        warmupHTML = '<div id="sec-warmup" class="card" style="margin-bottom:8px;border-right:3px solid #E67E22;scroll-margin-top:80px">' +
+                     '<div class="section-title" style="color:#7C4700;margin-bottom:10px">🔥 ' + wu.title + ' — ' + wu.duration + '</div>' +
+                     phasesHTML +
+                     UI.alertBox('ריצה קלה לפני האימון מפחיתה פציעות ומשפרת ביצועים', 'tip') +
+                     '</div>';
+      }
+
+      var exercisesHTML = exercises.map(function(ex, i) {
+        var card = UI.exerciseCard({ ...ex, image: imgPath(ex.image) }, i);
+        // עטוף ב-section עם id לגלילה
+        return '<div id="sec-ex-' + i + '" style="scroll-margin-top:80px">' + card + '</div>';
+      }).join('');
+
+      content.innerHTML = warmupHTML + exercisesHTML;
+      wireLoggers(content);
     }
 
-    load();
+    buildFullPage();
   }
 
   // ─────────────────────────────────────────────
