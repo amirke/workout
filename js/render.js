@@ -62,14 +62,18 @@ window.Render = (() => {
 
     let exercises = [];
 
-    function showEx(idx) {
-      content.style.minHeight = content.offsetHeight + 'px';
-      content.innerHTML = UI.exerciseCard(exercises[idx], idx);
-      wireLoggers(content);
+    function scrollToTop() {
+      var main = document.querySelector('main');
+      if (main) main.scrollTop = 0;
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
-      requestAnimationFrame(function() { content.style.minHeight = ''; });
+    }
+
+    function showEx(idx) {
+      content.innerHTML = UI.exerciseCard(exercises[idx], idx);
+      wireLoggers(content);
+      scrollToTop();
     }
 
     function warmupCard() {
@@ -127,12 +131,8 @@ window.Render = (() => {
         wuBtn.textContent = '🔥 חימום';
         wuBtn.onclick = function() {
           nav.querySelectorAll('.tab-btn').forEach(function(b,j) { b.classList.toggle('active', j===1); });
-          content.style.minHeight = content.offsetHeight + 'px';
           content.innerHTML = warmupCard();
-          window.scrollTo(0, 0);
-          document.documentElement.scrollTop = 0;
-          document.body.scrollTop = 0;
-          requestAnimationFrame(function() { content.style.minHeight = ''; });
+          scrollToTop();
         };
         nav.appendChild(wuBtn);
 
@@ -143,7 +143,6 @@ window.Render = (() => {
           btn.onclick = function() {
             nav.querySelectorAll('.tab-btn').forEach(function(b,j) { b.classList.toggle('active', j===i+2); });
             showEx(i);
-            window.scrollTo({ top: 0, behavior: 'instant' });
           };
           nav.appendChild(btn);
         });
