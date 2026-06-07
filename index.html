@@ -74,7 +74,10 @@
     <p class="text-muted text-sm mb-4" id="todayBanner"></p>
     <div id="dayList"></div>
     <p style="text-align:center;font-size:.75rem;color:#757575;margin-top:16px;padding-bottom:4px;font-weight:600;letter-spacing:.5px">
-      2026.06.07.v0001
+      
+    $n = [int]$args[0].Groups[1].Value + 1
+    "2026.06.07.v" + $n.ToString("0000")
+
     </p>
   </section>
 
@@ -109,7 +112,10 @@
         <div class="card-icon" style="background:#EEEDFE;font-size:1.5rem">🔄</div>
         <div>
           <div class="card-title">עדכון אפליקציה</div>
-          <div class="card-subtitle" id="appVersion">גרסה: 2026.06.07.v0001</div>
+          <div class="card-subtitle" id="appVersion">גרסה: 
+    $n = [int]$args[0].Groups[1].Value + 1
+    "2026.06.07.v" + $n.ToString("0000")
+</div>
         </div>
       </div>
       <button onclick="checkUpdate()" class="btn-save" style="background:#3C3489">
@@ -370,7 +376,10 @@
             }
           });
         } else {
-          el.innerHTML = '✅ הגרסה הכי עדכנית — <strong>2026.06.07.v0001</strong>';
+          el.innerHTML = '✅ הגרסה הכי עדכנית — <strong>
+    $n = [int]$args[0].Groups[1].Value + 1
+    "2026.06.07.v" + $n.ToString("0000")
+</strong>';
         }
       });
     });

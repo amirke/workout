@@ -184,8 +184,9 @@ window.Utils = (function() {
       '</div>';
 
     document.body.appendChild(bar);
-    // CSS class מוסיף padding קבוע ואמין (ללא JS measurement)
-    document.body.classList.add('has-timer');
+    // padding ישירות על main — לא class גלובלי שמשפיע על דפים אחרים
+    var mainEl = document.querySelector('main');
+    if (mainEl) mainEl.style.paddingBottom = '100px';
 
     paint();
     updateWLBtn();
