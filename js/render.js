@@ -42,6 +42,7 @@ window.Render = (() => {
       nav.querySelectorAll('.tab-btn')
          .forEach((b, j) => b.classList.toggle('active', j === idx + 1));
       tabs[idx].fn();
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }, 0);
   }
 
@@ -64,6 +65,8 @@ window.Render = (() => {
     function showEx(idx) {
       content.innerHTML = UI.exerciseCard(exercises[idx], idx);
       wireLoggers(content);
+      // תמיד מתחיל מראש הדף
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
     function warmupCard() {
@@ -122,6 +125,7 @@ window.Render = (() => {
         wuBtn.onclick = function() {
           nav.querySelectorAll('.tab-btn').forEach(function(b,j) { b.classList.toggle('active', j===1); });
           content.innerHTML = warmupCard();
+          window.scrollTo({ top: 0, behavior: 'instant' });
         };
         nav.appendChild(wuBtn);
 
@@ -132,6 +136,7 @@ window.Render = (() => {
           btn.onclick = function() {
             nav.querySelectorAll('.tab-btn').forEach(function(b,j) { b.classList.toggle('active', j===i+2); });
             showEx(i);
+            window.scrollTo({ top: 0, behavior: 'instant' });
           };
           nav.appendChild(btn);
         });
