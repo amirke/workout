@@ -124,8 +124,8 @@ window.Render = (() => {
       }
 
       var exercisesHTML = exercises.map(function(ex, i) {
-        var card = UI.exerciseCard({ ...ex, image: imgPath(ex.image) }, i);
-        // עטוף ב-section עם id לגלילה
+        var exCopy = Object.assign({}, ex, { image: UI.imgPath(ex.image) });
+        var card = UI.exerciseCard(exCopy, i);
         return '<div id="sec-ex-' + i + '" style="scroll-margin-top:80px">' + card + '</div>';
       }).join('');
 
