@@ -123,11 +123,15 @@ window.Render = (() => {
                      '</div>';
       }
 
-      var exercisesHTML = exercises.map(function(ex, i) {
-        var exCopy = Object.assign({}, ex, { image: UI.imgPath(ex.image) });
-        var card = UI.exerciseCard(exCopy, i);
-        return '<div id="sec-ex-' + i + '" style="scroll-margin-top:80px">' + card + '</div>';
-      }).join('');
+      var exercisesHTML = '';
+      try {
+        exercisesHTML = exercises.map(function(ex, i) {
+          var card = UI.exerciseCard(ex, i);
+          return '<div id="sec-ex-' + i + '" style="scroll-margin-top:80px">' + card + '</div>';
+        }).join('');
+      } catch(e) {
+        exercisesHTML = '<div class="card">שגיאה בטעינת תרגילים: ' + e.message + '</div>';
+      }
 
       content.innerHTML = warmupHTML + exercisesHTML;
       wireLoggers(content);
