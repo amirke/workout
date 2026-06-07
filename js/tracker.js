@@ -100,7 +100,17 @@ window.Tracker = (() => {
         '</div>';
     }
 
-    html += '<button class="btn-save" data-ex="' + exId + '" style="margin-top:8px">שמור סטים</button>';
+    // הערה לתרגיל
+    var noteKey  = 'note_' + dateKey() + '_' + exId;
+    var noteVal  = localStorage.getItem(noteKey) || '';
+    html += '<textarea id="note_' + exId + '"' +
+            ' placeholder="הערה לתרגיל (אופציונלי)..."' +
+            ' style="width:100%;margin-top:8px;padding:8px 10px;border-radius:10px;' +
+            'border:1.5px solid #EEEDFE;font-family:Heebo,sans-serif;font-size:.82rem;' +
+            'direction:rtl;resize:vertical;min-height:52px;box-sizing:border-box;color:#333">' +
+            noteVal + '</textarea>';
+
+    html += '<button class="btn-save" data-ex="' + exId + '" style="margin-top:6px">שמור סטים + הערה</button>';
 
     // היסטוריה קצרה
     var dates = allSessionDates(exId);
@@ -126,12 +136,16 @@ window.Tracker = (() => {
         sets.push({ set: i + 1, weight: parseFloat(w) || 0, reps: parseInt(r) || 0 });
       }
       saveSets(exId, sets);
+      // שמור הערה
+      var noteEl = container.querySelector('#note_' + exId);
+      if (noteEl && noteEl.value.trim()) {
+        localStorage.setItem('note_' + dateKey() + '_' + exId, noteEl.value.trim());
+      }
       var btn = container.querySelector('.btn-save');
       btn.textContent = 'נשמר ✓';
-      // עדכן תגית
       var tag = container.querySelector('[style*="פעם אחרונה"]');
       if (tag) tag.outerHTML = '<div style="font-size:.72rem;color:#085041;margin-bottom:6px">✅ נשמר היום</div>';
-      setTimeout(function() { btn.textContent = 'שמור סטים'; }, 1500);
+      setTimeout(function() { btn.textContent = 'שמור סטים + הערה'; }, 1500);
     };
   }
 

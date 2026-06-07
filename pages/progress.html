@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>תמונות התקדמות</title>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#2C2C2A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/mobile.css">
+  <style>
+    .hdr-top { display:flex;align-items:center;justify-content:space-between;padding-bottom:8px; }
+    .hdr-top h1 { margin:0;font-size:.95rem;font-weight:700; }
+
+    .upload-area {
+      border: 2px dashed #EEEDFE;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .upload-area:active { background: #F5F3FF; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #F5F5F5;
+      aspect-ratio: 3/4;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item .item-date {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.7));
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 600;
+      padding: 8px 8px 6px;
+    }
+    .gallery-item .item-del {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: rgba(0,0,0,.55);
+      border: none;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      color: #fff;
+      font-size: .8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Compare view */
+    .compare-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .compare-slot {
+      border: 2px dashed #EEEDFE;
+      border-radius: 12px;
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      font-size: .8rem;
+      color: #6B6B6B;
+      overflow: hidden;
+      position: relative;
+    }
+    .compare-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+    .compare-slot .slot-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,.6);
+      color: #fff;
+      font-size: .68rem;
+      font-weight: 600;
+      padding: 4px 6px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="hdr-top">
+    <h1>📸 תמונות התקדמות</h1>
+  </div>
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="history.back()">← חזרה</button>
+    <button class="tab-btn" id="btnGallery"  onclick="showTab('gallery')">🖼️ גלריה</button>
+    <button class="tab-btn" id="btnCompare" onclick="showTab('compare')">↔️ השוואה</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ── גלריה ── -->
+  <section id="tab-gallery">
+
+    <div class="card">
+      <label class="upload-area" for="photoInput">
+        <div style="font-size:2rem;margin-bottom:8px">📷</div>
+        <div style="font-weight:700;color:#3C3489">הוסף תמונה היום</div>
+        <div style="font-size:.75rem;color:#6B6B6B;margin-top:4px">לחץ לצלם או לבחור מהגלריה</div>
+        <input type="file" id="photoInput" accept="image/*" capture="environment"
+               style="display:none" onchange="addPhoto(event)">
+      </label>
+      <div id="uploadStatus" style="text-align:center;font-size:.8rem;margin-top:8px;display:none"></div>
+    </div>
+
+    <div class="card">
+      <div class="section-title" style="margin-bottom:10px">🖼️ כל התמונות</div>
+      <div id="gallery" class="gallery"></div>
+      <div id="emptyMsg" style="text-align:center;color:#6B6B6B;font-size:.85rem;padding:20px;display:none">
+        אין תמונות עדיין.<br>הוסף את התמונה הראשונה שלך!
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── השוואה ── -->
+  <section id="tab-compare" hidden style="display:none">
+    <div class="card">
+      <div class="section-title" style="margin-bottom:10px">↔️ השווה שתי תמונות</div>
+      <div class="compare-wrap">
+        <div class="compare-slot" id="slot-a" onclick="pickForSlot('a')">
+          <span style="font-size:1.5rem">📅</span>
+          <span>בחר תמונה ישנה</span>
+        </div>
+        <div class="compare-slot" id="slot-b" onclick="pickForSlot('b')">
+          <span style="font-size:1.5rem">📅</span>
+          <span>בחר תמונה חדשה</span>
+        </div>
+      </div>
+      <div id="comparePicker" style="display:none;margin-top:12px">
+        <div class="section-title" style="margin-bottom:8px">בחר תמונה:</div>
+        <div id="compareList" class="gallery"></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+// ── IndexedDB setup ─────────────────────────────
+var DB_NAME = 'workout_photos', DB_VER = 1, STORE = 'photos';
+var db = null;
+
+function openDB(cb) {
+  if (db) { cb(db); return; }
+  var req = indexedDB.open(DB_NAME, DB_VER);
+  req.onupgradeneeded = function(e) {
+    var d = e.target.result;
+    if (!d.objectStoreNames.contains(STORE)) {
+      d.createObjectStore(STORE, { keyPath: 'id', autoIncrement: true });
+    }
+  };
+  req.onsuccess = function(e) { db = e.target.result; cb(db); };
+  req.onerror   = function()  { alert('שגיאה בפתיחת מסד הנתונים'); };
+}
+
+function savePhoto(blob, date, cb) {
+  openDB(function(d) {
+    var tx  = d.transaction(STORE, 'readwrite');
+    var st  = tx.objectStore(STORE);
+    st.add({ blob: blob, date: date });
+    tx.oncomplete = function() { cb && cb(); };
+  });
+}
+
+function getAllPhotos(cb) {
+  openDB(function(d) {
+    var tx  = d.transaction(STORE, 'readonly');
+    var req = tx.objectStore(STORE).getAll();
+    req.onsuccess = function() { cb(req.result || []); };
+  });
+}
+
+function deletePhoto(id, cb) {
+  openDB(function(d) {
+    var tx = d.transaction(STORE, 'readwrite');
+    tx.objectStore(STORE).delete(id);
+    tx.oncomplete = function() { cb && cb(); };
+  });
+}
+
+// ── Tab switching ───────────────────────────────
+function showTab(name) {
+  ['gallery','compare'].forEach(function(n) {
+    document.getElementById('tab-' + n).hidden = n !== name;
+    document.getElementById('tab-' + n).style.display = n === name ? '' : 'none';
+    document.getElementById('btn' + n.charAt(0).toUpperCase() + n.slice(1))
+      .classList.toggle('active-mode', n === name);
+  });
+  if (name === 'gallery') renderGallery();
+}
+
+// ── Add photo ───────────────────────────────────
+function addPhoto(e) {
+  var file = e.target.files[0];
+  if (!file) return;
+  var status = document.getElementById('uploadStatus');
+  status.style.display = 'block';
+  status.textContent   = '⏳ שומר...';
+
+  // דחוס לפני שמירה
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    var img = new Image();
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      var MAX = 1080;
+      var ratio = Math.min(MAX/img.width, MAX/img.height, 1);
+      canvas.width  = img.width  * ratio;
+      canvas.height = img.height * ratio;
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      canvas.toBlob(function(blob) {
+        var today = new Date().toISOString().slice(0,10);
+        savePhoto(blob, today, function() {
+          status.textContent = '✅ נשמרה!';
+          setTimeout(function() { status.style.display = 'none'; }, 1500);
+          renderGallery();
+        });
+      }, 'image/jpeg', 0.82);
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+  e.target.value = ''; // איפוס לבחירה חוזרת
+}
+
+// ── Render gallery ──────────────────────────────
+function renderGallery() {
+  getAllPhotos(function(photos) {
+    var gallery  = document.getElementById('gallery');
+    var emptyMsg = document.getElementById('emptyMsg');
+    photos = photos.slice().reverse(); // חדש קודם
+
+    if (!photos.length) {
+      gallery.innerHTML  = '';
+      emptyMsg.style.display = 'block';
+      return;
+    }
+    emptyMsg.style.display = 'none';
+
+    gallery.innerHTML = photos.map(function(p) {
+      var url = URL.createObjectURL(p.blob);
+      return '<div class="gallery-item">' +
+        '<img src="' + url + '" loading="lazy">' +
+        '<div class="item-date">' + fmtDate(p.date) + '</div>' +
+        '<button class="item-del" onclick="confirmDelete(' + p.id + ')">✕</button>' +
+        '</div>';
+    }).join('');
+  });
+}
+
+function confirmDelete(id) {
+  if (!confirm('מחק תמונה זו?')) return;
+  deletePhoto(id, renderGallery);
+}
+
+// ── Download ────────────────────────────────────
+function downloadPhoto(blob, date) {
+  var a   = document.createElement('a');
+  a.href  = URL.createObjectURL(blob);
+  a.download = 'progress-' + date + '.jpg';
+  a.click();
+}
+
+// ── Compare ─────────────────────────────────────
+var pickingSlot = null;
+
+function pickForSlot(slot) {
+  pickingSlot = slot;
+  var picker = document.getElementById('comparePicker');
+  var list   = document.getElementById('compareList');
+  picker.style.display = 'block';
+
+  getAllPhotos(function(photos) {
+    photos = photos.slice().reverse();
+    list.innerHTML = photos.map(function(p) {
+      var url = URL.createObjectURL(p.blob);
+      return '<div class="gallery-item" onclick="setSlot(' + p.id + ',\'' + url + '\',\'' + p.date + '\')" style="cursor:pointer">' +
+        '<img src="' + url + '">' +
+        '<div class="item-date">' + fmtDate(p.date) + '</div>' +
+        '</div>';
+    }).join('');
+  });
+}
+
+function setSlot(id, url, date) {
+  var slot = document.getElementById('slot-' + pickingSlot);
+  slot.innerHTML = '<img src="' + url + '"><div class="slot-label">' + fmtDate(date) + '</div>';
+  document.getElementById('comparePicker').style.display = 'none';
+  pickingSlot = null;
+}
+
+// ── Helpers ─────────────────────────────────────
+function fmtDate(iso) {
+  var p = iso.split('-');
+  return p[2] + '/' + p[1] + '/' + p[0].slice(2);
+}
+
+// ── Init ─────────────────────────────────────────
+showTab('gallery');
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('../sw.js');
+</script>
+</body>
+</html>
