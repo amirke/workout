@@ -23,8 +23,13 @@
 
 html {
   font-size: 16px;
-  /* תמיד שמור מקום ל-scrollbar — מונע תזוזה */
-  scrollbar-gutter: stable;
+  /* scrollbar תמיד נוכח אבל ברוחב 0 — לא תופס מקום, לא גורם תזוזה */
+  overflow-y: scroll;
+  scrollbar-width: none;        /* Firefox */
+}
+html::-webkit-scrollbar {
+  width: 0 !important;          /* Chrome / Android */
+  display: none !important;
 }
 
 body {
