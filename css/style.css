@@ -303,7 +303,8 @@ main { padding: 16px; max-width: 480px; margin: 0 auto; }
   display: block;
   object-fit: contain;
   background: #f8f8f7;
-  /* אין max-height — התמונה מציגה את כל עצמה ביחס שלה */
+  /* aspect-ratio: הדפדפן משריין מקום לפני טעינה → אין Layout Shift */
+  aspect-ratio: 4 / 3;
 }
 
 /* ── טיימר — רק בדפים שמכילים אותו (morning + stretch) ── */
