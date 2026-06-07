@@ -63,18 +63,13 @@ window.Render = (() => {
     let exercises = [];
 
     function showEx(idx) {
-      // קבע גובה מינימלי לפני החלפה כדי למנוע קפיצה
       content.style.minHeight = content.offsetHeight + 'px';
       content.innerHTML = UI.exerciseCard(exercises[idx], idx);
       wireLoggers(content);
-      // scroll ישיר — ללא אנימציה
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
-      // שחרר את minHeight אחרי הרינדור
-      requestAnimationFrame(function() {
-        content.style.minHeight = '';
-      });
+      requestAnimationFrame(function() { content.style.minHeight = ''; });
     }
 
     function warmupCard() {
