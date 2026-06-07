@@ -63,10 +63,18 @@ window.Render = (() => {
     let exercises = [];
 
     function showEx(idx) {
+      // קבע גובה מינימלי לפני החלפה כדי למנוע קפיצה
+      content.style.minHeight = content.offsetHeight + 'px';
       content.innerHTML = UI.exerciseCard(exercises[idx], idx);
       wireLoggers(content);
-      // תמיד מתחיל מראש הדף
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      // scroll ישיר — ללא אנימציה
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      // שחרר את minHeight אחרי הרינדור
+      requestAnimationFrame(function() {
+        content.style.minHeight = '';
+      });
     }
 
     function warmupCard() {
@@ -124,8 +132,12 @@ window.Render = (() => {
         wuBtn.textContent = '🔥 חימום';
         wuBtn.onclick = function() {
           nav.querySelectorAll('.tab-btn').forEach(function(b,j) { b.classList.toggle('active', j===1); });
+          content.style.minHeight = content.offsetHeight + 'px';
           content.innerHTML = warmupCard();
-          window.scrollTo({ top: 0, behavior: 'instant' });
+          window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+          requestAnimationFrame(function() { content.style.minHeight = ''; });
         };
         nav.appendChild(wuBtn);
 
