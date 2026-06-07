@@ -182,13 +182,8 @@ window.Utils = (function() {
       '</div>';
 
     document.body.appendChild(bar);
-
-    // padding מינימלי — רק לפי הגובה האמיתי
-    requestAnimationFrame(function() {
-      var h = bar.getBoundingClientRect().height;
-      var main = document.querySelector('main');
-      if (main) main.style.paddingBottom = h + 'px';
-    });
+    // CSS class מוסיף padding קבוע ואמין (ללא JS measurement)
+    document.body.classList.add('has-timer');
 
     paint();
     updateWLBtn();

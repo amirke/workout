@@ -301,9 +301,14 @@ main { padding: 16px; max-width: 480px; margin: 0 auto; }
   width: 100%;
   border-radius: 10px;
   display: block;
-  object-fit: contain;   /* מציג את כל התמונה, ללא חיתוך */
-  background: #f8f8f7;   /* רקע נקי מאחורי התמונה */
-  max-height: 280px;
+  object-fit: contain;
+  background: #f8f8f7;
+  /* אין max-height — התמונה מציגה את כל עצמה ביחס שלה */
+}
+
+/* ── טיימר — padding קבוע ב-CSS (לא JS) ── */
+body.has-timer main {
+  padding-bottom: 110px !important;
 }
 
 /* ── Cardio blocks ── */
