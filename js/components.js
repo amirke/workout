@@ -85,6 +85,59 @@ window.UI = (() => {
     }).join('');
   }
 
+  // ── זיהוי תרגיל תזמון (פלאנק וכו') ───────────
+  const TIMED_IDS = ['plank','side_plank','sus_side_plank','sus_crunch',
+                     'sus_mountain_climber','sus_pendulum'];
+
+  function isTimedExercise(ex) {
+    return TIMED_IDS.includes(ex.id) || (ex.sets && ex.sets.includes('שניות'));
+  }
+
+  function timerWidget(ex) {
+    // חלץ זמן ברירת מחדל מתוך "3 × 30–45 שניות"
+    var match = (ex.sets || '').match(/(\d+)/g);
+    var defaultSec = match && match.length >= 2 ? parseInt(match[1]) : 30;
+    var uid = 'pt_' + ex.id;
+    return `
+      <div class="card" style="background:#F5F3FF;border:1.5px solid #EEEDFE;margin-top:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="font-size:1.4rem">⏱</div>
+          <div style="flex:1">
+            <div style="font-size:.8rem;font-weight:700;color:#3C3489">טיימר פלאנק</div>
+            <div style="font-size:.7rem;color:#6B6B6B">ברירת מחדל: ${defaultSec} שניות</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px">
+            <button onclick="PlankTimer.adj('${uid}',-5)"
+              style="border:none;border-radius:8px;background:#EEEDFE;color:#3C3489;
+                     font-weight:700;font-size:.85rem;padding:5px 10px;cursor:pointer">−5</button>
+            <div id="${uid}_disp"
+              style="font-size:1.8rem;font-weight:800;color:#3C3489;
+                     font-variant-numeric:tabular-nums;min-width:52px;text-align:center">
+              ${String(Math.floor(defaultSec/60)).padStart(1,'0')}:${String(defaultSec%60).padStart(2,'0')}
+            </div>
+            <button onclick="PlankTimer.adj('${uid}',5)"
+              style="border:none;border-radius:8px;background:#EEEDFE;color:#3C3489;
+                     font-weight:700;font-size:.85rem;padding:5px 10px;cursor:pointer">+5</button>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button id="${uid}_btn" onclick="PlankTimer.toggle('${uid}')"
+            style="flex:1;border:none;border-radius:10px;background:#3C3489;color:#fff;
+                   font-family:Heebo,sans-serif;font-weight:700;font-size:1rem;
+                   padding:10px;cursor:pointer">▶ התחל</button>
+          <button onclick="PlankTimer.reset('${uid}')"
+            style="border:none;border-radius:10px;background:#EEEDFE;color:#3C3489;
+                   font-family:Heebo,sans-serif;font-weight:700;font-size:1rem;
+                   padding:10px 14px;cursor:pointer">↺</button>
+        </div>
+        <div id="${uid}_prog" style="height:4px;background:#EEEDFE;border-radius:4px;margin-top:8px;overflow:hidden">
+          <div id="${uid}_bar" style="height:4px;background:#3C3489;width:100%;transition:width .9s linear,background .3s"></div>
+        </div>
+      </div>
+      <script>window.__plankInit = window.__plankInit || [];
+      window.__plankInit.push({uid:'${uid}',sec:${defaultSec}});</script>`;
+  }
+
   // ── כרטיס תרגיל ───────────────────────────────
   function exerciseCard(ex, index) {
     const src = imgPath(ex.image);
@@ -123,6 +176,7 @@ window.UI = (() => {
         ${alertBox(ex.warn,   'warn')}
         ${alertBox(ex.tip,    'tip')}
         <div class="divider mt-8"></div>
+        ${isTimedExercise(ex) ? timerWidget(ex) : ''}
         <div class="set-logger mt-8" data-ex="${ex.id}" data-sets="${parseInt(ex.sets)||3}"></div>
         ${ex.instructor_url
           ? `<a href="${ex.instructor_url}" target="_blank" rel="noopener"

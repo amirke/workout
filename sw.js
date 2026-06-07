@@ -1,7 +1,7 @@
 ﻿// Service Worker — PWA + אופליין
 // v6 — stale-while-revalidate for images, always-fresh for JS/HTML
 
-const CACHE = 'workout-v20';
+const CACHE = 'workout-v21';
 
 // התקנה — אל תחסום על ASSETS, תפוס שליטה מיד
 self.addEventListener('install', () => self.skipWaiting());

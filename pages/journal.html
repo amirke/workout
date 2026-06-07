@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>יומן + מעקב</title>
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#2C2C2A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/mobile.css">
+  <style>
+    .hdr-top { display:flex;align-items:center;justify-content:space-between;padding-bottom:8px; }
+    .hdr-top h1 { margin:0;font-size:.95rem;font-weight:700; }
+    .mode-pill { display:flex;border-radius:20px;overflow:hidden;border:1.5px solid rgba(255,255,255,.3);flex-shrink:0; }
+    .mode-pill button { padding:4px 10px;border:none;cursor:pointer;font-family:Heebo,sans-serif;font-size:.75rem;font-weight:700;color:#fff;background:transparent; }
+    .mode-pill button.active-mode { background:rgba(255,255,255,.25); }
+
+    /* Weight input */
+    .weight-input-wrap { display:flex;gap:8px;align-items:center;margin-bottom:12px; }
+    .weight-input-wrap input { flex:1;padding:10px 14px;border-radius:12px;border:1.5px solid #EEEDFE;font-family:Heebo,sans-serif;font-size:1.2rem;font-weight:700;text-align:center; }
+    .weight-unit { font-size:.8rem;color:#6B6B6B; }
+
+    /* Weight history */
+    .weight-row { display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06); }
+    .weight-row:last-child { border:none; }
+    .weight-val { font-size:1.1rem;font-weight:800;color:#3C3489; }
+    .weight-date { font-size:.75rem;color:#6B6B6B; }
+    .weight-diff { font-size:.75rem;font-weight:700; }
+    .weight-diff.down { color:#085041; }
+    .weight-diff.up   { color:#C62828; }
+
+    /* Graph */
+    #weightChart { width:100%;height:140px;display:block; }
+
+    /* Journal */
+    .journal-entry { margin-bottom:12px; }
+    .journal-date { font-size:.75rem;font-weight:700;color:#3C3489;margin-bottom:4px; }
+    .journal-text { font-size:.85rem;color:#333;line-height:1.5;background:#F9F9F9;border-radius:10px;padding:10px; }
+    textarea.journal-input {
+      width:100%;padding:10px;border-radius:10px;border:1.5px solid #EEEDFE;
+      font-family:Heebo,sans-serif;font-size:.9rem;direction:rtl;
+      resize:vertical;min-height:80px;box-sizing:border-box;
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="hdr-top">
+    <h1>📓 יומן ומעקב</h1>
+  </div>
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="history.back()">← חזרה</button>
+    <button class="tab-btn" id="btnWeight" onclick="showTab('weight')">⚖️ משקל</button>
+    <button class="tab-btn" id="btnJournal" onclick="showTab('journal')">📝 יומן</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ── מעקב משקל ── -->
+  <section id="tab-weight">
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:10px">⚖️ רשום משקל היום</div>
+      <div class="weight-input-wrap">
+        <input type="number" id="weightInput" placeholder="85.5" step="0.1" min="30" max="300">
+        <span class="weight-unit">ק"ג</span>
+      </div>
+      <button onclick="saveWeight()" class="btn-save">💾 שמור</button>
+      <div id="weightSaved" style="font-size:.8rem;color:#085041;margin-top:6px;display:none">✅ נשמר!</div>
+    </div>
+
+    <!-- גרף -->
+    <div class="card">
+      <div class="section-title" style="margin-bottom:10px">📉 גרף 30 יום</div>
+      <canvas id="weightChart"></canvas>
+      <div id="weightStats" style="display:flex;gap:16px;margin-top:10px;font-size:.8rem;color:#6B6B6B"></div>
+    </div>
+
+    <!-- היסטוריה -->
+    <div class="card">
+      <div class="section-title" style="margin-bottom:8px">📋 רשומות אחרונות</div>
+      <div id="weightHistory"></div>
+    </div>
+
+  </section>
+
+  <!-- ── יומן אימון ── -->
+  <section id="tab-journal" hidden style="display:none">
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:8px">📝 הוסף הערה להיום</div>
+      <div style="font-size:.75rem;color:#6B6B6B;margin-bottom:8px" id="journalDate"></div>
+      <textarea class="journal-input" id="journalInput"
+        placeholder="איך הרגשת? מה הלך טוב? מה להשתפר?"></textarea>
+      <button onclick="saveJournal()" class="btn-save" style="margin-top:8px">💾 שמור</button>
+      <div id="journalSaved" style="font-size:.8rem;color:#085041;margin-top:6px;display:none">✅ נשמר!</div>
+    </div>
+
+    <!-- יומן קודם -->
+    <div class="card">
+      <div class="section-title" style="margin-bottom:8px">📚 רשומות קודמות</div>
+      <div id="journalHistory"></div>
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+var today = new Date().toISOString().slice(0,10);
+document.getElementById('journalDate').textContent = 'היום: ' + today;
+
+// ── Tab switching ──────────────────────────────
+function showTab(name) {
+  document.getElementById('tab-weight').hidden  = name !== 'weight';
+  document.getElementById('tab-weight').style.display  = name === 'weight' ? '' : 'none';
+  document.getElementById('tab-journal').hidden = name !== 'journal';
+  document.getElementById('tab-journal').style.display = name === 'journal' ? '' : 'none';
+  document.getElementById('btnWeight').classList.toggle('active-mode', name === 'weight');
+  document.getElementById('btnJournal').classList.toggle('active-mode', name === 'journal');
+  if (name === 'weight')  renderWeight();
+  if (name === 'journal') renderJournal();
+}
+
+// ── Weight Storage ─────────────────────────────
+var W_PREFIX = 'wt_';
+
+function saveWeight() {
+  var val = parseFloat(document.getElementById('weightInput').value);
+  if (!val || val < 20 || val > 400) return;
+  localStorage.setItem(W_PREFIX + today, val);
+  document.getElementById('weightSaved').style.display = 'block';
+  setTimeout(function() { document.getElementById('weightSaved').style.display = 'none'; }, 1500);
+  renderWeight();
+}
+
+function getWeightHistory() {
+  var records = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    var k = localStorage.key(i);
+    if (k && k.startsWith(W_PREFIX)) {
+      records.push({ date: k.slice(W_PREFIX.length), val: parseFloat(localStorage.getItem(k)) });
+    }
+  }
+  return records.sort(function(a,b) { return b.date.localeCompare(a.date); });
+}
+
+function renderWeight() {
+  var records = getWeightHistory();
+
+  // טען ערך היום אם קיים
+  var todayVal = localStorage.getItem(W_PREFIX + today);
+  if (todayVal) document.getElementById('weightInput').value = todayVal;
+
+  // גרף
+  drawChart(records.slice().reverse().slice(-30));
+
+  // סטטיסטיקה
+  if (records.length >= 2) {
+    var first = records[records.length-1].val;
+    var last  = records[0].val;
+    var diff  = (last - first).toFixed(1);
+    var sign  = diff > 0 ? '+' : '';
+    document.getElementById('weightStats').innerHTML =
+      '<span>התחלה: <strong>' + first + '</strong> ק"ג</span>' +
+      '<span>עכשיו: <strong>' + last + '</strong> ק"ג</span>' +
+      '<span>שינוי: <strong style="color:' + (diff<=0?'#085041':'#C62828') + '">' + sign + diff + '</strong> ק"ג</span>';
+  }
+
+  // היסטוריה
+  var hist = document.getElementById('weightHistory');
+  if (!records.length) { hist.innerHTML = '<div class="text-muted text-sm">אין רשומות עדיין</div>'; return; }
+  hist.innerHTML = records.slice(0,20).map(function(r, i) {
+    var prev = records[i+1];
+    var diffHtml = '';
+    if (prev) {
+      var d = (r.val - prev.val).toFixed(1);
+      var cls = d <= 0 ? 'down' : 'up';
+      diffHtml = '<span class="weight-diff ' + cls + '">' + (d>0?'+':'') + d + ' ק"ג</span>';
+    }
+    return '<div class="weight-row">' +
+      '<span class="weight-date">' + fmtDate(r.date) + '</span>' +
+      '<span class="weight-val">' + r.val + ' ק"ג</span>' +
+      diffHtml + '</div>';
+  }).join('');
+}
+
+function fmtDate(iso) {
+  var p = iso.split('-');
+  return p[2] + '/' + p[1] + '/' + p[0].slice(2);
+}
+
+function drawChart(records) {
+  var canvas = document.getElementById('weightChart');
+  if (!canvas || !records.length) return;
+  var ctx = canvas.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  var W = canvas.offsetWidth, H = 140;
+  canvas.width  = W * dpr;
+  canvas.height = H * dpr;
+  ctx.scale(dpr, dpr);
+
+  var vals  = records.map(function(r) { return r.val; });
+  var minV  = Math.min.apply(null, vals) - 1;
+  var maxV  = Math.max.apply(null, vals) + 1;
+  var pad   = { t:10, r:10, b:24, l:36 };
+  var cW    = W - pad.l - pad.r;
+  var cH    = H - pad.t - pad.b;
+
+  ctx.clearRect(0, 0, W, H);
+
+  // grid lines
+  ctx.strokeStyle = 'rgba(0,0,0,.07)';
+  ctx.lineWidth   = 1;
+  [0, 0.5, 1].forEach(function(f) {
+    var y = pad.t + cH * f;
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(W-pad.r, y); ctx.stroke();
+    var label = (maxV - f*(maxV-minV)).toFixed(1);
+    ctx.fillStyle = '#999'; ctx.font = '10px Heebo,sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(label, pad.l-4, y+4);
+  });
+
+  if (records.length < 2) return;
+
+  var xStep = cW / (records.length-1);
+
+  // area fill
+  ctx.beginPath();
+  records.forEach(function(r, i) {
+    var x = pad.l + i*xStep;
+    var y = pad.t + cH * (1 - (r.val - minV)/(maxV-minV));
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.lineTo(pad.l + (records.length-1)*xStep, pad.t+cH);
+  ctx.lineTo(pad.l, pad.t+cH);
+  ctx.closePath();
+  var grad = ctx.createLinearGradient(0, pad.t, 0, pad.t+cH);
+  grad.addColorStop(0, 'rgba(60,52,137,.25)');
+  grad.addColorStop(1, 'rgba(60,52,137,.02)');
+  ctx.fillStyle = grad; ctx.fill();
+
+  // line
+  ctx.beginPath();
+  ctx.strokeStyle = '#3C3489'; ctx.lineWidth = 2.5; ctx.lineJoin = 'round';
+  records.forEach(function(r, i) {
+    var x = pad.l + i*xStep;
+    var y = pad.t + cH * (1 - (r.val - minV)/(maxV-minV));
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+
+  // dots
+  records.forEach(function(r, i) {
+    var x = pad.l + i*xStep;
+    var y = pad.t + cH * (1 - (r.val - minV)/(maxV-minV));
+    ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI*2);
+    ctx.fillStyle = '#3C3489'; ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5; ctx.stroke();
+  });
+
+  // date labels
+  ctx.fillStyle = '#999'; ctx.font = '9px Heebo,sans-serif'; ctx.textAlign = 'center';
+  var step = Math.ceil(records.length/5);
+  records.forEach(function(r, i) {
+    if (i % step === 0 || i === records.length-1) {
+      var x = pad.l + i*xStep;
+      var p = r.date.split('-');
+      ctx.fillText(p[2]+'/'+p[1], x, H-6);
+    }
+  });
+}
+
+// ── Journal Storage ────────────────────────────
+var J_PREFIX = 'jnl_';
+
+function saveJournal() {
+  var text = document.getElementById('journalInput').value.trim();
+  if (!text) return;
+  localStorage.setItem(J_PREFIX + today, text);
+  document.getElementById('journalSaved').style.display = 'block';
+  setTimeout(function() { document.getElementById('journalSaved').style.display = 'none'; }, 1500);
+  renderJournal();
+}
+
+function getJournalHistory() {
+  var entries = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    var k = localStorage.key(i);
+    if (k && k.startsWith(J_PREFIX)) {
+      entries.push({ date: k.slice(J_PREFIX.length), text: localStorage.getItem(k) });
+    }
+  }
+  return entries.sort(function(a,b) { return b.date.localeCompare(a.date); });
+}
+
+function renderJournal() {
+  // טען הערה היום
+  var todayEntry = localStorage.getItem(J_PREFIX + today);
+  if (todayEntry) document.getElementById('journalInput').value = todayEntry;
+
+  var entries = getJournalHistory();
+  var hist    = document.getElementById('journalHistory');
+  if (!entries.length) { hist.innerHTML = '<div class="text-muted text-sm">אין רשומות עדיין</div>'; return; }
+  hist.innerHTML = entries.map(function(e) {
+    return '<div class="journal-entry">' +
+      '<div class="journal-date">' + fmtDate(e.date) + '</div>' +
+      '<div class="journal-text">' + e.text.replace(/\n/g,'<br>') + '</div>' +
+      '</div>';
+  }).join('');
+}
+
+// ── Init ───────────────────────────────────────
+showTab('weight');
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('../sw.js');
+</script>
+</body>
+</html>
