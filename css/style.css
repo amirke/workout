@@ -40,12 +40,16 @@ body {
   overflow: hidden;
 }
 
-/* main גולל בתוך עצמו — header לא זז בכלל */
+/* main גולל בתוך עצמו — scrollbar תמיד שומר מקום */
 main {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: scroll;          /* תמיד שמור מקום לscrollbar */
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+  scrollbar-width: none;        /* Firefox: הסתר ויזואלית */
+}
+main::-webkit-scrollbar {
+  display: none;                /* Chrome/Android: הסתר ויזואלית */
 }
 
 /* ── Header ── */
