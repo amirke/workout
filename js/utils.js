@@ -150,10 +150,9 @@ window.Utils = (function() {
     bar.id = 'timerBar';
     // גובה קבוע ומחושב מראש — לא יכול לגדול
     bar.style.cssText =
-      'position:fixed;bottom:0;left:0;right:0;z-index:300;' +
       'background:#1c1c1a;border-top:2px solid rgba(255,255,255,.08);' +
       'font-family:Heebo,sans-serif;direction:rtl;user-select:none;' +
-      'box-sizing:border-box;overflow:hidden';
+      'display:flex;flex-direction:column;justify-content:space-between;';
 
     // כפתורים בגודל קבוע שלא יכולים לגדול
     var btn = 'border:none;border-radius:8px;cursor:pointer;font-weight:700;white-space:nowrap;flex-shrink:0;';

@@ -306,16 +306,29 @@ main { padding: 16px; max-width: 480px; margin: 0 auto; }
   /* אין max-height — התמונה מציגה את כל עצמה ביחס שלה */
 }
 
-/* ── טיימר — padding תחתון קבוע ── */
-/* גובה הטיימר: progress(3) + שורה1(~42) + שורה2(~38) + safe-area ≈ 95px */
-body.has-timer main,
-body.has-timer > main {
-  padding-bottom: 100px !important;
+/* ── טיימר — גובה קבוע מוחלט ── */
+#timerBar {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  /* גובה קבוע: לא יכול לגדול אף פעם */
+  height: 88px !important;
+  /* iPhone: הוסף safe area מעל הגובה */
+  padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  z-index: 300 !important;
 }
-/* מניעת overflow בטיימר עצמו */
+/* כל תוכן הטיימר לא יכול לחרוג */
 #timerBar * {
   box-sizing: border-box;
-  max-width: 100%;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+/* padding תחתון ל-main בהתאם לגובה הטיימר */
+body.has-timer main {
+  padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
 }
 
 /* ── Cardio blocks ── */
