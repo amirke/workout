@@ -65,6 +65,7 @@
     <button class="tab-btn active" data-panel="week">לוח שבועי</button>
     <button class="tab-btn"        data-panel="today">אימון היום</button>
     <button class="tab-btn"        data-panel="muscles">שרירים</button>
+    <button class="tab-btn"        data-panel="backup">💾 גיבוי</button>
   </nav>
 </header>
 
@@ -93,6 +94,60 @@
           <div style="font-size:.72rem;color:#6B6B6B;margin-top:3px">5–10 דקות</div>
         </div>
       </a>
+    </div>
+  </section>
+
+  <!-- גיבוי נתונים -->
+  <section id="panel-backup" hidden style="display:none">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:#E1F5EE;font-size:1.5rem">💾</div>
+        <div>
+          <div class="card-title">גיבוי נתוני אימונים</div>
+          <div class="card-subtitle">שמור על הנתונים שלך</div>
+        </div>
+      </div>
+
+      <!-- סטטוס אחסון -->
+      <div id="storageStatus" style="background:#F5F5F5;border-radius:10px;padding:10px 14px;margin-bottom:10px;font-size:.82rem"></div>
+
+      <!-- Export -->
+      <div class="section-title mt-8">📤 ייצוא — שמור קובץ לטלפון</div>
+      <p style="font-size:.8rem;color:#6B6B6B;margin:6px 0 10px">
+        מוריד קובץ JSON עם כל הנתונים שלך. שמור אותו בגלריה / Google Drive / WhatsApp לעצמך.
+      </p>
+      <button onclick="exportData()" class="btn-save" style="background:#085041">
+        📥 הורד גיבוי עכשיו
+      </button>
+
+      <!-- Import -->
+      <div class="section-title mt-8">📂 ייבוא — שחזר מקובץ</div>
+      <p style="font-size:.8rem;color:#6B6B6B;margin:6px 0 10px">
+        בחר קובץ גיבוי שהורדת בעבר כדי לשחזר את הנתונים.
+      </p>
+      <label style="display:block;padding:10px;background:#EEEDFE;border-radius:10px;
+                    text-align:center;cursor:pointer;font-weight:700;color:#3C3489;font-size:.85rem">
+        📂 בחר קובץ גיבוי
+        <input type="file" accept=".json" onchange="importData(event)"
+               style="display:none">
+      </label>
+      <div id="importStatus" style="margin-top:8px;font-size:.8rem"></div>
+
+      <!-- מידע -->
+      <div class="alert-box info mt-8">
+        💡 הנתונים נשמרים בטלפון. כדי שלא יימחקו אוטומטית —
+        לחץ <strong>בקש אחסון קבוע</strong> למטה.
+      </div>
+      <button onclick="requestPersist()" id="persistBtn"
+              class="btn-save mt-8" style="background:#3C3489">
+        🔒 בקש אחסון קבוע
+      </button>
+    </div>
+
+    <!-- ספירת נתונים קיימים -->
+    <div class="card">
+      <div class="section-title">📊 נתונים שמורים</div>
+      <div id="dataCount" style="margin-top:8px;font-size:.85rem;color:#6B6B6B"></div>
     </div>
   </section>
 
@@ -141,10 +196,122 @@
 
   // ── Service Worker ─────────────────────────────
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js')
-      .then(function() { console.log('SW registered'); })
-      .catch(function(e) { console.log('SW error:', e); });
+    navigator.serviceWorker.register('./sw.js');
   }
+
+  // ── בקש אחסון קבוע מיד בטעינה ─────────────────
+  if (navigator.storage && navigator.storage.persist) {
+    navigator.storage.persist().then(function(granted) {
+      var el = document.getElementById('storageStatus');
+      if (!el) return;
+      if (granted) {
+        el.innerHTML = '✅ <strong>אחסון קבוע פעיל</strong> — הנתונים לא יימחקו אוטומטית';
+        el.style.background = '#E1F5EE'; el.style.color = '#085041';
+      } else {
+        el.innerHTML = '⚠️ אחסון רגיל — לחץ "בקש אחסון קבוע" להגנה מלאה';
+        el.style.color = '#7C4700';
+      }
+    });
+    navigator.storage.estimate().then(function(est) {
+      var used  = Math.round(est.usage  / 1024);
+      var quota = Math.round(est.quota  / 1024 / 1024);
+      var el = document.getElementById('storageStatus');
+      if (el) el.innerHTML += '<br><span style="font-size:.72rem;opacity:.7">' +
+        'שימוש: ' + used + ' KB מתוך ' + quota + ' MB זמינים</span>';
+    });
+  }
+
+  // ── ספירת נתונים קיימים ───────────────────────
+  function refreshDataCount() {
+    var el = document.getElementById('dataCount');
+    if (!el) return;
+    var entries = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (k && k.startsWith('wlog_')) entries.push(k);
+    }
+    if (!entries.length) {
+      el.textContent = 'אין נתונים שמורים עדיין.';
+    } else {
+      var exercises = new Set(entries.map(function(k) { return k.split('_').slice(2).join('_'); }));
+      el.innerHTML = '<strong>' + entries.length + '</strong> רשומות ב-' +
+                     '<strong>' + exercises.size + '</strong> תרגילים שונים.<br>' +
+                     '<span style="font-size:.72rem">תאריך ראשון: ' +
+                     entries.map(function(k){return k.split('_')[1];}).sort()[0] +
+                     '</span>';
+    }
+  }
+
+  // ── Export ─────────────────────────────────────
+  function exportData() {
+    var data = {};
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (k && k.startsWith('wlog_')) {
+        data[k] = JSON.parse(localStorage.getItem(k));
+      }
+    }
+    var json   = JSON.stringify(data, null, 2);
+    var blob   = new Blob([json], { type: 'application/json' });
+    var url    = URL.createObjectURL(blob);
+    var date   = new Date().toISOString().slice(0, 10);
+    var a      = document.createElement('a');
+    a.href     = url;
+    a.download = 'workout-backup-' + date + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  // ── Import ─────────────────────────────────────
+  function importData(e) {
+    var file = e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      try {
+        var data   = JSON.parse(ev.target.result);
+        var count  = 0;
+        Object.keys(data).forEach(function(k) {
+          if (k.startsWith('wlog_')) {
+            localStorage.setItem(k, JSON.stringify(data[k]));
+            count++;
+          }
+        });
+        var el = document.getElementById('importStatus');
+        el.innerHTML = '✅ יובאו <strong>' + count + '</strong> רשומות בהצלחה!';
+        el.style.color = '#085041';
+        refreshDataCount();
+      } catch(err) {
+        document.getElementById('importStatus').textContent = '❌ שגיאה בקובץ';
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  // ── בקש אחסון קבוע ידנית ──────────────────────
+  function requestPersist() {
+    if (!navigator.storage || !navigator.storage.persist) {
+      alert('הדפדפן שלך לא תומך בתכונה זו');
+      return;
+    }
+    navigator.storage.persist().then(function(granted) {
+      var btn = document.getElementById('persistBtn');
+      var el  = document.getElementById('storageStatus');
+      if (granted) {
+        btn.textContent   = '✅ אחסון קבוע פעיל';
+        btn.style.background = '#085041';
+        el.innerHTML = '✅ <strong>אחסון קבוע פעיל</strong> — הנתונים לא יימחקו אוטומטית';
+        el.style.background = '#E1F5EE'; el.style.color = '#085041';
+      } else {
+        btn.textContent = '⚠️ לא אושר — נסה מ-PWA מותקנת';
+      }
+    });
+  }
+
+  // הפעל ספירה כשנכנסים לטאב גיבוי
+  document.querySelectorAll('[data-panel="backup"]').forEach(function(btn) {
+    btn.addEventListener('click', function() { setTimeout(refreshDataCount, 100); });
+  });
 
   // ── Render ─────────────────────────────────────
   Render.renderDashboard();
