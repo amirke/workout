@@ -53,7 +53,19 @@
     if (typeof window.__rerender === 'function') window.__rerender();
   }
   setWorkoutMode(Data.getMode());
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('../sw.js');
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('../sw.js').then(function(reg) {
+      reg.addEventListener('updatefound', function() {
+        var sw = reg.installing;
+        sw.addEventListener('statechange', function() {
+          if (sw.state === 'activated') window.location.reload();
+        });
+      });
+    });
+    navigator.serviceWorker.addEventListener('controllerchange', function() {
+      window.location.reload();
+    });
+  }
   // טיימר
   Utils.renderTimerBar();
 </script>
