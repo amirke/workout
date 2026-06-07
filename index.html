@@ -112,16 +112,28 @@
         <div class="card-icon" style="background:#EEEDFE;font-size:1.5rem">🔄</div>
         <div>
           <div class="card-title">עדכון אפליקציה</div>
-          <div class="card-subtitle" id="appVersion">גרסה: 
-    $n = [int]$args[0].Groups[1].Value + 1
-    "2026.06.07.v" + $n.ToString("0000")
-</div>
+          <div class="card-subtitle">גרסה מותקנת: <strong id="installedVer">—</strong></div>
         </div>
       </div>
-      <button onclick="checkUpdate()" class="btn-save" style="background:#3C3489">
-        🔄 בדוק עדכון עכשיו
-      </button>
-      <div id="updateStatus" style="margin-top:8px;font-size:.8rem;color:#6B6B6B"></div>
+
+      <!-- סטטוס -->
+      <div id="updateStatus" style="
+        background:#F5F5F5;border-radius:10px;padding:10px 14px;
+        margin-bottom:10px;font-size:.82rem;color:#444;line-height:1.5">
+        לחץ "בדוק" כדי לראות אם יש עדכון
+      </div>
+
+      <div style="display:flex;gap:8px">
+        <button onclick="checkUpdate()" class="btn-save" style="flex:1;background:#3C3489">
+          🔄 בדוק עדכון
+        </button>
+        <button id="applyBtn" onclick="applyUpdate()"
+          style="display:none;flex:1;border:none;border-radius:12px;padding:12px;
+                 background:#085041;color:#fff;font-family:Heebo,sans-serif;
+                 font-size:.9rem;font-weight:700;cursor:pointer">
+          ✅ החל עדכון
+        </button>
+      </div>
     </div>
 
     <div class="card">
@@ -352,35 +364,55 @@
     btn.addEventListener('click', function() { setTimeout(refreshDataCount, 100); });
   });
 
+  // ── גרסה ──────────────────────────────────────
+  var CURRENT_VERSION = '2026.06.07.v0002';
+  (function() {
+    var el = document.getElementById('installedVer');
+    if (el) el.textContent = CURRENT_VERSION;
+  })();
+
   // ── בדוק עדכון ────────────────────────────────
+  function setStatus(html, bg, col) {
+    var s = document.getElementById('updateStatus');
+    if (!s) return;
+    s.innerHTML = html;
+    s.style.background = bg || '#F5F5F5';
+    s.style.color = col || '#444';
+  }
+
   function checkUpdate() {
-    var el = document.getElementById('updateStatus');
-    el.textContent = 'בודק...';
-    if (!navigator.serviceWorker || !navigator.serviceWorker.controller) {
-      el.textContent = 'אין Service Worker פעיל.';
+    var applyBtn = document.getElementById('applyBtn');
+    if (applyBtn) applyBtn.style.display = 'none';
+    setStatus('⏳ בודק עדכון...', '#F5F5F5', '#444');
+
+    if (!('serviceWorker' in navigator)) {
+      setStatus('⚠️ Service Worker לא נתמך', '#FFF3E0', '#7C4700');
       return;
     }
     navigator.serviceWorker.getRegistration().then(function(reg) {
-      if (!reg) { el.textContent = 'לא נמצא SW.'; return; }
+      if (!reg) {
+        setStatus('⚠️ האפליקציה לא מותקנת כ-PWA', '#FFF3E0', '#7C4700');
+        return;
+      }
       reg.update().then(function() {
-        if (reg.waiting) {
-          el.innerHTML = '✅ עדכון זמין! <button onclick="applyUpdate()" ' +
-            'style="margin-right:8px;border:none;background:#3C3489;color:#fff;' +
-            'padding:4px 12px;border-radius:8px;cursor:pointer;font-family:Heebo,sans-serif">החל עכשיו</button>';
-        } else if (reg.installing) {
-          el.textContent = '⏳ מוריד עדכון...';
-          reg.installing.addEventListener('statechange', function(e) {
-            if (e.target.state === 'activated') {
-              el.innerHTML = '✅ עודכן! <button onclick="location.reload()" ' +
-                'style="border:none;background:#085041;color:#fff;padding:4px 12px;border-radius:8px;cursor:pointer;font-family:Heebo,sans-serif">רענן</button>';
-            }
-          });
-        } else {
-          el.innerHTML = '✅ הגרסה הכי עדכנית — <strong>
-    $n = [int]$args[0].Groups[1].Value + 1
-    "2026.06.07.v" + $n.ToString("0000")
-</strong>';
-        }
+        setTimeout(function() {
+          if (reg.waiting) {
+            setStatus('✅ <strong>יש עדכון זמין!</strong><br><small>לחץ "החל עדכון"</small>', '#E1F5EE', '#085041');
+            if (applyBtn) applyBtn.style.display = 'block';
+          } else if (reg.installing) {
+            setStatus('⏬ <strong>מוריד עדכון...</strong><br><small>תוך שניות יתרענן אוטומטית</small>', '#FFF8E1', '#F57F17');
+            reg.installing.addEventListener('statechange', function(e) {
+              if (e.target.state === 'activated') {
+                setStatus('✅ <strong>עודכן!</strong> מרענן...', '#E1F5EE', '#085041');
+                setTimeout(function() { location.reload(); }, 1000);
+              }
+            });
+          } else {
+            setStatus('✅ <strong>הגרסה עדכנית</strong><br><small>' + CURRENT_VERSION + ' — אין עדכונים</small>', '#E1F5EE', '#085041');
+          }
+        }, 800);
+      }).catch(function() {
+        setStatus('⚠️ <strong>אין חיבור לאינטרנט</strong><br><small>עובד במצב אופליין</small>', '#FFF3E0', '#7C4700');
       });
     });
   }
@@ -389,6 +421,9 @@
     navigator.serviceWorker.getRegistration().then(function(reg) {
       if (reg && reg.waiting) {
         reg.waiting.postMessage('skipWaiting');
+        var applyBtn = document.getElementById('applyBtn');
+        if (applyBtn) applyBtn.style.display = 'none';
+        setStatus('⏳ מיישם עדכון...', '#FFF8E1', '#F57F17');
       }
     });
   }
