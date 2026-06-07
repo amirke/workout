@@ -1,5 +1,5 @@
 // Service Worker — מאפשר PWA + עבודה אופליין
-const CACHE = 'workout-v3';  // bump = forces cache clear on Android
+const CACHE = 'workout-v4';  // bump = forces cache clear on all devices
 
 const ASSETS = [
   './',
@@ -10,6 +10,7 @@ const ASSETS = [
   './js/components.js',
   './js/render.js',
   './js/tracker.js',
+  './js/utils.js',
   './data/exercises-data.js',
   './data/plan-data.js',
   './pages/day1.html',
@@ -17,7 +18,9 @@ const ASSETS = [
   './pages/day3.html',
   './pages/day4.html',
   './pages/day5.html',
-  './pages/day6.html'
+  './pages/day6.html',
+  './pages/morning.html',
+  './pages/stretch.html'
 ];
 
 // התקנה — שמור נכסים בסיסיים
