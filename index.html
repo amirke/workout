@@ -102,6 +102,22 @@
 
   <!-- גיבוי נתונים -->
   <section id="panel-backup" hidden style="display:none">
+
+    <!-- עדכון אפליקציה -->
+    <div class="card" style="margin-bottom:10px">
+      <div class="card-header">
+        <div class="card-icon" style="background:#EEEDFE;font-size:1.5rem">🔄</div>
+        <div>
+          <div class="card-title">עדכון אפליקציה</div>
+          <div class="card-subtitle" id="appVersion">גרסה: v2026.06.07</div>
+        </div>
+      </div>
+      <button onclick="checkUpdate()" class="btn-save" style="background:#3C3489">
+        🔄 בדוק עדכון עכשיו
+      </button>
+      <div id="updateStatus" style="margin-top:8px;font-size:.8rem;color:#6B6B6B"></div>
+    </div>
+
     <div class="card">
       <div class="card-header">
         <div class="card-icon" style="background:#E1F5EE;font-size:1.5rem">💾</div>
@@ -329,6 +345,44 @@
   document.querySelectorAll('[data-panel="backup"]').forEach(function(btn) {
     btn.addEventListener('click', function() { setTimeout(refreshDataCount, 100); });
   });
+
+  // ── בדוק עדכון ────────────────────────────────
+  function checkUpdate() {
+    var el = document.getElementById('updateStatus');
+    el.textContent = 'בודק...';
+    if (!navigator.serviceWorker || !navigator.serviceWorker.controller) {
+      el.textContent = 'אין Service Worker פעיל.';
+      return;
+    }
+    navigator.serviceWorker.getRegistration().then(function(reg) {
+      if (!reg) { el.textContent = 'לא נמצא SW.'; return; }
+      reg.update().then(function() {
+        if (reg.waiting) {
+          el.innerHTML = '✅ עדכון זמין! <button onclick="applyUpdate()" ' +
+            'style="margin-right:8px;border:none;background:#3C3489;color:#fff;' +
+            'padding:4px 12px;border-radius:8px;cursor:pointer;font-family:Heebo,sans-serif">החל עכשיו</button>';
+        } else if (reg.installing) {
+          el.textContent = '⏳ מוריד עדכון...';
+          reg.installing.addEventListener('statechange', function(e) {
+            if (e.target.state === 'activated') {
+              el.innerHTML = '✅ עודכן! <button onclick="location.reload()" ' +
+                'style="border:none;background:#085041;color:#fff;padding:4px 12px;border-radius:8px;cursor:pointer;font-family:Heebo,sans-serif">רענן</button>';
+            }
+          });
+        } else {
+          el.innerHTML = '✅ הגרסה הכי עדכנית — <strong>v2026.06.07</strong>';
+        }
+      });
+    });
+  }
+
+  function applyUpdate() {
+    navigator.serviceWorker.getRegistration().then(function(reg) {
+      if (reg && reg.waiting) {
+        reg.waiting.postMessage('skipWaiting');
+      }
+    });
+  }
 
   // ── Render ─────────────────────────────────────
   Render.renderDashboard();
